@@ -9,7 +9,8 @@
         <router-view />
       </div>
       <div class="main-actions grid-right">
-
+        <div class="main-actions-one"></div>
+        <div class="main-actions-two"></div>
       </div>
     </div>
   </div>
@@ -30,6 +31,15 @@
     }
 
     &-actions {
+      display: flex;
+
+      > div {
+        flex: 1;
+      }
+
+      &-one {
+        border-right: $border;
+      }
     }
   }
 </style>
