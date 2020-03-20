@@ -24,31 +24,31 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  export default Vue.extend({
-    name: 'Footer',
-    props: {
-      color: {
-        type: String,
-        default: 'is-red',
-        validator: value => [ 'is-black', 'is-red', 'is-blue', 'is-purple'].includes(value)
-      }
-    },
-    data() {
-      return {
-        links: [{
-          text: 'instagram',
-          url: 'https://www.instagram.com/arturhsv/'
-        },{
-          text: 'linkedIn',
-          url: '#'
-        }, {
-          text: 'facebook',
-          url: 'https://www.facebook.com/artur.fedorov'
-        }]
-      }
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'Footer',
+  props: {
+    color: {
+      type: String,
+      default: 'is-red',
+      validator: value => [ 'is-black', 'is-red', 'is-blue', 'is-purple'].includes(value)
     }
-  });
+  },
+  data() {
+    return {
+      links: [{
+        text: 'instagram',
+        url: 'https://www.instagram.com/arturhsv/'
+      },{
+        text: 'linkedIn',
+        url: '#'
+      }, {
+        text: 'facebook',
+        url: 'https://www.facebook.com/artur.fedorov'
+      }]
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>

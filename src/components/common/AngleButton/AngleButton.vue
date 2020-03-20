@@ -15,21 +15,21 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  export default Vue.extend({
-    name: 'AngleButton',
-    props: {
-      text: {
-        type: String,
-        required: true
-      }
-    },
-    methods: {
-      clickLink() {
-        this.$emit('click');
-      }
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'AngleButton',
+  props: {
+    text: {
+      type: String,
+      required: true
     }
-  });
+  },
+  methods: {
+    clickLink() {
+      this.$emit('click');
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>

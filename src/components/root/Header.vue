@@ -16,14 +16,14 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Ball from './Ball.vue';
-  export default Vue.extend({
-    name: 'Header',
-    components: {
-      Ball
-    }
-  });
+import Vue from 'vue';
+import Ball from './Ball.vue';
+export default Vue.extend({
+  name: 'Header',
+  components: {
+    Ball
+  }
+});
 </script>
 <style lang="scss" scoped>
   .header {
