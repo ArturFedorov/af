@@ -135,7 +135,6 @@ export default Vue.extend({
       }
 
       > div {
-        // flex: 1;
         padding: 2em;
       }
     }
