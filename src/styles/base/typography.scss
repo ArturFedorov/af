@@ -9,15 +9,18 @@
   @include font-face($font-bold, $font-size-h0);
 }
 
-h1 {
+h1,
+.h1 {
   @include font-face($font-bold, $font-size-h1);
 }
 
-h2 {
+h2,
+.h2 {
   @include font-face($font-bold, $font-size-h2);
 }
 
-h3 {
+h3,
+.h3 {
   @include font-face($font-bold, $font-size-h3);
 }
 
@@ -47,8 +50,25 @@ h1.is-white,
 h2.is-white,
 h3.is-white,
 p.is-white,
-span.is-white {
+span.is-white,
+a.is-white {
   color: $white;
+}
+
+h1.is-blue,
+h2.is-blue,
+h3.is-blue,
+p.is-blue,
+span.is-blue {
+  color: $blue;
+}
+
+h1.is-purple,
+h2.is-purple,
+h3.is-purple,
+p.is-purple,
+span.is-purple {
+  color: $purple;
 }
 
 div.is-bold,

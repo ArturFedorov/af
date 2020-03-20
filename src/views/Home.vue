@@ -37,6 +37,34 @@
           <h2>based in Saint-Petersburg</h2>
         </div>
       </div>
+      <div class="home-three">
+        <h1 class="home-number">3</h1>
+        <div>
+          <h2>I am passionate about</h2>
+          <h2>web development, design,</h2>
+          <h2>grids, Swiss typography</h2>
+          <h2>
+            and
+            <span class="is-red">
+              Bauhaus
+            </span>
+          </h2>
+        </div>
+      </div>
+      <div class="home-four is-black">
+        <h1 class="home-number is-white">4</h1>
+        <div>
+          <h2 class="is-white">
+            development +
+            <span class="is-red">design</span>
+          </h2>
+          <h2 class="is-white">is my vision of</h2>
+          <h2 class="is-white">Bauhaus principle</h2>
+          <h2 class="home-text underlined is-white">
+            Forms follows Function
+          </h2>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -61,10 +89,23 @@ export default Vue.extend({
     padding: 2em;
     border-bottom: $border;
     overflow: hidden;
+    min-height: 100vh;
 
     &-number {
       opacity: 0.1;
       margin-bottom: 5em;
+    }
+
+    &-text {
+      &.underlined {
+        &:after {
+
+        }
+      }
+    }
+
+    &-four {
+      background: $black 100% 50% url('../assets/images/profile.png') no-repeat;
     }
 
     &-header {
@@ -86,14 +127,15 @@ export default Vue.extend({
     }
 
     &-content {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
 
       &-one {
       }
 
       > div {
-        flex: 1;
+        // flex: 1;
         padding: 2em;
       }
     }

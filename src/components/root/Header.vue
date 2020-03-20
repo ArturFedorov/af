@@ -36,6 +36,10 @@
       justify-content: center;
     }
 
+    &-content {
+      overflow: hidden;
+    }
+
     &-actions {
       display: flex;
 
