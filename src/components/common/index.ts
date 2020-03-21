@@ -14,3 +14,7 @@ const components: { [key: string]: {} } = {
 Object.keys(components).forEach(componentName =>
   Vue.component(componentName, components[componentName])
 );
+
+
+// Local Directives
+import './directive/scroll.directive';
