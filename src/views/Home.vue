@@ -131,7 +131,7 @@ export default Vue.extend({
 
     &-header {
       line-height: 100%;
-      @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
+      @include fluid-type($min_width, $max_width, $font-size-h1, $font-size-h0);
 
       &-wrapper {
         animation: flow 2s ease-in-out;
@@ -141,6 +141,11 @@ export default Vue.extend({
         margin: 1em 0;
         padding-left: 10px;
         @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
+
+        @media ($mobile) {
+          padding-left: 0;
+          margin-bottom: 2em;
+        }
       }
     }
 
