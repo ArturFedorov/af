@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="home-content">
-      <div class="home-one is-red">
+      <div class="home-item home-one is-red">
         <h1 class="home-number">1</h1>
         <div class="content">
           <h2 class="is-white">Hello,</h2>
@@ -24,7 +24,7 @@
           <h2 class="is-white">Artur Fedorov</h2>
         </div>
       </div>
-      <div class="home-two">
+      <div class="home-item home-two">
         <h1 class="home-number">2</h1>
         <div>
           <h2>I am</h2>
@@ -37,7 +37,7 @@
           <h2>based in Saint-Petersburg</h2>
         </div>
       </div>
-      <div class="home-three">
+      <div class="home-item home-three">
         <h1 class="home-number">3</h1>
         <div>
           <h2>I am passionate about</h2>
@@ -51,7 +51,7 @@
           </h2>
         </div>
       </div>
-      <div class="home-four is-black">
+      <div class="home-item home-four is-black">
         <h1 class="home-number is-white">4</h1>
         <div>
           <h2 class="is-white">
@@ -85,31 +85,53 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
+  $min_width: 320px;
+  $max_width: 1200px;
+
   .home {
     padding: 2em;
     border-bottom: $border;
     overflow: hidden;
-    min-height: 100vh;
 
     &-number {
       opacity: 0.1;
       margin-bottom: 5em;
+
+      @media ($tablet) {
+        margin-bottom: 7em;
+      }
+
+      @media ($mobile) {
+        margin-bottom: 2em;
+      }
+    }
+
+    &-item {
+      h2 {
+        @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
+      }
     }
 
     &-text {
       &.underlined {
         &:after {
-
+          @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
         }
       }
     }
 
+    &-two {
+      border-bottom: $border;
+    }
+
     &-four {
-      background: $black 100% 50% url('../assets/images/profile.png') no-repeat;
+      background: $black center url('../assets/images/profile.png') no-repeat;
+      background-size: cover;
     }
 
     &-header {
       line-height: 100%;
+      @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
 
       &-wrapper {
         animation: flow 2s ease-in-out;
@@ -118,6 +140,7 @@ export default Vue.extend({
       &-h2 {
         margin: 1em 0;
         padding-left: 10px;
+        @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
       }
     }
 
@@ -131,11 +154,19 @@ export default Vue.extend({
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
 
+      @media($tablet) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
       &-one {
       }
 
       > div {
         padding: 2em;
+
+        @media ($mobile) {
+          padding: 1em 2em;
+        }
       }
     }
   }

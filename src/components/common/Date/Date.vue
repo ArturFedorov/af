@@ -36,7 +36,7 @@ export default Vue.extend({
 
     &-year {
       margin: 0;
-      font-size: $font-size-h3;
+      @include fluid-type($min_width, $max_width, $font-size-base, $font-size-h3);
     }
 
     &-month {

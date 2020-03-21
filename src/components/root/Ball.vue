@@ -3,6 +3,8 @@
 </template>
 <style lang="scss" scoped>
   $ball-size: 45px;
+  $ball-size-tablet: 20px;
+  $ball-size-mobile: 10px;
 
   .ball {
     display: inline-block;
@@ -12,6 +14,16 @@
     background-color: $red;
     animation: bounce 0.5s ease-in-out;
     transition: all 0.4s;
+
+    @media($tablet) {
+      width: $ball-size-tablet;
+      height: $ball-size-tablet;
+    }
+
+    @media($mobile) {
+      width: $ball-size-mobile;
+      height: $ball-size-mobile;
+    }
   }
 
   @keyframes bounce {

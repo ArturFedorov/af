@@ -1,14 +1,22 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 
   &-left {
-    grid-area: 1 / 1;
+    grid-column: 1 / 1;
     border-right: $border;
+
+    @media($tablet) {
+      grid-area: 0 / 0;
+    }
   }
 
   &-main {
     grid-column: 2 / 12;
+
+    @media($tablet) {
+      grid-column: 1 / 12;
+    }
   }
 
   &-right {
