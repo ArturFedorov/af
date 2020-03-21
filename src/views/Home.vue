@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="home">
+    <div
+      id="home"
+      class="home"
+      v-vpshow>
       <div class="home-header-wrapper">
         <h1 class="home-header h0">Artur</h1>
         <h1 class="home-header h0">Fedorov</h1>
@@ -71,7 +74,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { db } from '@/api/db';
 export default Vue.extend({
   name: 'Home'
 });
@@ -89,10 +91,6 @@ export default Vue.extend({
     &-header {
       line-height: 100%;
       @include fluid-type($min_width, $max_width, $font-size-h1, $font-size-h0);
-
-      &-wrapper {
-        animation: flow 2s ease-in-out;
-      }
 
       &-h2 {
         margin: 1em 0;
@@ -172,14 +170,12 @@ export default Vue.extend({
     }
   }
 
-  /* Slide animation*/
-  @keyframes flow {
-    from {
-      margin-top: -700px;
-    }
+  /* Appear animation*/
+  .before-enter-home {
+    animation: none;
+  }
 
-    to {
-      margin-top: 0;
-    }
+  .enter-home {
+    animation: slideUp 1s ease-in-out, opacity 1.5s ease-in-out;
   }
 </style>
