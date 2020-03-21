@@ -73,15 +73,7 @@
 import Vue from 'vue';
 import { db } from '@/api/db';
 export default Vue.extend({
-  name: 'Home',
-  data() {
-    return {
-      years: []
-    };
-  },
-  firestore: {
-    years: db.collection('years')
-  }
+  name: 'Home'
 });
 </script>
 <style lang="scss" scoped>
@@ -93,42 +85,7 @@ export default Vue.extend({
     border-bottom: $border;
     overflow: hidden;
 
-    &-number {
-      opacity: 0.1;
-      margin-bottom: 5em;
-
-      @media ($tablet) {
-        margin-bottom: 7em;
-      }
-
-      @media ($mobile) {
-        margin-bottom: 2em;
-      }
-    }
-
-    &-item {
-      h2 {
-        @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
-      }
-    }
-
-    &-text {
-      &.underlined {
-        &:after {
-          @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
-        }
-      }
-    }
-
-    &-two {
-      border-bottom: $border;
-    }
-
-    &-four {
-      background: $black center url('../assets/images/profile.png') no-repeat;
-      background-size: cover;
-    }
-
+    /* Header */
     &-header {
       line-height: 100%;
       @include fluid-type($min_width, $max_width, $font-size-h1, $font-size-h0);
@@ -149,11 +106,13 @@ export default Vue.extend({
       }
     }
 
+    /* Corner date */
     &-date {
       display: flex;
       justify-content: flex-end;
     }
 
+    /* Rectangles wrapper */
     &-content {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -174,8 +133,46 @@ export default Vue.extend({
         }
       }
     }
+
+    /* Rectangles with info */
+    &-item {
+      h2 {
+        @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
+      }
+    }
+
+    &-two {
+      border-bottom: $border;
+    }
+
+    &-four {
+      background: $black center url('../assets/images/profile.png') no-repeat;
+      background-size: cover;
+    }
+
+    &-number {
+      opacity: 0.1;
+      margin-bottom: 5em;
+
+      @media ($tablet) {
+        margin-bottom: 7em;
+      }
+
+      @media ($mobile) {
+        margin-bottom: 2em;
+      }
+    }
+
+    &-text {
+      &.underlined {
+        &:after {
+          @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
+        }
+      }
+    }
   }
 
+  /* Slide animation*/
   @keyframes flow {
     from {
       margin-top: -700px;
