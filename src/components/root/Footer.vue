@@ -62,8 +62,32 @@ export default Vue.extend({
     padding: 2em;
     box-sizing: border-box;
 
-    &-link:not(:first-child) {
-      margin-left: 30px;
+    &-logo {
+      @media ($tablet) {
+        display: none;
+      }
+    }
+
+    @media ($tablet) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+
+    &-link {
+      @media ($mobile) {
+        margin-bottom: 15px;
+      }
+
+      &:not(:first-child) {
+        margin-left: 30px;
+        @media ($tablet) {
+          margin-left: 15px;
+        }
+
+        @media ($mobile) {
+          margin-left: 0;
+        }
+      }
     }
 
     &-links {
@@ -71,8 +95,34 @@ export default Vue.extend({
       margin-left: auto;
       align-items: center;
 
+      @media ($tablet) {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      @media ($mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &-social {
+        @media ($mobile) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
       &-email {
         margin-left: $footer-height;
+
+        @media ($tablet) {
+          margin-left: auto;
+        }
+
+        @media ($mobile) {
+          margin-left: 0;
+          margin-top: 2em;
+        }
       }
     }
   }

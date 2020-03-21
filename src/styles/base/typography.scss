@@ -1,3 +1,4 @@
+
 @mixin font-face($fontWeight, $fontSize) {
   font-family: $font-family, sans-serif;
   font-weight: $fontWeight;
@@ -22,6 +23,12 @@ h2,
 h3,
 .h3 {
   @include font-face($font-bold, $font-size-h3);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
+}
+
+.h3-light {
+  @include font-face($font-light, $font-size-h3);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
 }
 
 div,
@@ -31,6 +38,7 @@ p {
 
 .p-body {
   @include font-face($font-light, $font-size-small);
+  @include fluid-type($min_width, $max_width, $font-size-caption, $font-size-small);
 }
 
 .caption {

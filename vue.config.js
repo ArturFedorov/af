@@ -67,7 +67,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: '@import "@/styles/base/variables.scss";'
+        prependData: '@import "@/styles/base/variables.scss";@import "@/styles/utilities/mixins.scss";'
       }
     }
   }
