@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ArturFedorov/af.svg?branch=master)](https://travis-ci.org/ArturFedorov/af)
+
 # af
 
 ## Project setup
