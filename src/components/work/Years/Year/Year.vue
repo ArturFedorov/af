@@ -86,6 +86,7 @@ export default Vue.extend({
       border-left: 0;
 
       &:last-child {
+        border-top: 0;
         border-right: 0;
       }
     }
