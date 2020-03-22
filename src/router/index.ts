@@ -1,16 +1,25 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import VueRouter, {RouteConfig} from 'vue-router';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
-const routes = [
+export enum Routes {
+  HOME = 'Home',
+  WORK = 'Work'
+}
+
+const routes: RouteConfig[] = [
   {
     path: '/',
-    name: 'Home',
+    name: Routes.HOME,
     component: Home
+  },
+  {
+    path: '/work',
+    name: Routes.WORK,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Work.vue')
   }
-  // import(/* webpackChunkName: 'about' */ '../views/About.vue')
 ];
 
 const router = new VueRouter({

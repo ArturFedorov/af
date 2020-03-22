@@ -1,7 +1,13 @@
 <template>
   <div class="date">
-    <p class="p-body date-month is-bold">{{ dayMonth }}</p>
-    <p class="date-year">
+    <p
+      class="p-body date-month is-bold"
+      :class="{'is-white': isReversedColor}">
+      {{ dayMonth }}
+    </p>
+    <p
+      class="date-year"
+      :class="{'is-white': isReversedColor}">
       Twenty <span class="is-bold">{{ year }}</span>
     </p>
   </div>
@@ -14,6 +20,10 @@ export default Vue.extend({
     date: {
       type: Date,
       default: () => new Date()
+    },
+    isReversedColor: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

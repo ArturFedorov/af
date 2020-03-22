@@ -1,7 +1,7 @@
 <template>
   <div class="navigation">
     <router-link
-      to="#"
+      to="/work"
       class="h3-light navigation-link">
       work
     </router-link>

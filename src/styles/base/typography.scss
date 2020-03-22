@@ -13,11 +13,13 @@
 h1,
 .h1 {
   @include font-face($font-bold, $font-size-h1);
+  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
 }
 
 h2,
 .h2 {
   @include font-face($font-bold, $font-size-h2);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h2);
 }
 
 h3,
@@ -28,6 +30,11 @@ h3,
 
 .h3-light {
   @include font-face($font-light, $font-size-h3);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
+}
+
+.h3-thin {
+  @include font-face($font-thin, $font-size-h3);
   @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
 }
 
