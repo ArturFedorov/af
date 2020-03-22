@@ -12,7 +12,7 @@
             02
           </template>
           <template slot="initial">
-            When did i start in It?
+            When did i start in Tech?
           </template>
           <template slot="secondary">
             2013

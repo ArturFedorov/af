@@ -8,6 +8,7 @@
 
 .h0 {
   @include font-face($font-bold, $font-size-h0);
+  @include fluid-type($min_width, $max_width, 100px, $font-size-h0);
 }
 
 h1,

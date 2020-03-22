@@ -1,12 +1,18 @@
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 import Home from '../views/Home.vue';
+import Years from '@/components/work/Years/Years.vue';
+import YearPage from '@/components/work/YearPage/YearPage.vue';
 
 Vue.use(VueRouter);
 
 export enum Routes {
   HOME = 'Home',
-  WORK = 'Work'
+  WORK = 'Work',
+  YEARS = 'Years',
+  YEAR = 'Year',
+  OVERVIEW = 'Overview',
+  SKILLS = 'Skills'
 }
 
 const routes: RouteConfig[] = [
@@ -18,7 +24,23 @@ const routes: RouteConfig[] = [
   {
     path: '/work',
     name: Routes.WORK,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Work.vue')
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Work.vue'),
+    redirect: {name: Routes.YEARS},
+    children: [{
+      path: 'years',
+      name: Routes.YEARS,
+      components: {
+        work: Years
+      }
+    },
+    {
+      path: 'years/:id',
+      name: Routes.YEAR,
+      components: {
+        work: YearPage
+      },
+      props: { work: true},
+    }]
   }
 ];
 

@@ -1,6 +1,8 @@
 <template>
   <div class="button">
-    <div class="box">
+    <div
+      class="box"
+      :class="{ 'is-inactive': isInactive }">
       <div class="corner top left"></div>
       <div class="corner top right"></div>
       <div class="corner bottom left"></div>
@@ -8,6 +10,7 @@
     </div>
     <a
       class="h3 button-link"
+      :class="{ 'is-inactive': isInactive }"
       @click="clickLink">
       {{ text }}
     </a>
@@ -22,6 +25,10 @@ export default Vue.extend({
     text: {
       type: String,
       required: true
+    },
+    isInactive: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -45,6 +52,10 @@ export default Vue.extend({
       display: inline-block;
       margin-left: 15px;
       position: relative;
+
+      &.is-inactive {
+        font-weight: $font-light;
+      }
     }
   }
 
@@ -52,6 +63,12 @@ export default Vue.extend({
     width: 50px;
     height: 50px;
     position: absolute;
+
+    &.is-inactive {
+      > div.corner {
+        border-width: 2px;
+      }
+    }
   }
 
   .box > div.corner {
