@@ -12,7 +12,7 @@
       </h1>
       <router-link
         :to="{ name: 'Year', params: {id: year.id } }"
-        class="h3-light year-link" href="">
+        class="h3-light year-link">
         Details
       </router-link>
     </div>

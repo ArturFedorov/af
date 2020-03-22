@@ -7,6 +7,6 @@ export class YearService {
   }
 
   static getYearById(id: string) {
-    return id ? db.collection(Collections.YEARS).doc(id) : {};
+    return db.collection(Collections.YEARS).doc(id).get();
   }
 }

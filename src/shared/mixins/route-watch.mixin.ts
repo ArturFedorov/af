@@ -6,7 +6,8 @@ export const routeWatcher = Vue.extend({
       classRouteMap: {
         Home: 'initial',
         Work: 'is-blue',
-        Years: 'is-blue'
+        Years: 'is-blue',
+        Year: 'is-blue'
       } as { [key: string] : string }
     }
   },
