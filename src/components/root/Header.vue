@@ -39,7 +39,7 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
   .header {
-    height: 140px;
+    height: $header-height;
     border-bottom: $border;
 
     &-logo {
