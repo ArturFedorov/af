@@ -74,12 +74,15 @@ export default Vue.extend({
     }
 
     &-link {
+      min-width: 170px;
+      text-align: center;
+
       @media ($mobile) {
+        text-align: left;
         margin-bottom: 15px;
       }
 
       &:not(:first-child) {
-        margin-left: 30px;
         @media ($tablet) {
           margin-left: 15px;
         }
@@ -106,6 +109,7 @@ export default Vue.extend({
       }
 
       &-social {
+        display: flex;
         @media ($mobile) {
           display: flex;
           flex-direction: column;
