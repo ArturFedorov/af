@@ -1,18 +1,24 @@
 <template>
   <div class="header grid">
     <div class="header-logo grid-left">
-      <SvgIcon
-        name="logo"
-        width="78"
-        height="79"/>
+      <router-link to="/">
+        <SvgIcon
+          name="logo"
+          width="78"
+          height="79"/>
+      </router-link>
     </div>
     <div class="header-content grid-main">
-      <SvgIcon
-        name="logo-name" />
+      <router-link to="/">
+        <SvgIcon
+          name="logo-name" />
+      </router-link>
     </div>
     <div class="header-actions grid-right">
       <div class="header-actions-one">
-        <Ball class="header-ball" />
+        <Ball
+          class="header-ball"
+          :class="classRouteMap[activeRoute]"/>
       </div>
       <div class="header-actions-two"></div>
     </div>
@@ -21,11 +27,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import Ball from './Ball.vue';
+import {routeWatcher} from '@/shared/mixins/route-watch.mixin';
+
 export default Vue.extend({
   name: 'Header',
   components: {
     Ball
-  }
+  },
+  mixins: [routeWatcher]
 });
 </script>
 <style lang="scss" scoped>
@@ -64,6 +73,19 @@ export default Vue.extend({
 
       > div {
         width: 50%;
+      }
+    }
+
+    &-ball {
+      transition: all 0.9s;
+
+      &.is-blue {
+        background-color: $blue;
+        transform: translateY(160px);
+
+        @media ($tablet) {
+          transform: translateY(140px);
+        }
       }
     }
   }

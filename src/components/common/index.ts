@@ -4,11 +4,13 @@ import Vue from 'vue';
 import AngleButton from './AngleButton/AngleButton.vue';
 import SvgIcon from './SvgIcon/SvgIcon.vue';
 import Date from './Date/Date.vue';
+import NumberedStep from '@/components/common/NumberedStep/NumberedStep.vue';
 
 const components: { [key: string]: {} } = {
   AngleButton,
   Date,
-  SvgIcon
+  SvgIcon,
+  NumberedStep
 };
 
 Object.keys(components).forEach(componentName =>

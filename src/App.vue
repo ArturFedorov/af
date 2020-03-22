@@ -5,7 +5,9 @@
       <div class="main-left grid-left"></div>
       <div class="main-content grid-main">
         <router-view />
-        <Footer class="main-footer"/>
+        <Footer
+          class="main-footer"
+          :color="classRouteMap[activeRoute]"/>
       </div>
       <div class="main-actions grid-right">
         <div class="main-actions-one"></div>
@@ -21,21 +23,21 @@ import Vue from 'vue';
 import Header from './components/root/Header.vue';
 import Navigation from './components/root/Navigation.vue';
 import Footer from './components/root/Footer.vue';
+import {routeWatcher} from '@/shared/mixins/route-watch.mixin';
 export default Vue.extend({
   name: 'App',
   components: {
     Header,
     Footer,
     Navigation
-  }
+  },
+  mixins: [routeWatcher]
 });
 </script>
 <style lang="scss">
-  .app {
-
-  }
-
   .main {
+    min-height: 100vh;
+
     &-content {
       overflow-y: auto;
       overflow-x: hidden;
