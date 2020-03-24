@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      id="home"
+      id="slideUp"
       class="home"
       v-vpshow>
       <div class="home-header-wrapper">
@@ -134,6 +134,10 @@ export default Vue.extend({
 
     /* Rectangles with info */
     &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       h2 {
         @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
       }
@@ -153,16 +157,18 @@ export default Vue.extend({
       margin-bottom: 5em;
 
       @media ($tablet) {
-        margin-bottom: 7em;
+        margin-bottom: 8em;
       }
 
       @media ($mobile) {
-        margin-bottom: 2em;
+        margin-bottom: 4em;
       }
     }
 
     &-text {
       &.underlined {
+        text-decoration: underline;
+
         &:after {
           @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
         }
@@ -170,12 +176,4 @@ export default Vue.extend({
     }
   }
 
-  /* Appear animation*/
-  .before-enter-home {
-    animation: none;
-  }
-
-  .enter-home {
-    animation: slideUp 1s ease-in-out, opacity 1.5s ease-in-out;
-  }
 </style>

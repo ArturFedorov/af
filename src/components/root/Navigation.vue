@@ -11,7 +11,7 @@
       development
     </router-link>
     <router-link
-      to="#"
+      to="/design"
       class="h3-light navigation-link">
       design
     </router-link>
@@ -40,7 +40,7 @@
     }
   }
 
-  .router-link-exact-active {
+  .router-link-active {
     font-weight: $font-bold;
   }
 </style>

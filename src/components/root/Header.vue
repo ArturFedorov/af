@@ -87,6 +87,23 @@ export default Vue.extend({
           transform: translateY(140px);
         }
       }
+
+      &.is-purple {
+        background-color: $purple;
+        transform: translateY(450px);
+
+        @media ($tablet) {
+          transform: translateY(420px);
+        }
+
+        @media ('max-width: 1024px') {
+          transform: translateY(405px);
+        }
+
+        @media ('max-width: 768px') {
+          transform: translateY(390px);
+        }
+      }
     }
   }
 

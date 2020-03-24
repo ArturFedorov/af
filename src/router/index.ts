@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 export enum Routes {
   HOME = 'Home',
   WORK = 'Work',
+  DESIGN = 'Design',
   YEARS = 'Years',
   YEAR = 'Year',
   OVERVIEW = 'Overview',
@@ -41,6 +42,11 @@ const routes: RouteConfig[] = [
       },
       props: { work: true},
     }]
+  },
+  {
+    path: '/design',
+    name: Routes.DESIGN,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Design.vue'),
   }
 ];
 

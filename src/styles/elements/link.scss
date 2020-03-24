@@ -18,6 +18,16 @@
     }
   }
 
+  &.no-rectangle {
+    &:before {
+      display: none;
+    }
+  }
+
+  &.is-underlined {
+    text-decoration: underline;
+  }
+
   &.is-red {
     &:before {
       background-color: $red;
@@ -33,6 +43,12 @@
   &.is-purple {
     &:before {
       background-color: $purple;
+    }
+  }
+
+  &.is-black {
+    &:before {
+      background-color: $black;
     }
   }
 }

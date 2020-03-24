@@ -89,6 +89,10 @@ export default Vue.extend({
       border-left: $border;
       padding: 2em;
 
+      @media ($mobile) {
+        padding: 2em 0.5em;
+      }
+
       &-header {
         &.is-active {
           color: $blue;
