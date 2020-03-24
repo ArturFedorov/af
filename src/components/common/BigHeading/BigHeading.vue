@@ -22,17 +22,17 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  export default Vue.extend({
-    name: 'BigHeading',
-    props: {
-      colorHint: {
-        type: String,
-        default: 'is-red',
-        validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple'].includes(value)
-      }
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'BigHeading',
+  props: {
+    colorHint: {
+      type: String,
+      default: 'is-red',
+      validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple'].includes(value)
     }
-  });
+  }
+});
 </script>
 
 <style lang="scss" scoped>

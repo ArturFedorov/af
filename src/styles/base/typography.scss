@@ -39,6 +39,16 @@ h3,
   @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
 }
 
+.h4-bold {
+  @include font-face($font-bold, $font-size-base);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
+}
+
+.h4-light {
+  @include font-face($font-light, $font-size-base);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
+}
+
 div,
 p {
   @include font-face($font-light, $font-size-base);

@@ -1,13 +1,15 @@
 <template>
   <div
     class="year"
-    :class="styling">
+    :class="styling"
+    @mouseover="isHovered = true"
+    @mouseout="isHovered = false">
     <div
       class="year-content"
       :class="styling">
       <h1
         class="h0 year-text"
-        :class="styling">
+        :class="[styling, { 'is-hovered': isHovered}]">
         {{ year.year }}
       </h1>
       <router-link
@@ -32,6 +34,11 @@ export default Vue.extend({
     styling: {
       type: Array as () => string[],
       default: () => ['left-bottom']
+    }
+  },
+  data() {
+    return {
+      isHovered: false
     }
   }
 })
@@ -149,6 +156,11 @@ export default Vue.extend({
     &-text {
       position: relative;
       line-height: 73%;
+      transition: all 1s;
+
+      &.is-hovered {
+        transform: scale(1.2) rotate(5deg);
+      }
 
       &.is-blue-text {
         color: $blue;

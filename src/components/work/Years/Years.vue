@@ -52,5 +52,4 @@ export default Vue.extend({
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
-
 </style>
