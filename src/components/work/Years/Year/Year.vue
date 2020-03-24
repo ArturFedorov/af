@@ -70,7 +70,7 @@ export default Vue.extend({
     }
 
     @media ($tablet) {
-      height: 500px;
+      height: 700px;
       border-left: 0;
       border-right: $border;
 
@@ -82,12 +82,12 @@ export default Vue.extend({
     }
 
     @media ($mobile) {
-      height: 350px;
+      height: 550px;
       border-left: 0;
+      border-right: 0;
 
       &:last-child {
         border-top: 0;
-        border-right: 0;
       }
     }
 

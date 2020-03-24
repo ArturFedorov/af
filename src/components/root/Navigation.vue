@@ -40,7 +40,7 @@
     }
   }
 
-  .router-link-exact-active {
+  .router-link-active {
     font-weight: $font-bold;
   }
 </style>

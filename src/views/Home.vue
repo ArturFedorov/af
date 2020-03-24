@@ -134,6 +134,10 @@ export default Vue.extend({
 
     /* Rectangles with info */
     &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       h2 {
         @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
       }
@@ -153,16 +157,18 @@ export default Vue.extend({
       margin-bottom: 5em;
 
       @media ($tablet) {
-        margin-bottom: 7em;
+        margin-bottom: 8em;
       }
 
       @media ($mobile) {
-        margin-bottom: 2em;
+        margin-bottom: 4em;
       }
     }
 
     &-text {
       &.underlined {
+        text-decoration: underline;
+
         &:after {
           @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
         }
