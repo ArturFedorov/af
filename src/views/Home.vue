@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      id="home"
+      id="slideUp"
       class="home"
       v-vpshow>
       <div class="home-header-wrapper">
@@ -176,12 +176,4 @@ export default Vue.extend({
     }
   }
 
-  /* Appear animation*/
-  .before-enter-home {
-    animation: none;
-  }
-
-  .enter-home {
-    animation: slideUp 1s ease-in-out, opacity 1.5s ease-in-out;
-  }
 </style>

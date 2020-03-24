@@ -2,12 +2,14 @@ import Vue from 'vue';
 
 // Local Components
 import AngleButton from './AngleButton/AngleButton.vue';
+import BigHeading from '@/components/common/BigHeading/BigHeading.vue';
 import SvgIcon from './SvgIcon/SvgIcon.vue';
 import Date from './Date/Date.vue';
 import NumberedStep from '@/components/common/NumberedStep/NumberedStep.vue';
 
 const components: { [key: string]: {} } = {
   AngleButton,
+  BigHeading,
   Date,
   SvgIcon,
   NumberedStep

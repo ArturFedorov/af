@@ -87,7 +87,7 @@ export default Vue.extend({
     &-steps {
       grid-column: 1 / 3;
       padding: 1em 0;
-      animation: opacity 1.5s ease-in-out;
+      animation: opacity 1.5s ease-in-out, slideDown 1s ease-out;
 
       &-content {
         display: grid;
@@ -106,7 +106,7 @@ export default Vue.extend({
       background: $black bottom url('../../../assets/images/profile-work.png') no-repeat;
       background-size: contain;
       padding: 1em 2em;
-      animation: opacity 1.5s ease-in-out;
+      animation: opacity 1.5s ease-in-out, slideRight 1s ease-out;
 
       &-date {
         width: 100%;
