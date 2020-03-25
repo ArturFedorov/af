@@ -81,27 +81,27 @@ export default Vue.extend({
 
       &.is-blue {
         background-color: $blue;
-        transform: translateY(160px);
+        @include transalteY(160px);
 
         @media ($tablet) {
-          transform: translateY(140px);
+          @include transalteY(140px);
         }
       }
 
       &.is-purple {
         background-color: $purple;
-        transform: translateY(450px);
+        @include transalteY(450px);
 
         @media ($tablet) {
-          transform: translateY(420px);
+          @include transalteY(420px);
         }
 
         @media ('max-width: 1024px') {
-          transform: translateY(405px);
+          @include transalteY(405px);
         }
 
         @media ('max-width: 768px') {
-          transform: translateY(390px);
+          @include transalteY(390px);
         }
       }
     }

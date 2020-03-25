@@ -159,6 +159,7 @@ export default Vue.extend({
       transition: all 1s;
 
       &.is-hovered {
+        -webkit-transform: scale(1.2) rotate(5deg);
         transform: scale(1.2) rotate(5deg);
       }
 
