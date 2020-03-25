@@ -1,12 +1,37 @@
 <template>
   <div class="year">
-    <div class="year-content">
-      <h1 class="year-h1">Projects</h1>
-      <div v-if="year && year.projects">
+    <div
+      class="year-content">
+      <transition
+        name="fade"
+        v-if="animated">
+        <CoverLoader />
+      </transition>
+      <h1
+        class="year-h1"
+        v-if="year && year.projects">
+        Projects
+      </h1>
+      <div
+        class="year-projects"
+        v-if="year && year.projects">
         <Project
           v-for="(project, index) in year.projects"
           :key="project.id"
           :project="project"
+          :orderNumber="index + 1"/>
+      </div>
+      <h1
+        class="year-h1 is-blue"
+        v-if="year && year.educations">
+        Education
+      </h1>
+      <div v-if="year && year.educations">
+        <Education
+          class="year-education"
+          v-for="(education, index) in year.educations"
+          :key="education.id"
+          :education="education"
           :orderNumber="index + 1"/>
       </div>
     </div>
@@ -34,10 +59,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import {YearService} from '@/api/services/YearService';
-import {IYear} from '@/components/work/Years/IYear';
+import {IYear} from '@/shared/interfaces/IYear';
 import Project from '@/components/work/YearPage/Project/Project.vue';
+import Education from '@/components/work/YearPage/Education/Education.vue';
 export default Vue.extend({
   components: {
+    Education,
     Project
   },
   props: {
@@ -48,7 +75,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      years: [] as IYear[]
+      years: [] as IYear[],
+      animated: false
     }
   },
   computed: {
@@ -63,6 +91,13 @@ export default Vue.extend({
   },
   firestore: {
     years: YearService.getAllYears()
+  },
+  watch: {
+    id () {
+      // animation
+      this.animated = true;
+      setTimeout(() => this.animated = false, 1000);
+    }
   }
 });
 </script>
@@ -71,6 +106,7 @@ export default Vue.extend({
   .year {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: $border;
 
     &-h1 {
       text-decoration: underline;
@@ -79,13 +115,24 @@ export default Vue.extend({
 
     &-content {
       grid-column: 1 / 3;
-      border-top: $border;
       padding: 2em;
+      position: relative;
+    }
+
+    &-projects {
+      margin-bottom: 10em;
+
+      @media ($tablet) {
+        margin-bottom: 5em;
+      }
+    }
+
+    &-education {
+      margin-bottom: 2em;
     }
 
     &-navigation {
       grid-column: 3 / 3;
-      border-top: $border;
       border-left: $border;
       padding: 2em;
 
@@ -113,6 +160,7 @@ export default Vue.extend({
         align-items: center;
         justify-content: space-between;
         margin-bottom: 3em;
+        animation: opacity 1.5s ease-in-out, slideRight 1.5s ease-out;
       }
     }
   }

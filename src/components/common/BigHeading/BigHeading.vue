@@ -29,7 +29,7 @@ export default Vue.extend({
     colorHint: {
       type: String,
       default: 'is-red',
-      validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple'].includes(value)
+      validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple', 'is-orange'].includes(value)
     }
   }
 });

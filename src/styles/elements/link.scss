@@ -46,6 +46,12 @@
     }
   }
 
+  &.is-orange {
+    &:before {
+      background-color: $orange;
+    }
+  }
+
   &.is-black {
     &:before {
       background-color: $black;

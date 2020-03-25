@@ -79,12 +79,38 @@ export default Vue.extend({
     &-ball {
       transition: all 0.9s;
 
+      &.is-black {
+        background-color: $black;
+        @include transalteY(300px);
+
+        @media ($tablet) {
+          @include transalteY(270px);
+        }
+      }
+
       &.is-blue {
         background-color: $blue;
         @include transalteY(160px);
 
         @media ($tablet) {
           @include transalteY(140px);
+        }
+      }
+
+      &.is-orange {
+        background-color: $orange;
+        @include transalteY(560px);
+
+        @media ($tablet) {
+          @include transalteY(540px);
+        }
+
+        @media ('max-width: 1024px') {
+          @include transalteY(515px);
+        }
+
+        @media ('max-width: 768px') {
+          @include transalteY(495px);
         }
       }
 

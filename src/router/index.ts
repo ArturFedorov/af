@@ -9,7 +9,9 @@ Vue.use(VueRouter);
 export enum Routes {
   HOME = 'Home',
   WORK = 'Work',
+  CONTACT = 'Contact',
   DESIGN = 'Design',
+  DEVELOPMENT = 'Development',
   YEARS = 'Years',
   YEAR = 'Year',
   OVERVIEW = 'Overview',
@@ -44,9 +46,19 @@ const routes: RouteConfig[] = [
     }]
   },
   {
+    path: '/development',
+    name: Routes.DEVELOPMENT,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Development.vue')
+  },
+  {
     path: '/design',
     name: Routes.DESIGN,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Design.vue'),
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Design.vue')
+  },
+  {
+    path: '/contact',
+    name: Routes.CONTACT,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Contact.vue')
   }
 ];
 

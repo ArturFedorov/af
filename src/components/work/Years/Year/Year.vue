@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {IYear} from '@/components/work/Years/IYear';
+import {IYear} from '@/shared/interfaces/IYear';
 export default Vue.extend({
   name: 'Year',
   props: {

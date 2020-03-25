@@ -6,7 +6,7 @@
       work
     </router-link>
     <router-link
-      to="#"
+      to="/development"
       class="h3-light navigation-link">
       development
     </router-link>
@@ -16,7 +16,7 @@
       design
     </router-link>
     <router-link
-      to="#"
+      to="/contact"
       class="h3-light navigation-link">
       contact
     </router-link>
