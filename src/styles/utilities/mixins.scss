@@ -20,3 +20,8 @@
     }
   }
 }
+
+@mixin transalteY($value) {
+  -webkit-transform: translateY($value);
+  transform: translateY($value);
+}
