@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {IYear} from '@/components/work/Years/IYear';
+import {IYear} from '@/shared/interfaces/IYear';
 import {YearService} from '@/api/services/YearService';
 import Year from './Year/Year.vue';
 export default Vue.extend({

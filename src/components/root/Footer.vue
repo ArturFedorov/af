@@ -31,7 +31,7 @@ export default Vue.extend({
     color: {
       type: String,
       default: 'is-red',
-      validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple'].includes(value)
+      validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple', 'is-orange'].includes(value)
     }
   },
   data() {

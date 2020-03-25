@@ -8,7 +8,9 @@ export const routeWatcher = Vue.extend({
         Work: 'is-blue',
         Years: 'is-blue',
         Year: 'is-blue',
-        Design: 'is-purple'
+        Design: 'is-purple',
+        Development: 'is-black',
+        Contact: 'is-orange'
       } as { [key: string] : string }
     }
   },

@@ -2,7 +2,7 @@
   <div class="project">
     <div class="project-header">
       <h2>{{ project.name }}</h2>
-      <h1 class="project-number">{{ orderNumberString }}</h1>
+      <h1 class="project-number">{{ orderNumber | leadingZero }}</h1>
     </div>
     <div class="project-content">
       <!---- Section divider ---->
@@ -85,7 +85,7 @@
         </h4>
         <div class="project-section-content">
           <AngleButton
-            class="project-section-link"
+            class="project-section-link with-mb"
             v-for="year in project.years"
             :key="year"
             :text="year"
@@ -106,11 +106,6 @@ export default Vue.extend({
     orderNumber: {
       type: Number,
       default: 1
-    }
-  },
-  computed: {
-    orderNumberString(): string {
-      return this.orderNumber < 10 ? `0${this.orderNumber}` : this.orderNumber.toString();
     }
   }
 });
@@ -134,6 +129,12 @@ export default Vue.extend({
 
       &-link {
         margin-right: 1.5em;
+
+        &.with-mb {
+          @media ($mobile) {
+            margin-bottom: 3em;
+          }
+        }
 
         @media ($mobile) {
           margin-right: 0;
