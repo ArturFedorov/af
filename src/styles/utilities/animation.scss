@@ -75,13 +75,36 @@
   }
 }
 
+/**** Divides ****/
+
+@-webkit-keyframes scale {
+  0% {
+    transform: perspective(1000px) translate3d(0, 10px, -10px);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes scale {
+  0% {
+    transform: perspective(1000px) translate3d(0, 10px, -10px);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /* Appear animation*/
 .before-enter-slideUp {
   animation: none;
 }
 
 .enter-slideUp {
-  animation: slideUp 1s ease-in-out, opacity 1.5s ease-in-out;
+  animation: scale 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 // infinite rotation
