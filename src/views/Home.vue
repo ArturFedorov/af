@@ -1,22 +1,10 @@
 <template>
   <div>
-    <div
-      id="slideUp"
-      class="home"
-      v-vpshow>
-      <div class="home-header-wrapper">
-        <h1 class="home-header h0">Artur</h1>
-        <h1 class="home-header h0">Fedorov</h1>
-      </div>
-      <h2 class="home-header-h2">
-        Developer +
-        <span class="is-red">
-        Designer
-      </span>
-      </h2>
-      <div class="home-date">
-        <Date />
-      </div>
+    <div class="home">
+      <BigHeading
+        id="slideUp"
+        v-vpshow>
+      </BigHeading>
     </div>
     <div class="home-content">
       <div class="home-item home-one is-red">
