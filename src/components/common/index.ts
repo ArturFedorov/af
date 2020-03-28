@@ -26,5 +26,4 @@ Object.keys(components).forEach(componentName =>
 
 
 Vue.filter('leadingZero', leadingZero);
-// Local Directives
-import './directive/scroll.directive';
+

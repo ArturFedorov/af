@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="app">
+    <Loader :color="classRouteMap[activeRoute]"/>
     <Header />
     <div class="main grid">
       <div class="main-left grid-left"></div>
@@ -21,6 +22,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Header from './components/root/Header.vue';
+import Loader from '@/components/root/Loader.vue';
 import Navigation from './components/root/Navigation.vue';
 import Footer from './components/root/Footer.vue';
 import {routeWatcher} from '@/shared/mixins/route-watch.mixin';
@@ -28,6 +30,7 @@ export default Vue.extend({
   name: 'App',
   components: {
     Header,
+    Loader,
     Footer,
     Navigation
   },

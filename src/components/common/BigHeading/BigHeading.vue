@@ -38,12 +38,11 @@ export default Vue.extend({
     }
   },
   mounted(): void {
-
     gsap.from('.animate-stagger', {
       duration: 1,
       delay: 0.5,
       opacity: 0,
-      scale: 1.1,
+      scale: 0.9,
       y: -30,
       ease: Power1.easeOut,
       stagger: 0.5
