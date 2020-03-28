@@ -4,34 +4,34 @@
       <BigHeading />
     </div>
     <div class="home-content">
-      <div class="home-item home-one is-red">
+      <div class="home-item animate home-one is-red">
         <h1 class="home-number">1</h1>
         <div class="content">
-          <h2 class="is-white">Hello,</h2>
-          <h2 class="is-white">My name is</h2>
-          <h2 class="is-white">Artur Fedorov</h2>
+          <h2 class="is-white animate">Hello,</h2>
+          <h2 class="is-white animate">My name is</h2>
+          <h2 class="is-white animate">Artur Fedorov</h2>
         </div>
       </div>
-      <div class="home-item home-two">
+      <div class="home-item animate home-two">
         <h1 class="home-number">2</h1>
         <div>
-          <h2>I am</h2>
-          <h2>
+          <h2 class="animate">I am</h2>
+          <h2 class="animate">
             developer +
             <span class="is-red">
               designer
             </span>
           </h2>
-          <h2>based in Saint-Petersburg</h2>
+          <h2 class="animate">based in Saint-Petersburg</h2>
         </div>
       </div>
-      <div class="home-item home-three">
+      <div class="home-item animate home-three">
         <h1 class="home-number">3</h1>
         <div>
-          <h2>I am passionate about</h2>
-          <h2>web development, design,</h2>
-          <h2>grids, Swiss typography</h2>
-          <h2>
+          <h2 class="animate">I am passionate about</h2>
+          <h2 class="animate">web development, design,</h2>
+          <h2 class="animate">grids, Swiss typography</h2>
+          <h2 class="animate">
             and
             <span class="is-red">
               Bauhaus
@@ -39,16 +39,16 @@
           </h2>
         </div>
       </div>
-      <div class="home-item home-four is-black">
+      <div class="home-item animate home-four is-black">
         <h1 class="home-number is-white">4</h1>
         <div>
-          <h2 class="is-white">
+          <h2 class="is-white animate">
             development +
             <span class="is-red">design</span>
           </h2>
-          <h2 class="is-white">is my vision of</h2>
-          <h2 class="is-white">Bauhaus principle</h2>
-          <h2 class="home-text underlined is-white">
+          <h2 class="is-white animate">is my vision of</h2>
+          <h2 class="is-white animate">Bauhaus principle</h2>
+          <h2 class="home-text underlined is-white animate">
             Forms follows Function
           </h2>
         </div>
@@ -59,8 +59,50 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gsap, {Power1} from 'gsap';
 export default Vue.extend({
-  name: 'Home'
+  name: 'Home',
+  data() {
+    return {
+      observer: {} as IntersectionObserver
+    }
+  },
+  mounted(): void {
+    const config = { threshold: 0.5 }; //, root: document.querySelector('.main-content')
+    this.observer = new IntersectionObserver((entries, self) => {
+      const targets = entries.map(entry => {
+        if(entry.isIntersecting) {
+          self.unobserve(entry.target);
+          return entry.target;
+        }
+      });
+
+      // Call our animation function
+      this.fadeIn(targets);
+    }, config);
+
+    gsap.set('.animate', {
+      duration: 1.5,
+      opacity: 0,
+      y: 50
+    });
+
+    document.querySelectorAll('.animate').forEach(box => {
+      this.observer.observe(box);
+    });
+  },
+  methods: {
+    fadeIn(targets: (Element | undefined)[]) {
+      // Without any offset
+      gsap.to(targets, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.5,
+        ease: Power1.easeInOut
+      });
+
+    }
+  }
 });
 </script>
 <style lang="scss" scoped>
@@ -122,6 +164,7 @@ export default Vue.extend({
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transform-origin: 0 100%;
 
       h2 {
         @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
