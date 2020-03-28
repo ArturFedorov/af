@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="home">
-      <BigHeading
-        id="slideUp"
-        v-vpshow>
-      </BigHeading>
+      <BigHeading />
     </div>
     <div class="home-content">
       <div class="home-item home-one is-red">
