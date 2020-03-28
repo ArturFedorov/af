@@ -2,27 +2,32 @@
   <div
     class="heading">
     <div class="heading-header-wrapper">
-      <h1 class="heading-header h0">
-        <slot name="first-word">Artur</slot>
+      <h1 class="heading-header h0 animate-stagger">
+        <slot name="first-word">
+          Artur
+        </slot>
       </h1>
-      <h1 class="heading-header h0">
-        <slot name="second-word">Fedorov</slot>
+      <h1 class="heading-header h0 animate-stagger">
+        <slot name="second-word">
+          Fedorov
+        </slot>
       </h1>
     </div>
-    <h2 class="heading-header-h2">
+    <h2 class="heading-header-h2 animate-stagger">
       Developer +
       <span :class="colorHint">
         Designer
       </span>
     </h2>
     <div class="heading-date">
-      <Date />
+      <Date class="animate-stagger"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import gsap, {Power1} from 'gsap';
 export default Vue.extend({
   name: 'BigHeading',
   props: {
@@ -31,6 +36,18 @@ export default Vue.extend({
       default: 'is-red',
       validator: value => [ 'initial', 'is-black', 'is-red', 'is-blue', 'is-purple', 'is-orange'].includes(value)
     }
+  },
+  mounted(): void {
+
+    gsap.from('.animate-stagger', {
+      duration: 1,
+      delay: 0.5,
+      opacity: 0,
+      scale: 1.1,
+      y: -30,
+      ease: Power1.easeOut,
+      stagger: 0.5
+    });
   }
 });
 </script>
@@ -39,6 +56,7 @@ export default Vue.extend({
   .heading {
     &-header {
       line-height: 100%;
+      position: relative;
       @include fluid-type($min_width, $max_width, $font-size-h1, $font-size-h0);
 
       &-h2 {
@@ -58,5 +76,9 @@ export default Vue.extend({
       display: flex;
       justify-content: flex-end;
     }
+  }
+
+  .animate-stagger {
+    transform-origin: 0 100%;
   }
 </style>
