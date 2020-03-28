@@ -87,26 +87,6 @@
   }
 }
 
-
-@keyframes scale {
-  0% {
-    transform: perspective(1000px) translate3d(0, 10px, -10px);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-/* Appear animation*/
-.before-enter-slideUp {
-  animation: none;
-}
-
-.enter-slideUp {
-  animation: scale 1s ease-in-out, opacity 1s ease-in-out;
-}
-
 // infinite rotation
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {

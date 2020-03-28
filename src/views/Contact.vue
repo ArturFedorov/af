@@ -1,9 +1,7 @@
 <template>
   <div class="contact">
     <BigHeading
-      id="slideUp"
-      colorHint="is-orange"
-      v-vpshow>
+      colorHint="is-orange">
       <template slot="first-word">Contact</template>
       <template slot="second-word">Me</template>
     </BigHeading>
