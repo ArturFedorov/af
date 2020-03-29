@@ -2,6 +2,7 @@
 import Vue, {VNode} from 'vue';
 const warn = (msg: string) => {
   if (!Vue.config.silent) {
+    /* eslint-disable */
     console.warn(msg)
   }
 }
