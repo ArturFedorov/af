@@ -1,13 +1,13 @@
 <template>
   <div class="overview">
     <div class="overview-steps">
-      <h2 class="overview-header">
+      <h2 class="overview-header animate">
         Developer +
         <span class="is-blue">Designer</span>
       </h2>
       <div class="overview-steps-content">
-        <NumberedStep />
-        <NumberedStep>
+        <NumberedStep class="animate"/>
+        <NumberedStep class="animate">
           <template slot="number">
             02
           </template>
@@ -18,7 +18,7 @@
             2013
           </template>
         </NumberedStep>
-        <NumberedStep class="three">
+        <NumberedStep class="three animate">
           <template slot="number">
             03
           </template>
@@ -29,7 +29,7 @@
             Sales
           </template>
         </NumberedStep>
-        <NumberedStep class="four">
+        <NumberedStep class="four animate">
           <template slot="number">
             04
           </template>
@@ -41,7 +41,7 @@
             <br/> group lead
           </template>
         </NumberedStep>
-        <NumberedStep class="five">
+        <NumberedStep class="five animate">
           <template slot="number">
             05
           </template>
@@ -54,7 +54,7 @@
         </NumberedStep>
       </div>
     </div>
-    <div class="overview-profile">
+    <div class="overview-profile animate">
       <Date
         class="overview-profile-date"
         :isReversedColor="true"/>
@@ -64,8 +64,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
-
+  mounted(): void {
+    AnimationService.tweenLite.from('.animate', {
+      duration: 1.5,
+      opacity: 0,
+      y: 20,
+      stagger: 0.2
+    });
+  }
 })
 </script>
 
@@ -87,7 +95,6 @@ export default Vue.extend({
     &-steps {
       grid-column: 1 / 3;
       padding: 1em 0;
-      animation: opacity 1.5s ease-in-out, slideDown 1s ease-out;
 
       &-content {
         display: grid;
@@ -106,7 +113,6 @@ export default Vue.extend({
       background: $black bottom url('../../../assets/images/profile-work.png') no-repeat;
       background-size: contain;
       padding: 1em 2em;
-      animation: opacity 1.5s ease-in-out, slideRight 1s ease-out;
 
       &-date {
         width: 100%;

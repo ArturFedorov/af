@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import gsap, {Power1} from 'gsap';
+import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
   name: 'BigHeading',
   props: {
@@ -38,13 +38,13 @@ export default Vue.extend({
     }
   },
   mounted(): void {
-    gsap.from('.animate-stagger', {
+    AnimationService.tweenLite.from('.animate-stagger', {
       duration: 1,
       delay: 0.5,
       opacity: 0,
       scale: 0.9,
       y: -30,
-      ease: Power1.easeOut,
+      ease: AnimationService.easing.power1.easeOut,
       stagger: 0.5
     });
   }

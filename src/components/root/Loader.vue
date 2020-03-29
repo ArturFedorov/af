@@ -24,11 +24,10 @@
         <path class="circle" d="M36.7838 73.3478C29.5201 73.3217 22.4267 71.1559 16.398 67.1234C10.3693 63.0908 5.67523 57.3721 2.9076 50.6883C0.139973 44.0045 -0.577298 36.6548 0.846221 29.5658C2.26974 22.4769 5.77032 15.9661 10.9066 10.8543C16.0429 5.74256 22.5849 2.25869 29.7078 0.841962C36.8308 -0.574763 44.2157 0.139085 50.9316 2.8935C57.6475 5.64792 63.3936 10.3196 67.4455 16.3195C71.4973 22.3194 73.6736 29.379 73.6998 36.608C73.7036 41.4339 72.7514 46.2131 70.8976 50.6723C69.0437 55.1315 66.3247 59.1832 62.896 62.5956C59.4672 66.0079 55.3961 68.714 50.9155 70.559C46.4349 72.404 41.6328 73.3517 36.7838 73.3478ZM36.7838 3.98302C30.2886 3.99461 23.9428 5.9228 18.5487 9.52375C13.1546 13.1247 8.95457 18.2367 6.47973 24.2133C4.00489 30.1898 3.36638 36.7625 4.64494 43.1003C5.92351 49.438 9.06173 55.2561 13.6628 59.8187C18.2638 64.3814 24.121 67.4838 30.4936 68.7335C36.8663 69.9833 43.4682 69.3242 49.4645 66.8398C55.4608 64.3554 60.5822 60.1571 64.1811 54.7759C67.7799 49.3947 69.6946 43.0722 69.683 36.608C69.6557 27.9434 66.1771 19.6431 60.0098 13.5272C53.8425 7.41138 45.4901 3.9791 36.7838 3.98302Z" fill="#111211"/>
       </svg>
       <h2 class="loader-header">
-        <span class="content">
-            Developer +
-          <span class="is-red">
-            Designer
-          </span>
+        <div class="loader-header-cover" />
+          Developer +
+        <span class="is-red">
+          Designer
         </span>
       </h2>
     </div>
@@ -37,7 +36,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import gsap, {Power1, Power3, Elastic} from 'gsap';
+import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
   name: 'Loader',
   props: {
@@ -47,12 +46,12 @@ export default Vue.extend({
     }
   },
   mounted(): void {
-    gsap.timeline({defaults: { duration: 1.5}})
+    AnimationService.gsap.timeline({defaults: { duration: 1.5}})
       .from('.letter', {
         opacity: 0,
         x: 3,
         stagger: 0.1,
-        ease: Power1.easeInOut
+        ease: AnimationService.easing.power1.easeInOut
       }).from('.circle', {
         delay: -1.5,
         duration: 1,
@@ -60,20 +59,22 @@ export default Vue.extend({
         stagger: 0.2,
         scale: 1.04,
         rotate: -3,
-        ease: Power1.easeInOut
-      }).from('.content', {
-        duration: 1,
-        top: 80,
-        opacity: 0,
-        ease: Elastic.easeOut.config(1.2, 1)
+        ease: AnimationService.easing.power1.easeInOut
+      }).from('.loader-header-cover', {
+        delay: -0.5,
+        duration: 2.5,
+        top: 0,
+        ease: AnimationService.easing.power1.easeOut
       }).to('.loader-cover', {
+        delay: -1.3,
         duration: 1,
-        top: -100,
-        ease: Power1.easeOut
+        bottom: 0,
+        ease: AnimationService.easing.power1.easeOut
       }).to('.disappear', {
-        y: 2000,
-        ease: Power3.easeInOut,
-        stagger: 0.3
+        delay: -0.3,
+        y: -2000,
+        ease: AnimationService.easing.power3.easeInOut,
+        stagger: 0.5
       })
   }
 });
@@ -94,12 +95,12 @@ export default Vue.extend({
     z-index: 10;
 
     &-cover {
-      top: 2500px;
+      bottom: 2500px;
       position: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
-      bottom: 0;
+      top: 0;
       left: 0;
       right: 0;
       z-index: 11;
@@ -132,8 +133,8 @@ export default Vue.extend({
         height: 50vh;
 
         @media ($mobile) {
-          width: 40vh;
-          height: 40vh;
+          width: 30vh;
+          height: 30vh;
         }
       }
     }
@@ -144,15 +145,15 @@ export default Vue.extend({
 
     &-header {
       position: relative;
-      height: 70px;
-      overflow: hidden;
       text-align: right;
+      overflow: hidden;
 
-      .content {
+      &-cover {
         position: absolute;
-        top: 0;
+        top: 150px;
         width: 100%;
-        right: 0;
+        height: 100%;
+        background-color: $white;
       }
     }
   }

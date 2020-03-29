@@ -1,5 +1,8 @@
 import Vue from 'vue';
 
+// abstract
+import IntersectionObserver from '@/components/common/abstract/IntersectionObserver.vue';
+
 // Local Components
 import AngleButton from './AngleButton/AngleButton.vue';
 import BigHeading from '@/components/common/BigHeading/BigHeading.vue';
@@ -17,7 +20,9 @@ const components: { [key: string]: {} } = {
   CoverLoader,
   Date,
   SvgIcon,
-  NumberedStep
+  NumberedStep,
+
+  IntersectionObserver
 };
 
 Object.keys(components).forEach(componentName =>
