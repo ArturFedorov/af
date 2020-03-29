@@ -4,7 +4,9 @@
     <Header />
     <div class="main grid">
       <div class="main-left grid-left"></div>
-      <div class="main-content grid-main">
+      <div
+        ref="content"
+        class="main-content grid-main">
         <router-view />
         <Footer
           class="main-footer"

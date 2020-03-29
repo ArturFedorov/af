@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import {Routes} from '@/router';
 export const routeWatcher = Vue.extend({
   data() {
     return {
@@ -17,6 +18,10 @@ export const routeWatcher = Vue.extend({
   watch: {
     '$route' (to) {
       this.activeRoute = to.name;
+      const exceptions = [Routes.YEAR];
+      if(this.$refs.content && !exceptions.includes(to.name)) {
+        (this.$refs.content as Element).scrollTop = 0;
+      }
     }
   }
 });
