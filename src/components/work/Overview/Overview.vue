@@ -84,7 +84,7 @@ export default Vue.extend({
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding-left: 2em;
 
-    @media ($mobile) {
+    @media ($tablet) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -120,7 +120,7 @@ export default Vue.extend({
         text-align: right;
       }
 
-      @media ($mobile) {
+      @media ($tablet) {
         display: none;
       }
     }
