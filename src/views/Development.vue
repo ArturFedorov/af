@@ -1,7 +1,8 @@
 <template>
   <div class="development">
     <BigHeading
-      colorHint="is-black">
+      colorHint="is-black"
+      :class="{'is-white' : showLoader}">
       <template slot="first-word">Dev</template>
       <template slot="second-word">Projects</template>
     </BigHeading>
@@ -10,8 +11,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {routeWatcher} from '@/shared/mixins/route-watch.mixin';
+import {loaderMixin} from '@/shared/mixins/loader.mixin';
 export default Vue.extend({
-  name: 'Development'
+  name: 'Development',
+  mixins: [routeWatcher, loaderMixin]
 });
 </script>
 

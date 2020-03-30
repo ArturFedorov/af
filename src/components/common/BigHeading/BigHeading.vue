@@ -53,14 +53,19 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .heading {
+    position: relative;
+    z-index: 3;
+
     &-header {
       line-height: 100%;
       position: relative;
+      transition: color 0.5s;
       @include fluid-type($min_width, $max_width, $font-size-h1, $font-size-h0);
 
       &-h2 {
         margin: 1em 0;
         padding-left: 10px;
+        transition: color 0.2s;
         @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
 
         @media ($mobile) {
@@ -74,6 +79,16 @@ export default Vue.extend({
     &-date {
       display: flex;
       justify-content: flex-end;
+    }
+
+    &.is-white {
+      .heading-header {
+        color: $white;
+
+        &-h2 {
+          color: $white;
+        }
+      }
     }
   }
 

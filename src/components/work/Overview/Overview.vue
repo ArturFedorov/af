@@ -68,6 +68,7 @@ import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
   mounted(): void {
     AnimationService.tweenLite.from('.animate', {
+      delay: 1,
       duration: 1.5,
       opacity: 0,
       y: 20,
