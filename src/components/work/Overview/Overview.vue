@@ -96,6 +96,8 @@ export default Vue.extend({
     &-steps {
       grid-column: 1 / 3;
       padding: 1em 0;
+      position: relative;
+      z-index: 5;
 
       &-content {
         display: grid;
