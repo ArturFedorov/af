@@ -1,6 +1,11 @@
 <template>
   <div id="app" class="app">
     <Loader :color="classRouteMap[activeRoute]"/>
+    <PageLoader
+      :class="{'is-top-z' : showLoader}"
+      :color="classRouteMap[activeRoute]"
+      :startAnimation="showLoader"
+      @end-animation="hideLoader"/>
     <Header />
     <div class="main grid">
       <div class="main-left grid-left"></div>
@@ -25,18 +30,21 @@
 import Vue from 'vue';
 import Header from './components/root/Header.vue';
 import Loader from '@/components/root/Loader.vue';
+import PageLoader from '@/components/root/PageLoader.vue';
 import Navigation from './components/root/Navigation.vue';
 import Footer from './components/root/Footer.vue';
 import {routeWatcher} from '@/shared/mixins/route-watch.mixin';
+import {loaderMixin} from '@/shared/mixins/loader.mixin';
 export default Vue.extend({
   name: 'App',
   components: {
     Header,
     Loader,
+    PageLoader,
     Footer,
     Navigation
   },
-  mixins: [routeWatcher]
+  mixins: [routeWatcher, loaderMixin]
 });
 </script>
 <style lang="scss">

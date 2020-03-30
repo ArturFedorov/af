@@ -80,7 +80,7 @@ export default Vue.extend({
     AnimationService.gsap.set('.animate', {
       duration: 1.5,
       opacity: 0,
-      y: 50
+      y: 30
     });
 
   },

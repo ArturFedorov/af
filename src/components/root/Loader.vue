@@ -75,7 +75,7 @@ export default Vue.extend({
         y: -2000,
         ease: AnimationService.easing.power3.easeInOut,
         stagger: 0.5
-      })
+      });
   }
 });
 </script>

@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import {Routes} from '@/router';
+import {SET_SHOW_LOADER} from '@/store/ui';
 export const routeWatcher = Vue.extend({
   data() {
     return {
       activeRoute: '',
+      showPageTransition: false,
       classRouteMap: {
         Home: 'initial',
         Work: 'is-blue',
@@ -17,6 +19,10 @@ export const routeWatcher = Vue.extend({
   },
   watch: {
     '$route' (to) {
+      if(this.activeRoute !== to.name) {
+        this.$store.commit(SET_SHOW_LOADER, true);
+      }
+
       this.activeRoute = to.name;
       const exceptions = [Routes.YEAR];
       if(this.$refs.content && !exceptions.includes(to.name)) {
