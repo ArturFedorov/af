@@ -169,13 +169,17 @@ export default Vue.extend({
     }
 
     &-four {
-      background: $black center url('../assets/images/profile.png') no-repeat;
+      background: $black bottom url('../assets/images/profile.png') no-repeat;
       background-size: cover;
     }
 
     &-number {
       opacity: 0.1;
       margin-bottom: 5em;
+
+      @media ($desktop) {
+        margin-bottom: 4em;
+      }
 
       @media ($tablet) {
         margin-bottom: 8em;

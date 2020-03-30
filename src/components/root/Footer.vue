@@ -63,6 +63,14 @@ export default Vue.extend({
     box-sizing: border-box;
 
     &-logo {
+      @media ($desktop) {
+        margin-right: 1em;
+
+        .svg-icon {
+          width: 200px;
+        }
+      }
+
       @media ($tablet) {
         display: none;
       }
@@ -76,6 +84,10 @@ export default Vue.extend({
     &-link {
       min-width: 170px;
       text-align: center;
+      @media ($tablet) {
+        min-width: auto;
+        margin-right: 10px;
+      }
 
       @media ($mobile) {
         text-align: left;
@@ -83,10 +95,6 @@ export default Vue.extend({
       }
 
       &:not(:first-child) {
-        @media ($tablet) {
-          margin-left: 15px;
-        }
-
         @media ($mobile) {
           margin-left: 0;
         }
@@ -98,7 +106,7 @@ export default Vue.extend({
       margin-left: auto;
       align-items: center;
 
-      @media ($tablet) {
+      @media ($desktop) {
         width: 100%;
         margin-left: 0;
       }
@@ -119,7 +127,7 @@ export default Vue.extend({
       &-email {
         margin-left: $footer-height;
 
-        @media ($tablet) {
+        @media ($desktop) {
           margin-left: auto;
         }
 
