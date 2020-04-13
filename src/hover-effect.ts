@@ -1,3 +1,4 @@
+/* eslint-disable */
 declare module 'hover-effect' {
   export = hover.hoverEffect;
 }
@@ -8,7 +9,8 @@ declare namespace hover {
     intensity: number,
     image1: any,
     image2: any,
-    displacementImage: any
+    displacementImage: any,
+    imagesRatio: number
   }
 
   class hoverEffect {

@@ -1,24 +1,47 @@
 
-@mixin font-face($fontWeight, $fontSize, $fontFamily: $font-family) {
+@mixin font-face($fontWeight, $fontSize, $fontFamily: $font-family, $fontStyle: normal) {
   font-family: $fontFamily, sans-serif;
   font-weight: $fontWeight;
-  font-style: normal;
+  font-style: $fontStyle;
   font-size: $fontSize;
 }
 
 .h0 {
   @include font-face($font-light, $font-size-h0-max, $font-family-bold);
-  @include fluid-type($min_width, $max_width, $font-size-h0-min, $font-size-h0-max);
+
+  @media ($wide-desktop) {
+    font-size: 200px;
+  }
+
+  @media ($desktop) {
+    font-size: 183px;
+  }
+
+  @media ($tablet) {
+    font-size: 124px;
+  }
+
+  @media ($mobile) {
+    font-size: 124px;
+  }
 }
 
 h1,
 .h1 {
-  @include font-face($font-bold, $font-size-h1);
-  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
+  @include font-face($font-bold, $font-size-h1-max);
+  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1-max);
+}
+
+h3 {
+  @include font-face($font-regular, $font-size-h3);
+  @include fluid-type($min_width, $max_width, $font-size-h3-min, $font-size-h3);
 }
 
 .h1-italic {
-  font-family: baskerville-poster-pt, serif;
-  font-weight: $font-light;
-  font-style: italic;
+  @include font-face($font-light, $font-size-h1-max, baskerville-poster-pt, italic);
+  @include fluid-type($min_width, $max_width, $font-size-h1-min, $font-size-h1-max);
+}
+
+.is-white-text {
+  color: $white;
 }

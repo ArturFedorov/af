@@ -1,6 +1,12 @@
 <template>
-  <div class="header grid">
-
+  <div class="header">
+    <a class="header-link">
+      <SvgIcon
+        class="header-icon"
+        name="menu"
+        width="40"
+        height="40"/>
+    </a>
   </div>
 </template>
 <script lang="ts">
@@ -14,5 +20,13 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
   .header {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-icon {
+      stroke: $black;
+    }
   }
 </style>

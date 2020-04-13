@@ -1,14 +1,12 @@
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 import Home from '../views/Home.vue';
-import Years from '@/components/work/Years/Years.vue';
-import YearPage from '@/components/work/YearPage/YearPage.vue';
 
 Vue.use(VueRouter);
 
 export enum Routes {
   HOME = 'Home',
-  WORK = 'Work',
+  PROJECTS = 'Projects',
   CONTACT = 'Contact',
   DESIGN = 'Design',
   DEVELOPMENT = 'Development',
@@ -23,6 +21,11 @@ const routes: RouteConfig[] = [
     path: '/',
     name: Routes.HOME,
     component: Home
+  },
+  {
+    path: '/projects',
+    name: Routes.PROJECTS,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Projects.vue')
   }
 ];
 

@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
+  grid-template-rows: repeat(8, minmax(80px, auto));
+
+  @media ($tablet) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(80px, 1fr));
+  }
+
+  @media ($mobile) {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(80px, 1fr));
+  }
+}
