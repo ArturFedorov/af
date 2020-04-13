@@ -23,42 +23,6 @@ const routes: RouteConfig[] = [
     path: '/',
     name: Routes.HOME,
     component: Home
-  },
-  {
-    path: '/work',
-    name: Routes.WORK,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Work.vue'),
-    redirect: {name: Routes.YEARS},
-    children: [{
-      path: 'years',
-      name: Routes.YEARS,
-      components: {
-        work: Years
-      }
-    },
-    {
-      path: 'years/:id',
-      name: Routes.YEAR,
-      components: {
-        work: YearPage
-      },
-      props: { work: true},
-    }]
-  },
-  {
-    path: '/development',
-    name: Routes.DEVELOPMENT,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Development.vue')
-  },
-  {
-    path: '/design',
-    name: Routes.DESIGN,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Design.vue')
-  },
-  {
-    path: '/contact',
-    name: Routes.CONTACT,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Contact.vue')
   }
 ];
 
