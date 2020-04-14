@@ -1,112 +1,47 @@
 
-@mixin font-face($fontWeight, $fontSize) {
-  font-family: $font-family, sans-serif;
+@mixin font-face($fontWeight, $fontSize, $fontFamily: $font-family, $fontStyle: normal) {
+  font-family: $fontFamily, sans-serif;
   font-weight: $fontWeight;
-  font-style: normal;
+  font-style: $fontStyle;
   font-size: $fontSize;
 }
 
 .h0 {
-  @include font-face($font-bold, $font-size-h0);
-  @include fluid-type($min_width, $max_width, 100px, $font-size-h0);
+  @include font-face($font-light, $font-size-h0-max, $font-family-bold);
+
+  @media ($wide-desktop) {
+    font-size: 200px;
+  }
+
+  @media ($desktop) {
+    font-size: 183px;
+  }
+
+  @media ($tablet) {
+    font-size: 124px;
+  }
+
+  @media ($mobile) {
+    font-size: 124px;
+  }
 }
 
 h1,
 .h1 {
-  @include font-face($font-bold, $font-size-h1);
-  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
+  @include font-face($font-bold, $font-size-h1-max);
+  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1-max);
 }
 
-h2,
-.h2 {
-  @include font-face($font-bold, $font-size-h2);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h2);
+h3 {
+  @include font-face($font-regular, $font-size-h3);
+  @include fluid-type($min_width, $max_width, $font-size-h3-min, $font-size-h3);
 }
 
-h3,
-.h3 {
-  @include font-face($font-bold, $font-size-h3);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
+.h1-italic {
+  @include font-face($font-light, $font-size-h1-max, baskerville-poster-pt, italic);
+  @include fluid-type($min_width, $max_width, $font-size-h1-min, $font-size-h1-max);
 }
 
-.h3-light {
-  @include font-face($font-light, $font-size-h3);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
-}
-
-.h3-thin {
-  @include font-face($font-thin, $font-size-h3);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-h3);
-}
-
-.h4-bold {
-  @include font-face($font-bold, $font-size-base);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
-}
-
-.h4-light {
-  @include font-face($font-light, $font-size-base);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
-}
-
-div,
-p {
-  @include font-face($font-light, $font-size-base);
-}
-
-.p-body {
-  @include font-face($font-light, $font-size-small);
-  @include fluid-type($min_width, $max_width, $font-size-caption, $font-size-small);
-}
-
-.caption {
-  @include font-face($font-thin, $font-size-caption);
-}
-
-
-h1.is-red,
-h2.is-red,
-h3.is-red,
-p.is-red,
-span.is-red {
-  color: $red;
-}
-
-h1.is-white,
-h2.is-white,
-h3.is-white,
-p.is-white,
-span.is-white,
-a.is-white {
+.is-white-text {
   color: $white;
-}
-
-h1.is-blue,
-h2.is-blue,
-h3.is-blue,
-p.is-blue,
-span.is-blue {
-  color: $blue;
-}
-
-h1.is-purple,
-h2.is-purple,
-h3.is-purple,
-p.is-purple,
-span.is-purple {
-  color: $purple;
-}
-
-h1.is-orange,
-h2.is-orange,
-h3.is-orange,
-p.is-orange,
-span.is-orange {
-  color: $orange;
-}
-
-div.is-bold,
-p.is-bold,
-span.is-bold {
-  font-weight: $font-bold;
 }

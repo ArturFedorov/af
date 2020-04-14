@@ -1,26 +1,16 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
+  grid-template-rows: repeat(8, minmax(80px, auto));
 
-  &-left {
-    grid-column: 1 / 1;
-    border-right: $border;
-
-    @media($tablet) {
-      grid-area: 0 / 0;
-    }
+  @media ($tablet) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(80px, 1fr));
   }
 
-  &-main {
-    grid-column: 2 / 12;
-
-    @media($tablet) {
-      grid-column: 1 / 12;
-    }
-  }
-
-  &-right {
-    grid-column: 12 / 13;
-    border-left: $border;
+  @media ($mobile) {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(80px, 1fr));
   }
 }

@@ -30,16 +30,22 @@ $border: 1px solid $gray;
 $transition-duration-default: 0.3s;
 
 // Typography
+$font_path: '/fonts/';
 $font-family: 'neue-haas-grotesk-display';
+$font-family-bold: 'art';
+
 
 // font-size
 $font-size-base: 18px;
 $font-size-small: 16px;
 $font-size-caption: 12px;
-$font-size-h0: 259px;
-$font-size-h1: 64px;
+$font-size-h0-max: 237px;
+$font-size-h0-min: 124px;
+$font-size-h1-max: 64px;
+$font-size-h1-min: 28px;
 $font-size-h2: 48px;
-$font-size-h3: 24px;
+$font-size-h3: 36px;
+$font-size-h3-min: 30px;
 
 // line-height
 $line-height-base: 1.2;
@@ -55,7 +61,6 @@ $font-ultra: 900;
 // media queries
 $mobile: 'max-width: 767px';
 $tablet: 'max-width: 1024px';
-$tablet-small: 'max-width: 1024px';
 $desktop: 'max-width: 1366px';
 $wide-desktop: 'max-width: 1499px';
 $large-desktop: 'max-width: 1799px';
