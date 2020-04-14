@@ -5,6 +5,7 @@ import IntersectionObserver from '@/components/common/abstract/IntersectionObser
 
 // Local Components
 import BigHeading from '@/components/common/BigHeading/BigHeading.vue';
+import ImageCover from '@/components/common/ImageCover/ImageCover.vue';
 import SvgIcon from './SvgIcon/SvgIcon.vue';
 
 // Filters
@@ -12,6 +13,7 @@ import leadingZero from './filter/lead-zero.filter';
 
 const components: { [key: string]: {} } = {
   BigHeading,
+  ImageCover,
   SvgIcon,
   IntersectionObserver
 };

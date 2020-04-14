@@ -4,31 +4,20 @@
       <h1 class="h0 home-header">Artur Fedorov</h1>
       <h1 class="h1-italic home-subheader">Designer | Developer</h1>
     </div>
-    <div class="distortion home-content is-center"></div>
-    <div class="home-text">
-      <h3><span class="is-white-text">Hello</span>, I am Artur Fedorov</h3>
-      <h3 class="is-reversed">developer/designer from</h3>
-      <h3>Saint-Petersburg. Seeking</h3>
-      <h3 class="is-reversed">for new challenges.</h3>
+    <ImageCover class="distortion home-content" />
+    <div class="home-caption">
+      <h3 class="home-caption-text is-white">Hello I am Artur Fedorov</h3>
+      <h3 class="home-caption-text">developer/designer</h3>
+      <h3 class="home-caption-text is-white">from Saint-Petersburg.</h3>
+      <h3 class="home-caption-text">Seeking for new challenges.</h3>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import hoverEffect from 'hover-effect';
 export default Vue.extend({
-  name: 'Home',
-  mounted(): void {
-    new hoverEffect({
-      parent: document.querySelector('.distortion'),
-      intensity: 0.2,
-      image1: require('../assets/images/pink-rect.png'),
-      image2: require('../assets/images/blue-rect.png'),
-      displacementImage: require('../assets/images/heightMap.png'),
-      imagesRatio: 1.1
-    });
-  }
+  name: 'Home'
 });
 </script>
 <style lang="scss" scoped>
@@ -42,7 +31,7 @@ export default Vue.extend({
       white-space: nowrap;
       width: 100%;
       @media ($tablet) {
-        grid-area: 3 / 1 / 5 / 2;
+        grid-area: 2 / 1 / 4 / 2;
       }
 
       @media ($mobile) {
@@ -51,10 +40,10 @@ export default Vue.extend({
     }
 
     &-content {
-      grid-area: 2 / 3 / 9 / 5;
+      grid-area: 1 / 3 / 7 / 5;
 
       @media ($tablet) {
-        grid-area: 2 / 2 / 8 / 5;
+        grid-area: 1 / 2 / 7 / 5;
       }
 
       @media ($mobile) {
@@ -62,31 +51,46 @@ export default Vue.extend({
       }
     }
 
-    &-text {
-      grid-area: 8 / 4 / 10 / 6;
+    &-caption {
+      grid-area: 6 / 4 / 8 / 6;
       z-index: 1;
 
       @media ($tablet) {
-        grid-area: 7 / 2 / 10 / 5;
+        grid-area: 6 / 2 / 10 / 5;
       }
 
       @media ($mobile) {
-        grid-area: 7 / 1 / 10 / 4;
+        grid-area: 7 / 1 / 8 / 2;
       }
 
-      .is-reversed {
+      &-text {
         color: $white;
         position: relative;
+        margin-bottom: 5px;
 
         &:after {
           z-index: -1;
           position: absolute;
           height: 100%;
-          width: 70%;
+          width: 80%;
           left: -10px;
           content: '';
           padding: 3px 10px;
           background-color: $black;
+
+          @media ($mobile) {
+            width: 100%;
+          }
+        }
+
+        &.is-white {
+          color: $black;
+          margin-left: 50px;
+
+          &:after {
+            background-color: $white;
+            opacity: 0.7;
+          }
         }
       }
     }

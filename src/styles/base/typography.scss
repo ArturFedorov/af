@@ -22,7 +22,7 @@
   }
 
   @media ($mobile) {
-    font-size: 124px;
+    font-size: 114px;
   }
 }
 
@@ -30,6 +30,12 @@ h1,
 .h1 {
   @include font-face($font-bold, $font-size-h1-max);
   @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1-max);
+}
+
+h2,
+.h2 {
+  @include font-face($font-light, $font-size-h2-max, $font-family-bold);
+  @include fluid-type($min_width, $max_width, $font-size-h2-min, $font-size-h2-max);
 }
 
 h3 {
@@ -40,6 +46,11 @@ h3 {
 .h1-italic {
   @include font-face($font-light, $font-size-h1-max, baskerville-poster-pt, italic);
   @include fluid-type($min_width, $max_width, $font-size-h1-min, $font-size-h1-max);
+}
+
+.p-italic {
+  @include font-face($font-light, $font-size-base, baskerville-poster-pt, italic);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
 }
 
 .is-white-text {
