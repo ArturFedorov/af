@@ -73,12 +73,10 @@ export default Vue.extend({
       duration: 1.3,
       delay: -0.5,
       y: -40,
-      x: 10,
+      x: 20,
       opacity: 0,
       scaleY: 0.8,
-      stagger: 0.1,
-      rotationX: 50,
-      rotationY: 20
+      stagger: 0.1
     })
   }
 });
