@@ -39,13 +39,17 @@ export default Vue.extend({
   },
   methods: {
     rotate3d(x: number, y: number) {
-      AnimationService.gsap.set('.home', {
-        perspective: 1000
-      })
+      this.setPerspective(1000);
       AnimationService.tweenLite.to('.home-content', {
         rotateX: x,
-        rotateY: y
+        rotateY: y,
+        onComplete: () => this.setPerspective(0)
       })
+    },
+    setPerspective(perspective: number) {
+      AnimationService.gsap.set('.home', {
+        perspective: perspective
+      });
     }
   }
 });
