@@ -11,7 +11,7 @@
         height="40"/>
       <SvgIcon
         v-if="showNavigation"
-        class="header-icon-close"
+        class="header-icon header-icon-close"
         name="close"
         width="40"
         height="40"/>
