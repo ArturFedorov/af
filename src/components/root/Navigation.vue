@@ -75,10 +75,9 @@ export default Vue.extend({
     }).from('.navigation-item,  .navigation-image', {
       duration: 1.3,
       delay: -0.5,
-      y: -10,
-      x: 15,
+      y: 30,
       opacity: 0,
-      stagger: 0.2
+      stagger: 0.3
     })
   }
 });

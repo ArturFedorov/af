@@ -38,11 +38,11 @@ export default Vue.extend({
   },
   mounted(): void {
     AnimationService.tweenLite.from('.projects-link', {
-      duration: 1.5,
+      duration: 2,
       opacity: 0,
-      stagger: 0.09,
+      stagger: 0.2,
       y: 1050,
-      ease: AnimationService.easing.power1.easeOut
+      ease: AnimationService.easing.power1.easeInOut
     });
   },
   methods: {

@@ -4,7 +4,10 @@
       <h1 class="h0 home-header text">Artur Fedorov</h1>
       <h1 class="h1-italic home-subheader text">Designer | Developer</h1>
     </div>
-    <ImageCover class="home-content" />
+    <ImageCover
+      class="home-content"
+      @mouseenter="rotate3d(-20, 10, 1.1)"
+      @mouseleave="rotate3d(0, 0, 1)"/>
     <div class="home-caption">
       <h3 class="home-caption-text is-white">Hello I am Artur Fedorov</h3>
       <h3 class="home-caption-text">developer/designer</h3>
@@ -33,6 +36,15 @@ export default Vue.extend({
       }).from('.home-content', {
         opacity: 0
       })
+  },
+  methods: {
+    rotate3d(x: number, y: number, scale: number) {
+      AnimationService.tweenLite.to('.home-content', {
+        rotateX: x,
+        rotateY: y,
+        scale: scale
+      })
+    }
   }
 });
 </script>
@@ -57,6 +69,7 @@ export default Vue.extend({
 
     &-content {
       grid-area: 1 / 3 / 7 / 5;
+      transform-style: preserve-3d;
 
       @media ($tablet) {
         grid-area: 1 / 2 / 7 / 5;

@@ -1,5 +1,8 @@
 <template>
-  <div ref="image" class="image"></div>
+  <div
+    ref="image" class="image"
+    @mouseenter="$emit('mouseenter')"
+    @mouseleave="$emit('mouseleave')"></div>
 </template>
 
 <script lang="ts">
