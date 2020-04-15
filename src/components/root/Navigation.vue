@@ -4,8 +4,7 @@
       <p class="p-italic navigation-item-caption is-white-text">01</p>
       <router-link
         to="/"
-        class="h2 navigation-item-text is-white-text"
-        @click="closeNavigation">
+        class="h2 navigation-item-text is-white-text">
         Home
       </router-link>
     </div>
@@ -81,11 +80,6 @@ export default Vue.extend({
       opacity: 0,
       stagger: 0.2
     })
-  },
-  methods: {
-    closeNavigation () {
-      console.log('hello');
-    }
   }
 });
 </script>
