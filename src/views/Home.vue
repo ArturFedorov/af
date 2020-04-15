@@ -30,9 +30,9 @@ export default Vue.extend({
         opacity: 0,
         stagger: 0.2,
         y: 20
-    }).from('.home-content', {
-      opacity: 0
-    })
+      }).from('.home-content', {
+        opacity: 0
+      })
   }
 });
 </script>

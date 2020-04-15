@@ -11,7 +11,7 @@
         <p
           class="h1-italic is-capitalized"
           @mouseenter="addBackground(project.url)"
-          @mouseleave="removeImage(project.url)">
+          @mouseleave="removeImage">
           {{project.name}}
         </p>
       </a>
@@ -61,7 +61,7 @@ export default Vue.extend({
 
       this.listHovered = true;
     },
-    removeImage(url: string) {
+    removeImage() {
       AnimationService.tweenLite.fromTo('.projects-bg', {
         opacity: 1,
         scale: 1,
