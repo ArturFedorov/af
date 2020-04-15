@@ -6,8 +6,8 @@
     </div>
     <ImageCover
       class="home-content"
-      @mouseenter="rotate3d(-20, 10, 1.1)"
-      @mouseleave="rotate3d(0, 0, 1)"/>
+      @mouseenter="rotate3d(-10, 10)"
+      @mouseleave="rotate3d(0, 0)"/>
     <div class="home-caption">
       <h3 class="home-caption-text is-white">Hello I am Artur Fedorov</h3>
       <h3 class="home-caption-text">developer/designer</h3>
@@ -38,11 +38,13 @@ export default Vue.extend({
       })
   },
   methods: {
-    rotate3d(x: number, y: number, scale: number) {
+    rotate3d(x: number, y: number) {
+      AnimationService.gsap.set('.home', {
+        perspective: 1000
+      })
       AnimationService.tweenLite.to('.home-content', {
         rotateX: x,
-        rotateY: y,
-        scale: scale
+        rotateY: y
       })
     }
   }
