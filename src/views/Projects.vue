@@ -28,11 +28,11 @@ export default Vue.extend({
     return {
       listHovered: false,
       projects:  [
-        {name: 'feix', url: 'feix-horizontal.png'},
+        {name: 'feix', url: 'feix-horizontal.jpeg'},
         {name: 'one2', url: 'one2.png'},
         {name: 'elena krasnenko', url: 'elena.png'},
         {name: 'ice 9', url: 'ice.png'},
-        {name: 'Fonts', url: 'feix-horizontal.png'}
+        {name: 'Fonts', url: 'feix-horizontal.jpeg'}
       ]
     }
   },
