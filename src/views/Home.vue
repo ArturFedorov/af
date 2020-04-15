@@ -1,10 +1,10 @@
 <template>
   <div class="home grid">
     <div class="home-heading">
-      <h1 class="h0 home-header">Artur Fedorov</h1>
-      <h1 class="h1-italic home-subheader">Designer | Developer</h1>
+      <h1 class="h0 home-header text">Artur Fedorov</h1>
+      <h1 class="h1-italic home-subheader text">Designer | Developer</h1>
     </div>
-    <ImageCover class="distortion home-content" />
+    <ImageCover class="home-content" />
     <div class="home-caption">
       <h3 class="home-caption-text is-white">Hello I am Artur Fedorov</h3>
       <h3 class="home-caption-text">developer/designer</h3>
@@ -16,8 +16,24 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
-  name: 'Home'
+  name: 'Home',
+  mounted(): void {
+    AnimationService.gsap.timeline({duration: 1})
+      .from('.text', {
+        x: -25,
+        opacity: 0,
+        stagger: 0.2
+      }).from('.home-caption h3', {
+        delay: -0.5,
+        opacity: 0,
+        stagger: 0.2,
+        y: 20
+      }).from('.home-content', {
+        opacity: 0
+      })
+  }
 });
 </script>
 <style lang="scss" scoped>
@@ -94,9 +110,5 @@ export default Vue.extend({
         }
       }
     }
-  }
-
-  .distortion {
-
   }
 </style>

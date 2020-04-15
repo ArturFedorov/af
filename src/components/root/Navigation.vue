@@ -4,12 +4,14 @@
       <p class="p-italic navigation-item-caption is-white-text">01</p>
       <router-link
         to="/"
-        class="h2 navigation-item-text is-white-text">Home</router-link>
+        class="h2 navigation-item-text is-white-text">
+        Home
+      </router-link>
     </div>
 
-    <div class="navigation-item is-two">
+    <div class="navigation-item is-three">
       <div class="navigation-item-content">
-        <p class="p-italic navigation-item-caption is-white-text">02</p>
+        <p class="p-italic navigation-item-caption is-white-text">03</p>
         <a class="h2 navigation-item-text is-white-text">About Me</a>
       </div>
       <div class="navigation-item-secondary">
@@ -17,10 +19,12 @@
       </div>
     </div>
 
-    <div class="navigation-item is-three">
+    <div class="navigation-item is-two">
       <div class="navigation-item-content">
-        <p class="p-italic navigation-item-caption is-white-text">03</p>
-        <a class="h2 navigation-item-text is-white-text">Projects</a>
+        <p class="p-italic navigation-item-caption is-white-text">02</p>
+        <router-link
+          to="/projects"
+          class="h2 navigation-item-text is-white-text">Projects</router-link>
       </div>
       <div class="navigation-item-secondary">
         <p class="p-italic is-white-text">Development experience</p>
@@ -68,15 +72,13 @@ export default Vue.extend({
     timeline.from('.navigation', {
       duration: 0.5,
       opacity: 0
-      // scaleY: 0.2
     }).from('.navigation-item,  .navigation-image', {
       duration: 1.3,
       delay: -0.5,
-      y: -40,
-      x: 20,
+      y: -10,
+      x: 15,
       opacity: 0,
-      scaleY: 0.8,
-      stagger: 0.1
+      stagger: 0.2
     })
   }
 });
@@ -86,6 +88,8 @@ export default Vue.extend({
   .navigation {
     background-color: $black;
     transform-origin: right top;
+    height: 100vh;
+    overflow-y: scroll;
 
     &-item {
       display: flex;
@@ -131,7 +135,7 @@ export default Vue.extend({
       }
 
       &.is-two {
-        grid-area: 3 / 9 / 4 / 10;
+        grid-area: 3 / 5 / 4 / -1;
 
         @media ($tablet) {
           grid-area: 3 / 8 / 4 / 9;
@@ -143,7 +147,7 @@ export default Vue.extend({
       }
 
       &.is-three {
-        grid-area: 4 / 4 / 5 / 5;
+        grid-area: 4 / 3 / 5 / -1;
 
         @media ($tablet) {
           grid-area: 4 / 5 / 5 / 6;
@@ -155,7 +159,7 @@ export default Vue.extend({
       }
 
       &.is-four {
-        grid-area: 5 / 5 / 6 / 6;
+        grid-area: 5 / 4 / 6 / -1;
 
         @media ($tablet) {
           grid-area: 5 / 8 / 6 / 9;
@@ -177,7 +181,7 @@ export default Vue.extend({
       &.is-bottom-right {
         align-items: flex-end;
         justify-content: flex-end;
-        grid-area: 7 / 9 / 8 / 10;
+        grid-area: 7 / 5 / 8 / -1;
 
         @media ($tablet) {
           grid-area: 7 / 8 / 8 / 9;
@@ -190,10 +194,10 @@ export default Vue.extend({
     }
 
     &-image {
-      grid-area: 4 / 1 / 6 / 2;
+      grid-area: 4 / 1 / 7 / 2;
 
       @media ($tablet) {
-        grid-area: 4 / 1 / 6 / 5;
+        grid-area: 4 / 1 / 7 / 5;
         z-index: -1;
         min-width: 250px;
       }
