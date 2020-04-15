@@ -10,9 +10,9 @@
       </router-link>
     </div>
 
-    <div class="navigation-item is-two">
+    <div class="navigation-item is-three">
       <div class="navigation-item-content">
-        <p class="p-italic navigation-item-caption is-white-text">02</p>
+        <p class="p-italic navigation-item-caption is-white-text">03</p>
         <a class="h2 navigation-item-text is-white-text">About Me</a>
       </div>
       <div class="navigation-item-secondary">
@@ -20,10 +20,12 @@
       </div>
     </div>
 
-    <div class="navigation-item is-three">
+    <div class="navigation-item is-two">
       <div class="navigation-item-content">
-        <p class="p-italic navigation-item-caption is-white-text">03</p>
-        <a class="h2 navigation-item-text is-white-text">Projects</a>
+        <p class="p-italic navigation-item-caption is-white-text">02</p>
+        <router-link
+          to="/projects"
+          class="h2 navigation-item-text is-white-text">Projects</router-link>
       </div>
       <div class="navigation-item-secondary">
         <p class="p-italic is-white-text">Development experience</p>
@@ -74,10 +76,9 @@ export default Vue.extend({
     }).from('.navigation-item,  .navigation-image', {
       duration: 1.3,
       delay: -0.5,
-      y: -20,
-      x: 20,
+      y: -10,
+      x: 15,
       opacity: 0,
-      scaleX: 0.8,
       stagger: 0.2
     })
   },

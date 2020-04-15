@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="app">
-    <custom-cursor
-      :targets="['CANVAS', 'a', 'button', 'svg', 'use', 'SVGAnimatedString']"
-      :circleColor="'#A009F0'"
-      :circleColorHover="'#A009F0'"
-      :dotColorHover="'#A009F0'"
-      :hoverSize="1.8"></custom-cursor>
+<!--    <custom-cursor-->
+<!--      :targets="['CANVAS', 'a', 'button', 'svg', 'use', 'SVGAnimatedString']"-->
+<!--      :circleColor="'#A009F0'"-->
+<!--      :circleColorHover="'#A009F0'"-->
+<!--      :dotColorHover="'#A009F0'"-->
+<!--      :hoverSize="1.8"></custom-cursor>-->
     <Loader v-if="false"/>
     <Header />
     <Navigation v-if="showNavigation"/>
