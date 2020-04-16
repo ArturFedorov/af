@@ -5,3 +5,9 @@
   src: url($font_path + 'Art-Regular.woff2') format('woff2'), url($font_path + 'Art-Regular.woff') format('woff');
 }
 
+@font-face {
+  font-family: $font-family-italic;
+  font-style: italic;
+  font-weight: $font-light;
+  src: url($font_path + 'SaolDisplay-RegularItalic.woff2') format('woff2');
+}
