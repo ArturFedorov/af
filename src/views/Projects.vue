@@ -1,20 +1,50 @@
 <template>
-  <div class="projects">
-    <div ref="bg" class="projects-bg with-margin"></div>
-    <div class="projects-content">
-      <a
-        class="projects-link"
-        :class="{'hovered': listHovered}"
-        v-for="(project, index) in projects"
-        :key="project.name">
-        <span class="h1-italic is-capitalized projects-index">{{index + 1 | leadingZero}}</span>
-        <p
-          class="h1-italic is-capitalized"
-          @mouseenter="addBackground(project.url)"
-          @mouseleave="removeImage">
-          {{project.name}}
-        </p>
-      </a>
+  <div class="projects cover">
+    <div class="projects-header">
+      <div class="projects-items">
+        <div class="projects-item">
+          <SvgIcon name="exp1"/>
+        </div>
+        <div class="projects-item">
+          <SvgIcon name="exp2"/>
+        </div>
+        <div class="projects-item">
+          <SvgIcon name="exp3"/>
+        </div>
+        <div class="projects-item">
+          <SvgIcon name="exp4"/>
+        </div>
+      </div>
+    </div>
+    <div class="projects-links">
+      <div class="projects-link-wrapper is-first">
+        <NumberStep class="projects-link">
+          <template slot="text">
+            Development
+          </template>
+          <template slot="caption">
+            Check out developer carier
+          </template>
+        </NumberStep>
+        <a
+          class="p is-white-text projects-link-button is-top"
+          @click="goTo(Routes.DESIGN_PROJECTS)">
+          Check it up
+        </a>
+      </div>
+      <div class="projects-link-wrapper is-last">
+        <a class="p is-white-text projects-link-button is-bottom">
+          Check it up
+        </a>
+        <NumberStep class="projects-link">
+          <template slot="text">
+            Design
+          </template>
+          <template slot="caption">
+            Some deign projects
+          </template>
+        </NumberStep>
+      </div>
     </div>
   </div>
 </template>
@@ -22,55 +52,60 @@
 <script lang="ts">
 import Vue from 'vue';
 import {AnimationService} from '@/shared/services/animation.service';
+import {Routes} from '@/router';
 export default Vue.extend({
-  name: 'Projects',
   data() {
     return {
-      listHovered: false,
-      projects:  [
-        {name: 'feix', url: 'feix-horizontal.jpeg'},
-        {name: 'one2', url: 'one2.png'},
-        {name: 'elena krasnenko', url: 'elena.png'},
-        {name: 'ice 9', url: 'ice.png'},
-        {name: 'Fonts', url: 'feix-horizontal.jpeg'}
-      ]
+      Routes
     }
   },
   mounted(): void {
-    AnimationService.tweenLite.from('.projects-link', {
-      duration: 2,
-      opacity: 0,
+    AnimationService.tweenLite.from('.projects-item', {
+      delay: -2,
+      duration: 4,
+      x: -1000,
       stagger: 0.2,
-      y: 1050,
-      ease: AnimationService.easing.power1.easeInOut
+      ease: AnimationService.easing.elastic.easeInOut
     });
+
+    AnimationService.gsap.timeline().from('.projects-links', {
+      duration: 1.5,
+      width: 0
+    });
+
+    this.animateLink('.is-first', 400, 1.5);
+    this.animateLink('.is-last', -400, 2);
   },
   methods: {
-    addBackground(url: string) {
-      const bg = this.$refs.bg as HTMLElement;
-      AnimationService.tweenLite.fromTo('.projects-bg', {
+    animateLink (selector: string,y: number, delay = 0, disappear = false) {
+      const method = disappear ? AnimationService.tweenLite.to : AnimationService.tweenLite.from;
+      method(selector, {
+        duration: 2,
         opacity: 0,
-        scale: 1.05,
-        backgroundImage: `url('${require(`../assets/images/${url}`)}')`
-      }, {
-        opacity: 1,
-        scale: 1,
-        backgroundImage: `url('${require(`../assets/images/${url}`)}')`,
-        ease: AnimationService.easing.power1.easeInOut
+        y: -y,
+        delay,
+        ease: 'elastic.out(1, 0.6)'
       })
-
-      this.listHovered = true;
     },
-    removeImage() {
-      AnimationService.tweenLite.fromTo('.projects-bg', {
-        opacity: 1,
-        scale: 1,
-      },{
-        opacity: 0,
-        scale: 1.05,
+    pageTransition(name: string) {
+      AnimationService.gsap.timeline().to('.projects-links', {
+        duration: 2,
+        width: '100%',
+        ease: AnimationService.easing.elastic.easeInOut
       });
 
-      this.listHovered = false;
+      this.animateLink('.is-first', -400, 0, true);
+      this.animateLink('.is-last', 400, 0, true);
+
+      AnimationService.tweenLite.to('.projects-header', {
+        delay: 1,
+        scale: 10,
+        opacity: 0,
+        onComplete: () => this.$router.push({name})
+      })
+    },
+    goTo(name: string) {
+      this.pageTransition(name);
     }
   }
 });
@@ -78,64 +113,143 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .projects {
-    position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
+    background-color: $black;
+    height: 100vh;
+    padding: 4em;
+    z-index: 4;
 
-    &-bg {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
+    @media ($mobile) {
+      padding: 3em 2em;
+    }
+
+    &-header {
       display: flex;
-      z-index: -1;
       flex-direction: column;
-      width: 100%;
-      height: 100vh;
-      overflow-y: scroll;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      transform-origin: center center;
-    }
-
-    &-content {
-      padding: 2em 4em;
-    }
-
-    &-index {
-      margin-right: 2em;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      background-color: $black;
+      position: relative;
+      width: 40%;
+      overflow: hidden;
+      z-index: 2;
 
       @media ($tablet) {
-        margin-right: 1em;
+        width: 70%;
+      }
+
+      @media ($mobile) {
+        width: 100%;
+      }
+    }
+
+    &-item {
+      position: relative;
+
+      &s {
+        position: absolute;
+        transform: translateY(20%);
+      }
+    }
+
+    &-links {
+      position: absolute;
+      background-color: $white;
+      width: 20%;
+      height: 100%;
+      z-index: 1;
+      transform-origin: center center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2em 0;
+
+      @media ($desktop) {
+        width: 25%;
+      }
+
+      @media ($tablet) {
+        padding: 1em 0;
+        width: 30%;
+      }
+
+      @media ($mobile) {
+        width: 60%;
       }
     }
 
     &-link {
-      display: flex;
-      cursor: pointer;
+      transform-origin: top left;
+      padding: 0 2em;
 
-      &:not(:last-child) {
-        margin-bottom: 2em;
-      }
-
-      &.hovered {
-        color: $white;
+      &-button {
+        display: inline-block;
+        background-color: $black;
+        width: 100%;
+        padding: 0.5em 2em;
+        cursor: pointer;
         transition: all 0.4s;
-        opacity: 0.4;
-      }
 
-      &:hover {
-        opacity: 1;
-      }
+        &.is-top {
+          margin-top: 2em;
 
-      .h1-italic {
-        @include fluid-type($min_width, $max_width, 34px, 124px);
-        text-align: left;
-        white-space: nowrap;
+          @media ($tablet) {
+            margin-top: 1em;
+          }
+        }
+
+        &.is-bottom {
+          margin-bottom: 2em;
+
+          @media ($tablet) {
+            margin-bottom: 1em;
+          }
+        }
       }
     }
   }
 
+  .svg-icon {
+    width: 600px;
+    fill: $white;
+    position: relative;
+    height: 100px;
+
+    @media ($desktop) {
+      width: 500px;
+      height: 80px;
+    }
+
+    @media ($tablet) {
+      width: 400px;
+      height: 63px;
+    }
+
+    @media ($mobile) {
+      width: 300px;
+      height: 46px;
+    }
+
+    &-exp2 {
+      transform: translate(0, -54%);
+    }
+
+    &-exp3 {
+      transform: translate(0, -110%);
+    }
+
+    &-exp4 {
+      transform: translate(0, -165%);
+    }
+
+    &-experience {
+      fill: none;
+      stroke: $white;
+      width: 60%;
+      height: 200px;
+    }
+  }
 </style>

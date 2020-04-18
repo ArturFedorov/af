@@ -53,6 +53,11 @@ h3 {
   @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
 }
 
+.p {
+  @include font-face($font-regular, $font-size-base);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
+}
+
 .is-white-text {
   color: $white;
 }
