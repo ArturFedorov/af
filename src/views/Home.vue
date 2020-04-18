@@ -4,7 +4,10 @@
       <h1 class="h0 home-header text">Artur Fedorov</h1>
       <h1 class="h1-italic home-subheader text">Designer | Developer</h1>
     </div>
-    <ImageCover class="home-content" />
+    <ImageCover
+      class="home-content"
+      @mouseenter="rotate3d(-10, 10)"
+      @mouseleave="rotate3d(0, 0)"/>
     <div class="home-caption">
       <h3 class="home-caption-text is-white">Hello I am Artur Fedorov</h3>
       <h3 class="home-caption-text">developer/designer</h3>
@@ -33,6 +36,21 @@ export default Vue.extend({
       }).from('.home-content', {
         opacity: 0
       })
+  },
+  methods: {
+    rotate3d(x: number, y: number) {
+      this.setPerspective(1000);
+      AnimationService.tweenLite.to('.home-content', {
+        rotateX: x,
+        rotateY: y,
+        onComplete: () => this.setPerspective(0)
+      })
+    },
+    setPerspective(perspective: number) {
+      AnimationService.gsap.set('.home', {
+        perspective: perspective
+      });
+    }
   }
 });
 </script>
@@ -57,6 +75,7 @@ export default Vue.extend({
 
     &-content {
       grid-area: 1 / 3 / 7 / 5;
+      transform-style: preserve-3d;
 
       @media ($tablet) {
         grid-area: 1 / 2 / 7 / 5;

@@ -44,12 +44,17 @@ h3 {
 }
 
 .h1-italic {
-  @include font-face($font-light, $font-size-h1-max, baskerville-poster-pt, italic);
+  @include font-face($font-light, $font-size-h1-max, $font-family-italic, italic);
   @include fluid-type($min_width, $max_width, $font-size-h1-min, $font-size-h1-max);
 }
 
 .p-italic {
-  @include font-face($font-light, $font-size-base, baskerville-poster-pt, italic);
+  @include font-face($font-light, $font-size-base, $font-family-italic, italic);
+  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
+}
+
+.p {
+  @include font-face($font-regular, $font-size-base);
   @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
 }
 
