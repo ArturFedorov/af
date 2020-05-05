@@ -11,7 +11,8 @@ export enum Routes {
   PROJECTS = 'Projects',
   DESIGN_PROJECTS = 'Design_Projects',
   ABOUT = 'About',
-  YEAR = 'Year',
+  CONTACT = 'Contact',
+  WORK = 'Work',
 }
 
 const routes: RouteConfig[] = [
@@ -26,9 +27,19 @@ const routes: RouteConfig[] = [
     component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
   },
   {
+    path: '/contact',
+    name: Routes.CONTACT,
+    component: () => import(/* webpackChunkName: 'contact' */ '../views/Contact.vue')
+  },
+  {
     path: '/projects',
     name: Routes.PROJECTS,
     component: () => import(/* webpackChunkName: 'projects' */ '../views/Experience.vue')
+  },
+  {
+    path: '/work',
+    name: Routes.WORK,
+    component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
   },
   {
     path: '/design-projects',

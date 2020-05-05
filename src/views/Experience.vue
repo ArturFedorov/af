@@ -28,12 +28,14 @@
         </NumberStep>
         <a
           class="p is-white-text projects-link-button is-top"
-          @click="goTo(Routes.DESIGN_PROJECTS)">
+          @click="goTo(Routes.WORK)">
           Check it up
         </a>
       </div>
       <div class="projects-link-wrapper is-last">
-        <a class="p is-white-text projects-link-button is-bottom">
+        <a
+          @click="goTo(Routes.DESIGN_PROJECTS)"
+          class="p is-white-text projects-link-button is-bottom">
           Check it up
         </a>
         <NumberStep class="projects-link">

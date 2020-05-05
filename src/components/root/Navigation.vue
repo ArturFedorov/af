@@ -37,7 +37,11 @@
     <div class="navigation-item is-four">
       <div class="navigation-item-content">
         <p class="p-italic navigation-item-caption is-white-text">04</p>
-        <a class="h2 navigation-item-text is-white-text">Contact</a>
+        <router-link
+          to="/contact"
+          class="h2 navigation-item-text is-white-text">
+          Contact
+        </router-link>
       </div>
       <div class="navigation-item-secondary">
         <p class="p-italic is-white-text">Let me know</p>
