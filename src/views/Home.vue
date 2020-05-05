@@ -9,10 +9,10 @@
       @mouseenter="rotate3d(-10, 10)"
       @mouseleave="rotate3d(0, 0)"/>
     <div class="home-caption">
-      <h3 class="home-caption-text is-white">Hello I am Artur Fedorov</h3>
-      <h3 class="home-caption-text">developer/designer</h3>
-      <h3 class="home-caption-text is-white">from Saint-Petersburg.</h3>
-      <h3 class="home-caption-text">Seeking for new challenges.</h3>
+      <h3 class="caption-text is-white">Hello I am Artur Fedorov</h3>
+      <h3 class="caption-text">developer/designer</h3>
+      <h3 class="caption-text is-white">from Saint-Petersburg.</h3>
+      <h3 class="caption-text">Seeking for new challenges.</h3>
     </div>
   </div>
 </template>
@@ -96,37 +96,6 @@ export default Vue.extend({
 
       @media ($mobile) {
         grid-area: 7 / 1 / 8 / 2;
-      }
-
-      &-text {
-        color: $white;
-        position: relative;
-        margin-bottom: 5px;
-
-        &:after {
-          z-index: -1;
-          position: absolute;
-          height: 100%;
-          width: 80%;
-          left: -10px;
-          content: '';
-          padding: 3px 10px;
-          background-color: $black;
-
-          @media ($mobile) {
-            width: 100%;
-          }
-        }
-
-        &.is-white {
-          color: $black;
-          margin-left: 50px;
-
-          &:after {
-            background-color: $white;
-            opacity: 0.7;
-          }
-        }
       }
     }
   }

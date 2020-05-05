@@ -12,7 +12,9 @@
     <div class="navigation-item is-three">
       <div class="navigation-item-content">
         <p class="p-italic navigation-item-caption is-white-text">03</p>
-        <a class="h2 navigation-item-text is-white-text">About Me</a>
+        <router-link
+          to="/about"
+          class="h2 navigation-item-text is-white-text">About Me</router-link>
       </div>
       <div class="navigation-item-secondary">
         <p class="p-italic is-white-text">Short about me</p>

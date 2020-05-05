@@ -10,13 +10,8 @@ export enum Routes {
   HOME = 'Home',
   PROJECTS = 'Projects',
   DESIGN_PROJECTS = 'Design_Projects',
-  CONTACT = 'Contact',
-  DESIGN = 'Design',
-  DEVELOPMENT = 'Development',
-  YEARS = 'Years',
+  ABOUT = 'About',
   YEAR = 'Year',
-  OVERVIEW = 'Overview',
-  SKILLS = 'Skills'
 }
 
 const routes: RouteConfig[] = [
@@ -26,14 +21,19 @@ const routes: RouteConfig[] = [
     component: Home
   },
   {
+    path: '/about',
+    name: Routes.ABOUT,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
+  },
+  {
     path: '/projects',
     name: Routes.PROJECTS,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Projects.vue')
+    component: () => import(/* webpackChunkName: 'projects' */ '../views/Projects.vue')
   },
   {
     path: '/design-projects',
     name: Routes.DESIGN_PROJECTS,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/DesignProjects.vue')
+    component: () => import(/* webpackChunkName: 'design' */ '../views/DesignProjects.vue')
   }
 ];
 

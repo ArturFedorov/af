@@ -39,7 +39,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .header {
     display: flex;
-    height: 80px;
+    height: $header-height;
     align-items: center;
     justify-content: flex-end;
     position: relative;
@@ -47,6 +47,7 @@ export default Vue.extend({
 
     &-link {
       cursor: pointer;
+      position: fixed;
     }
 
     &-icon {
