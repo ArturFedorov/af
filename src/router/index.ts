@@ -28,7 +28,7 @@ const routes: RouteConfig[] = [
   {
     path: '/projects',
     name: Routes.PROJECTS,
-    component: () => import(/* webpackChunkName: 'projects' */ '../views/Projects.vue')
+    component: () => import(/* webpackChunkName: 'projects' */ '../views/Experience.vue')
   },
   {
     path: '/design-projects',

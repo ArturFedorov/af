@@ -230,7 +230,7 @@ export default Vue.extend({
 
     @media ($mobile) {
       width: 300px;
-      height: 46px;
+      height: 45px;
     }
 
     &-exp2 {

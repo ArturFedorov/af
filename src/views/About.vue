@@ -118,6 +118,10 @@ export default Vue.extend({
       &.is-left {
         grid-area: 2 / 4 / 6 / 5;
 
+        @media ($desktop) {
+          grid-area: 1 / 3 / 6 / 5;
+        }
+
         @media ($tablet) {
           grid-area: 4 / 1 / 8 / 2;
         }
@@ -130,6 +134,10 @@ export default Vue.extend({
       &.is-right {
         grid-area: 3 / 5 / 7 / 6;
 
+        @media ($desktop) {
+          grid-area: 2 / 4 / 8 / 6;
+        }
+
         @media ($tablet) {
           grid-area: 4 / 2 / 8 / 3;
         }
@@ -138,6 +146,14 @@ export default Vue.extend({
           padding-top: 0.3em;
           grid-area: 2 / 1 / 7 / 3;
         }
+      }
+    }
+  }
+
+  .caption-text {
+    &:after {
+      @media ($desktop) {
+        width: 100%;
       }
     }
   }
