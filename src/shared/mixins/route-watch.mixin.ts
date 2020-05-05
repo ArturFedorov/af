@@ -24,7 +24,7 @@ export const routeWatcher = Vue.extend({
       }
 
       this.activeRoute = to.name;
-      const exceptions = [Routes.YEAR];
+      const exceptions = [Routes.PROJECTS];
       if(this.$refs.content && !exceptions.includes(to.name)) {
         (this.$refs.content as Element).scrollTop = 0;
       }
