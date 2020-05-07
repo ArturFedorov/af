@@ -18,34 +18,18 @@
     </div>
     <div class="projects-links">
       <div class="projects-link-wrapper is-first">
-        <NumberStep class="projects-link">
-          <template slot="text">
-            Development
-          </template>
-          <template slot="caption">
-            Check out developer carier
-          </template>
-        </NumberStep>
         <a
-          class="p is-white-text projects-link-button is-top"
+          class="p-italic is-white-text projects-link-button is-top"
           @click="goTo(Routes.WORK)">
-          Check it up
+          Development
         </a>
       </div>
       <div class="projects-link-wrapper is-last">
         <a
           @click="goTo(Routes.DESIGN_PROJECTS)"
-          class="p is-white-text projects-link-button is-bottom">
-          Check it up
+          class="p-italic is-white-text projects-link-button is-bottom">
+          Design
         </a>
-        <NumberStep class="projects-link">
-          <template slot="text">
-            Design
-          </template>
-          <template slot="caption">
-            Some deign projects
-          </template>
-        </NumberStep>
       </div>
     </div>
   </div>
@@ -184,9 +168,6 @@ export default Vue.extend({
     }
 
     &-link {
-      transform-origin: top left;
-      padding: 0 2em;
-
       &-button {
         display: inline-block;
         background-color: $black;
@@ -196,18 +177,18 @@ export default Vue.extend({
         transition: all 0.4s;
 
         &.is-top {
-          margin-top: 2em;
+          margin-top: 4em;
 
           @media ($tablet) {
-            margin-top: 1em;
+            margin-top: 2em;
           }
         }
 
         &.is-bottom {
-          margin-bottom: 2em;
+          margin-bottom: 4em;
 
           @media ($tablet) {
-            margin-bottom: 1em;
+            margin-bottom: 2em;
           }
         }
       }

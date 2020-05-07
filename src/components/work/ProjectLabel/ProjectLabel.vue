@@ -26,6 +26,7 @@
 import Vue from 'vue';
 import {IProject} from '../../../shared/interfaces/IProject';
 import {IRole} from '@/shared/interfaces/IRole';
+import {CalendarService} from '@/shared/services/calendar.service';
 export default Vue.extend({
   name: 'ProjectLabel',
   props: {
@@ -52,14 +53,7 @@ export default Vue.extend({
       return roles.substring(0, roles.length - 1);
     },
     dateString (): string {
-      const startDate = new Date(this.project.startDate.seconds * 1000);
-      const endDate = this.project.endDate ? new Date(this.project.endDate.seconds * 1000) : 'Present';
-      const startMonth = this.extractStringMonth(startDate);
-      const endMonth = endDate !== 'Present'
-        ? this.extractStringMonth(endDate)
-        : 'Present';
-
-      return `${startMonth} - ${endMonth}`;
+      return CalendarService.convertDateToDurationString(this.project.startDate, this.project.endDate)
     }
   },
   methods: {
@@ -82,6 +76,7 @@ export default Vue.extend({
 
     &-header {
       margin-bottom: $building-unit;
+      white-space: nowrap;
     }
 
     &-role {

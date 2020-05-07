@@ -7,6 +7,7 @@ import IntersectionObserver from '@/components/common/abstract/IntersectionObser
 import BigHeading from '@/components/common/BigHeading/BigHeading.vue';
 import CustomCursor from '@/components/common/CustomCursor/CustomCursor.vue';
 import ImageCover from '@/components/common/ImageCover/ImageCover.vue';
+import Label from '@/components/common/Label/Label.vue';
 import NumberStep from '@/components/common/NumberStep/NumberStep.vue';
 import SvgIcon from './SvgIcon/SvgIcon.vue';
 
@@ -17,6 +18,7 @@ const components: { [key: string]: {} } = {
   BigHeading,
   CustomCursor,
   ImageCover,
+  Label,
   SvgIcon,
   NumberStep,
   IntersectionObserver

@@ -65,7 +65,7 @@ export default Vue.extend({
         y: 20
       }).from('.about-image', {
         duration: 1.5,
-        y: 100,
+        y: 10,
         opacity: 0,
         stagger: 0.2,
         ease: AnimationService.easing.power1.easeInOut

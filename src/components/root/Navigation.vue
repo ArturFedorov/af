@@ -102,6 +102,10 @@ export default Vue.extend({
       width: 100%;
       transform-origin: bottom right;
 
+      @media ($mobile) {
+        justify-content: center;
+      }
+
       &-caption {
         margin-right: 2em;
       }
@@ -118,6 +122,8 @@ export default Vue.extend({
 
         @media ($mobile) {
           display: none;
+          //margin-left: 2.5em;
+          //margin-top: 0.5em;
         }
 
         &.no-margin {
@@ -133,6 +139,10 @@ export default Vue.extend({
       &.is-reversed {
         flex-direction: row;
         align-items: flex-end;
+
+        @media ($mobile) {
+          justify-content: flex-start;
+        }
       }
 
       &.is-one {
@@ -147,7 +157,7 @@ export default Vue.extend({
         }
 
         @media ($mobile) {
-          grid-area: 3/ 1 / 4 / 1;
+          grid-area: 3 / 1 / 4 / 1;
         }
       }
 
@@ -171,7 +181,7 @@ export default Vue.extend({
         }
 
         @media ($mobile) {
-          grid-area: 5 / 1 / 7 / 1;
+          grid-area: 5 / 1 / 6 / 1;
         }
       }
 
