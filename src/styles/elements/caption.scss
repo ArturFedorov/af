@@ -18,9 +18,25 @@
     }
   }
 
+  &.is-fullwidth {
+    &:after {
+      width: 100%;
+    }
+  }
+
   &.is-white {
     color: $black;
     margin-left: 50px;
+
+    &.smaller-margin {
+      margin-left: 20px;
+    }
+
+    &.no-bg {
+      &:after {
+        background-color: transparent;
+      }
+    }
 
     &:after {
       background-color: $white;
