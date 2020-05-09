@@ -71,5 +71,9 @@ export default Vue.extend({
         white-space: nowrap;
       }
     }
+
+    &-text {
+      white-space: nowrap;
+    }
   }
 </style>
