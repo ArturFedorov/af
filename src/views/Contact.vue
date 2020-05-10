@@ -120,7 +120,9 @@ export default Vue.extend({
     AnimationService.gsap.timeline()
       .from('.contact-content-item', {
         delay: 0.5,
-        opacity: 0
+        opacity: 0,
+        scale: 1.05,
+        stagger: 0.05
       })
       .to('.item-5', {
         duration,

@@ -4,13 +4,13 @@
       <h3 class="caption-text is-white about-animate">
         Biggest value I bring is
       </h3>
-      <h3 class="caption-text about-animate">
+      <h3 class="caption-text is-fullwidth about-animate">
         shape and visualize ideas
       </h3>
-      <h3 class="caption-text is-white about-animate">
+      <h3 class="caption-text no-bg is-white about-animate">
         gather people around it
       </h3>
-      <h3 class="caption-text about-animate">
+      <h3 class="caption-text is-fullwidth about-animate">
         and make it go live.
       </h3>
     </div>
@@ -29,7 +29,7 @@
       <h3 class="caption-text is-white about-animate">
         I also like when huge type
       </h3>
-      <h3 class="caption-text about-animate">
+      <h3 class="caption-text is-fullwidth about-animate">
         moves in space for no reason
       </h3>
     </div>
