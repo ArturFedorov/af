@@ -3,15 +3,8 @@
 }
 
 body {
-  margin: 0 100px;
-
-  @media ($desktop) {
-    margin: 0 50px;
-  }
-
-  @media ($mobile) {
-    margin: 0 20px;
-  }
+  margin: 0;
+  overflow-x: hidden;
 }
 
 h1,

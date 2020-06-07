@@ -108,7 +108,7 @@ export default Vue.extend({
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: $purple;
+      background-color: $white;
       transform: translate(-100%, -100%);
       transition: transform 0.2s $ease;
     }

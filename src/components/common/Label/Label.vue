@@ -1,10 +1,10 @@
 <template>
   <div class="label">
-    <p class="h2 is-white-text label-header">
+    <h2 class="is-white-text label-header">
       <slot name="header">
         Contact
       </slot>
-    </p>
+    </h2>
     <p class="p-italic is-white-text label-caption">
       <slot name="caption">
         5 years 10 Month
@@ -34,10 +34,6 @@ export default Vue.extend({
     align-items: flex-start;
     background-color: $black;
     padding: $building-unit $building-unit-x3;
-
-    &-header {
-      font-size: $font-size-h2-min;
-    }
 
     &-caption {
       font-size: $font-size-small;

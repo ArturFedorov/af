@@ -29,11 +29,13 @@ export default Vue.extend({
 
     width: {
       type: [String, Number],
+      default: 40,
       required: false
     },
 
     height: {
       type: [String, Number],
+      default: 40,
       required: false
     }
   },

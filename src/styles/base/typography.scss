@@ -6,64 +6,42 @@
   font-size: $fontSize;
 }
 
-.h0 {
-  @include font-face($font-light, $font-size-h0-max, $font-family-bold);
-
-  @media ($wide-desktop) {
-    font-size: 200px;
-  }
-
-  @media ($desktop) {
-    font-size: 183px;
-  }
-
-  @media ($tablet) {
-    font-size: 124px;
-  }
-
-  @media ($mobile) {
-    font-size: 114px;
-  }
+h1 {
+  @include font-face($font-bold, $font-size-h1, $font-family-bold);
+  line-height: 90%;
+  white-space: nowrap;
+  transition: $default-transition;
 }
 
-h1,
-.h1 {
-  @include font-face($font-bold, $font-size-h1-max);
-  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1-max);
-}
-
-h2,
-.h2 {
-  @include font-face($font-light, $font-size-h2-max, $font-family-bold);
-  @include fluid-type($min_width, $max_width, $font-size-h2-min, $font-size-h2-max);
+h2 {
+  @include font-face($font-light, $font-size-h2, $font-family-bold);
+  white-space: nowrap;
+  transition: $default-transition;
 }
 
 h3 {
   @include font-face($font-regular, $font-size-h3);
-  @include fluid-type($min_width, $max_width, $font-size-h3-min, $font-size-h3);
 }
 
-.h1-italic {
-  @include font-face($font-light, $font-size-h1-max, $font-family-italic, italic);
-  @include fluid-type($min_width, $max_width, $font-size-h1-min, $font-size-h1-max);
-}
 
-.p-italic {
-  @include font-face($font-light, $font-size-base, $font-family-italic, italic);
-  @include fluid-type($min_width, $max_width, $font-size-caption, $font-size-base);
-}
-
-.p {
+div,
+p,
+span,
+a,
+li {
   @include font-face($font-regular, $font-size-base);
-  @include fluid-type($min_width, $max_width, $font-size-small, $font-size-base);
+
+  &.is-small {
+    font-size: $font-size-small;
+  }
+
+  &.is-caption {
+    font-size: $font-size-caption;
+  }
 }
 
 .is-white-text {
   color: $white;
-}
-
-.is-pale-text {
-  color: $gray;
 }
 
 .is-underlined {

@@ -1,55 +1,59 @@
 <template>
   <div class="home grid">
-    <div class="home-heading">
-      <h1 class="h0 home-header text">Artur Fedorov</h1>
-      <h1 class="h1-italic home-subheader text">Designer | Developer</h1>
+    <div class="grid-row">
+     <div class="grid-row-section">
+       <BigHeading>Developer</BigHeading>
+     </div>
+      <div class="grid-row-section is-small with-border-left is-bottom ">
+        <ArrowLink
+          :link="Routes.WORK">
+          <template slot="text">development</template>
+          <template slot="caption">9 projects</template>
+        </ArrowLink>
+      </div>
     </div>
-    <ImageCover
-      class="home-content"
-      @mouseenter="rotate3d(-10, 10)"
-      @mouseleave="rotate3d(0, 0)"/>
-    <div class="home-caption">
-      <h3 class="caption-text is-white">Hello I am Artur Fedorov</h3>
-      <h3 class="caption-text">developer/designer</h3>
-      <h3 class="caption-text is-white">from Saint-Petersburg.</h3>
-      <h3 class="caption-text">Seeking for new challenges.</h3>
+
+    <div class="grid-row">
+      <div class="grid-row-section is-small with-border-right is-bottom">
+        <ArrowLink
+          :link="Routes.DESIGN_PROJECTS">
+          <template slot="text">design</template>
+          <template slot="caption">4 projects</template>
+        </ArrowLink>
+      </div>
+      <div class="grid-row-section">
+        <BigHeading>Designer</BigHeading>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-row-section is-bottom is-aligned-right">
+        <ArrowLink :link="Routes.CONTACT">
+          <template slot="text">contact</template>
+        </ArrowLink>
+      </div>
+      <div class="grid-row-section is-small with-border-left"></div>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-row-section is-small with-border-right"></div>
+      <div class="grid-row-section is-bottom">
+        <ArrowLink :link="Routes.ABOUT">
+          <template slot="text">about</template>
+        </ArrowLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {AnimationService} from '@/shared/services/animation.service';
+import {Routes} from '@/router';
 export default Vue.extend({
   name: 'Home',
-  mounted(): void {
-    AnimationService.gsap.timeline({duration: 1})
-      .from('.text', {
-        x: -25,
-        opacity: 0,
-        stagger: 0.2
-      }).from('.home-caption h3', {
-        delay: -0.5,
-        opacity: 0,
-        stagger: 0.2,
-        y: 20
-      }).from('.home-content', {
-        opacity: 0
-      })
-  },
-  methods: {
-    rotate3d(x: number, y: number) {
-      this.setPerspective(1000);
-      AnimationService.tweenLite.to('.home-content', {
-        rotateX: x,
-        rotateY: y,
-        onComplete: () => this.setPerspective(0)
-      })
-    },
-    setPerspective(perspective: number) {
-      AnimationService.gsap.set('.home', {
-        perspective: perspective
-      });
+  data() {
+    return {
+      Routes
     }
   }
 });
@@ -58,45 +62,5 @@ export default Vue.extend({
   .home {
     height: 100%;
     position: relative;
-
-    &-heading {
-      grid-area: 2 / 1 / 3 / 3;
-      z-index: 1;
-      white-space: nowrap;
-      width: 100%;
-      @media ($tablet) {
-        grid-area: 2 / 1 / 4 / 2;
-      }
-
-      @media ($mobile) {
-        grid-area: 1 / 1 / 3 / 4;
-      }
-    }
-
-    &-content {
-      grid-area: 1 / 3 / 7 / 5;
-      transform-style: preserve-3d;
-
-      @media ($tablet) {
-        grid-area: 1 / 2 / 7 / 5;
-      }
-
-      @media ($mobile) {
-        grid-area: 3 / 1 / 8 / 4;
-      }
-    }
-
-    &-caption {
-      grid-area: 6 / 4 / 8 / 6;
-      z-index: 1;
-
-      @media ($tablet) {
-        grid-area: 6 / 2 / 10 / 5;
-      }
-
-      @media ($mobile) {
-        grid-area: 7 / 1 / 8 / 2;
-      }
-    }
   }
 </style>

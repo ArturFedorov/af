@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 import Home from '../views/Home.vue';
-import store from '@/store';
-import {SET_SHOW_NAVIGATION} from '@/store/ui';
 
 Vue.use(VueRouter);
 
@@ -32,19 +30,9 @@ const routes: RouteConfig[] = [
     component: () => import(/* webpackChunkName: 'contact' */ '../views/Contact.vue')
   },
   {
-    path: '/projects',
-    name: Routes.PROJECTS,
-    component: () => import(/* webpackChunkName: 'projects' */ '../views/Experience.vue')
-  },
-  {
     path: '/work',
     name: Routes.WORK,
     component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
-  },
-  {
-    path: '/design-projects',
-    name: Routes.DESIGN_PROJECTS,
-    component: () => import(/* webpackChunkName: 'design' */ '../views/DesignProjects.vue')
   }
 ];
 
@@ -54,9 +42,5 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach((to, from, next) => {
-  store.commit(SET_SHOW_NAVIGATION, false);
-  next();
-});
 
 export default router;
