@@ -2,7 +2,7 @@
   <router-link
     :to="{name: link}"
     class="link"
-    :class="{'full-width': withArrow}"  >
+    :class="{'full-width': withArrow}">
     <div class="link-section">
       <h2>
         <slot name="text"></slot>
@@ -43,6 +43,7 @@ export default Vue.extend({
     justify-content: space-between;
     padding: $padding;
     transition: $default-transition;
+    position: relative;
 
     &.full-width {
       width: 100%;

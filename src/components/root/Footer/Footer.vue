@@ -1,6 +1,6 @@
 <template>
   <div
-    class="footer grid-row"
+    class="grid-row footer"
     :class="{'dark': !isLightMode}">
     <div class="footer-caption grid-row-section is-small">
       <p>Artur Fedorov.</p>
@@ -18,26 +18,26 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {IS_LIGHT_MODE, SET_UI_MODE} from '@/store/ui';
-  import {UiMode} from '@/shared/enums/uiMode';
+import Vue from 'vue';
+import {IS_LIGHT_MODE, SET_UI_MODE} from '@/store/ui';
+import {UiMode} from '@/shared/enums/uiMode';
 
-  export default Vue.extend({
-    name: 'Footer',
-    computed: {
-      isLightMode(): boolean {
-        return this.$store.getters[IS_LIGHT_MODE]
-      },
-      buttonText(): string {
-        return this.isLightMode ? 'dark' : 'light';
-      }
+export default Vue.extend({
+  name: 'Footer',
+  computed: {
+    isLightMode(): boolean {
+      return this.$store.getters[IS_LIGHT_MODE]
     },
-    methods: {
-      toggleMode() {
-        this.$store.commit(SET_UI_MODE, this.isLightMode ? UiMode.DARK : UiMode.LIGHT);
-      }
+    buttonText(): string {
+      return this.isLightMode ? 'dark' : 'light';
     }
-  });
+  },
+  methods: {
+    toggleMode() {
+      this.$store.commit(SET_UI_MODE, this.isLightMode ? UiMode.DARK : UiMode.LIGHT);
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -64,6 +64,8 @@
       border-top: $white;
 
       .footer {
+        border-top: $border-reversed;
+
         &-caption {
           color: $white;
         }

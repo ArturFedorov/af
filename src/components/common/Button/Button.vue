@@ -15,16 +15,16 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  export default Vue.extend({
-    name: 'Button',
-    props: {
-      isReversed: {
-        type: Boolean,
-        default: false
-      }
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'Button',
+  props: {
+    isReversed: {
+      type: Boolean,
+      default: false
     }
-  });
+  }
+});
 </script>
 
 <style lang="scss" scoped>

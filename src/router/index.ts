@@ -33,13 +33,21 @@ const routes: RouteConfig[] = [
     path: '/work',
     name: Routes.WORK,
     component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
+  },
+  {
+    path: '/design',
+    name: Routes.DESIGN_PROJECTS,
+    component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
   }
 ];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  },
 });
 
 

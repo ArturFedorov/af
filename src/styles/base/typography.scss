@@ -17,10 +17,18 @@ h2 {
   @include font-face($font-light, $font-size-h2, $font-family-bold);
   white-space: nowrap;
   transition: $default-transition;
+
+  @media ($mobile) {
+    font-size: $font-size-base;
+  }
 }
 
 h3 {
   @include font-face($font-regular, $font-size-h3);
+
+  @media ($mobile) {
+    font-size: $font-size-base;
+  }
 }
 
 
@@ -30,6 +38,10 @@ span,
 a,
 li {
   @include font-face($font-regular, $font-size-base);
+
+  @media ($mobile) {
+    font-size: $font-size-small;
+  }
 
   &.is-small {
     font-size: $font-size-small;

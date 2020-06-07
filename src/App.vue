@@ -3,22 +3,21 @@
     id="app"
     class="app"
     :class="{'dark': !isLightMode}">
-    <Loader v-if="false"/>
-    <router-view />
+    <div class="app-content">
+      <router-view />
+    </div>
     <Footer class="app-footer"/>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 import Footer from '@/components/root/Footer/Footer.vue';
-import Loader from '@/components/root/Loader.vue';
 import {routeWatcher} from '@/components/common/mixins/route-watch.mixin';
 import {IS_LIGHT_MODE} from '@/store/ui';
 export default Vue.extend({
   name: 'App',
   components: {
-    Footer,
-    Loader
+    Footer
   },
   mixins: [routeWatcher],
   computed: {
