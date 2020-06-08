@@ -47,6 +47,12 @@
         border-right: $border;
       }
 
+      &.no-border-mobile {
+        @media ($mobile) {
+          border: 0;
+        }
+      }
+
       &.is-small {
         width: 20%;
         max-width: 20%;

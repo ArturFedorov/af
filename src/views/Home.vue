@@ -52,11 +52,11 @@
           <template slot="text">contact</template>
         </ArrowLink>
       </div>
-      <div class="grid-row-section is-small with-border-left"></div>
+      <div class="grid-row-section is-small with-border-left no-border-mobile"></div>
     </div>
 
     <div class="grid-row">
-      <div class="grid-row-section is-small with-border-right"></div>
+      <div class="grid-row-section is-small with-border-right no-border-mobile"></div>
       <div class="grid-row-section is-bottom">
         <div class="grid-row-section-cover"></div>
         <ArrowLink
