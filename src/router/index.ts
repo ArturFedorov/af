@@ -5,6 +5,7 @@ import Home from '../views/Home.vue';
 Vue.use(VueRouter);
 
 export enum Routes {
+  LOADER = 'Loader',
   HOME = 'Home',
   PROJECTS = 'Projects',
   DESIGN_PROJECTS = 'Design_Projects',

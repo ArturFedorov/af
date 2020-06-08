@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
   name: 'DesignProjects',
   data() {

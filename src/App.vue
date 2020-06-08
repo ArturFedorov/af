@@ -12,14 +12,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import Footer from '@/components/root/Footer/Footer.vue';
-import {routeWatcher} from '@/components/common/mixins/route-watch.mixin';
+import {routeMixin} from '@/components/common/mixins/route.mixin';
 import {IS_LIGHT_MODE} from '@/store/ui';
 export default Vue.extend({
   name: 'App',
   components: {
     Footer
   },
-  mixins: [routeWatcher],
+  mixins: [routeMixin],
   computed: {
     isLightMode(): boolean {
       return this.$store.getters[IS_LIGHT_MODE]

@@ -1,8 +1,8 @@
 <template>
-  <router-link
-    :to="{name: link}"
+  <a
     class="link"
-    :class="{'full-width': withArrow}">
+    :class="{'full-width': withArrow}"
+    @click="$emit('click', link)">
     <div class="link-section">
       <h2>
         <slot name="text"></slot>
@@ -14,9 +14,11 @@
     <div
       class="link-section"
       v-if="withArrow">
-      <SvgIcon name="arrow" />
+      <SvgIcon
+        class="link-icon"
+        name="arrow" />
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">
@@ -44,6 +46,11 @@ export default Vue.extend({
     padding: $padding;
     transition: $default-transition;
     position: relative;
+    cursor: pointer;
+
+    @media ($mobile) {
+      padding: $padding-mobile;
+    }
 
     &.full-width {
       width: 100%;
@@ -55,6 +62,10 @@ export default Vue.extend({
     .link {
       &-section {
         color: $white;
+      }
+
+      &-icon {
+        fill: $white;
       }
     }
   }

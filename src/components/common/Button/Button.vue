@@ -39,6 +39,14 @@ export default Vue.extend({
     width: 100%;
     transition: $default-transition;
 
+    &.is-flipped {
+      .button-icon {
+        right: 0;
+        left: auto;
+        transform: rotate(-225deg);
+      }
+    }
+
     &.is-black {
       background-color: $black;
 
