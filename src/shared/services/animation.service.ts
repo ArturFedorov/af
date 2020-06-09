@@ -29,7 +29,6 @@ export class AnimationService {
   }
 
   static removeCover() {
-    console.log('animation 12');
     this.tweenLite.to('.start-animate', {
       x: '-110%',
       duration: 2.5,

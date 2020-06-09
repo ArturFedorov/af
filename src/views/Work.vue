@@ -163,8 +163,16 @@ export default Vue.extend({
       padding: $padding;
       width: 100%;
 
+      @media ($tablet) {
+        overflow-x: auto;
+      }
+
       &-item {
         width: 25%;
+
+        @media ($tablet) {
+          min-width: 250px;
+        }
       }
     }
   }
