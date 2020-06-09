@@ -1,24 +1,17 @@
 <template>
   <div class="project">
-    <h2 class="project-header">{{project.name}}</h2>
+    <h3 class="is-bigger project-header">{{project.name}}</h3>
     <p
-      class="p is-underlined project-role"
+      class="is-underlined project-role"
       v-if="roleString">
       {{roleString}}
     </p>
-    <p class="p project-description">
+    <p class="is-small project-description">
       {{project.description}}
     </p>
-    <p class="p-italic project-date">
+    <p class="is-smallest project-date">
       {{dateString}}
     </p>
-    <div
-      class="project-label"
-      v-if="!hasEndDate">
-      <p class="p-italic is-white-text">
-        ongoing
-      </p>
-    </div>
   </div>
 </template>
 
@@ -92,14 +85,14 @@ export default Vue.extend({
       margin-top: auto;
     }
 
-    &-label {
-      position: absolute;
-      bottom: -50px;
-      background-color: $black;
-      display: flex;
-      justify-content: center;
-      padding: 2px 0;
-      width: 80px;
+  }
+
+  // dark mode
+  .dark {
+    .project {
+      * {
+        color: $white;
+      }
     }
   }
 </style>

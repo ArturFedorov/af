@@ -26,6 +26,10 @@ h2 {
 h3 {
   @include font-face($font-regular, $font-size-h3);
 
+  &.is-bigger {
+    font-size: $font-size-h2;
+  }
+
   @media ($mobile) {
     font-size: $font-size-base;
   }
@@ -45,6 +49,10 @@ li {
 
   &.is-small {
     font-size: $font-size-small;
+  }
+
+  &.is-smallest {
+    font-size: $font-size-small-caption;
   }
 
   &.is-caption {
