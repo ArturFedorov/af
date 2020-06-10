@@ -2,6 +2,7 @@
   <div
     class="grid-row footer"
     :class="{'dark': !isLightMode}">
+    <div class="grid-row-section-cover start-animate"></div>
     <div class="footer-caption grid-row-section is-small">
       <p>Artur Fedorov.</p>
       <p>Saint-Petersburg based.</p>

@@ -1,6 +1,6 @@
 export enum Collections {
   PROJECTS = 'projects',
-  YEARS = 'years',
+  TECHNOLOGIES = 'technologies',
   ROLES = 'roles',
   CUSTOMERS = 'customers'
 }

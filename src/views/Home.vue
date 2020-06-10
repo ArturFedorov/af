@@ -17,7 +17,7 @@
           :link="Routes.WORK"
           @click="goTo">
           <template slot="text">development</template>
-          <template slot="caption">9 projects</template>
+          <template slot="caption">{{projectsLength}} projects</template>
         </ArrowLink>
       </template>
     </GridRow>
@@ -80,12 +80,14 @@ import Vue from 'vue';
 import {Routes} from '@/router';
 import {AnimationService} from '@/shared/services/animation.service';
 import {routeMixin} from '@/components/common/mixins/route.mixin';
+import {ProjectService} from '@/api/services/ProjectService';
 export default Vue.extend({
   name: 'Home',
   mixins: [routeMixin],
   data() {
     return {
-      Routes
+      Routes,
+      projectsLength: 9
     }
   },
   mounted() {
@@ -101,6 +103,9 @@ export default Vue.extend({
     AnimationService.runningTimeline(designerWrapper, -developerWrapper.offsetWidth ,20);
 
     AnimationService.removeCover();
+
+    ProjectService.getNumberOfProjects()
+      .then(snap => this.projectsLength = snap.size);
   }
 });
 </script>

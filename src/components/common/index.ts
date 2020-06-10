@@ -12,6 +12,7 @@ import GridRow from '@/components/common/GridRow/GridRow.vue';
 import Label from '@/components/common/Label/Label.vue';
 import ArrowLink from '@/components/common/ArrowLink/ArrowLink.vue';
 import SvgIcon from './SvgIcon/SvgIcon.vue';
+import Rating from '@/components/common/Rating/Rating.vue';
 
 // Filters
 import leadingZero from './filter/lead-zero.filter';
@@ -23,6 +24,7 @@ const components: { [key: string]: {} } = {
   ImageCover,
   GridRow,
   Label,
+  Rating,
   SvgIcon,
   ArrowLink,
   IntersectionObserver

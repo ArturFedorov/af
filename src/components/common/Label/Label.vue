@@ -6,9 +6,7 @@
       </slot>
     </h3>
     <p class="is-smallest label-caption">
-      <slot name="caption">
-        5 years 10 Month
-      </slot>
+      <slot name="caption"></slot>
     </p>
   </div>
 </template>
