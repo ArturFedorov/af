@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 import Home from '../views/Home.vue';
+import NotFound from '@/components/root/404/NotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,7 @@ export enum Routes {
   ABOUT = 'About',
   CONTACT = 'Contact',
   WORK = 'Work',
+  EMPTY = 'Empty'
 }
 
 const routes: RouteConfig[] = [
@@ -39,6 +41,11 @@ const routes: RouteConfig[] = [
     path: '/design',
     name: Routes.DESIGN_PROJECTS,
     component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
+  },
+  {
+    path: '*',
+    name: Routes.EMPTY,
+    component: NotFound
   }
 ];
 

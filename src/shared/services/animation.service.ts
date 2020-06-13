@@ -29,6 +29,15 @@ export class AnimationService {
   }
 
   static removeCover() {
+    this.tweenLite.fromTo('.grid-row', {
+      minHeight: 230,
+      stagger: 0.1
+    }, {
+      minHeight: 196,
+      duration: 2.5,
+      ease: AnimationService.easing.power3.easeOut
+    });
+
     this.tweenLite.to('.start-animate', {
       x: '-110%',
       duration: 2.5,
@@ -39,11 +48,21 @@ export class AnimationService {
 
   static cover(): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
-      this.gsap.timeline().to('.grid-row-section-cover', {
-        duration: 1.5,
-        x: 0,
-        ease: AnimationService.easing.power4.easeInOut,
-        onComplete: () => resolve(true)
+      this.gsap.timeline()
+        .fromTo('.grid-row', {
+          minHeight: 196,
+          stagger: 0.1
+        }, {
+          duration: 2,
+          minHeight: 230,
+          ease: AnimationService.easing.power3.easeOut
+        })
+        .to('.grid-row-section-cover', {
+          delay: -1.5,
+          duration: 1.5,
+          x: 0,
+          ease: AnimationService.easing.power4.easeInOut,
+          onComplete: () => resolve(true)
       });
     });
   }
