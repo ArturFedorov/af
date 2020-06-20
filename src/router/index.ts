@@ -10,7 +10,6 @@ export enum Routes {
   HOME = 'Home',
   PROJECTS = 'Projects',
   DESIGN_PROJECTS = 'Design_Projects',
-  ABOUT = 'About',
   CONTACT = 'Contact',
   WORK = 'Work',
   EMPTY = 'Empty'
@@ -21,11 +20,6 @@ const routes: RouteConfig[] = [
     path: '/',
     name: Routes.HOME,
     component: Home
-  },
-  {
-    path: '/about',
-    name: Routes.ABOUT,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
   },
   {
     path: '/contact',
@@ -40,7 +34,7 @@ const routes: RouteConfig[] = [
   {
     path: '/design',
     name: Routes.DESIGN_PROJECTS,
-    component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
+    component: () => import(/* webpackChunkName: 'work' */ '../views/Design.vue')
   },
   {
     path: '*',

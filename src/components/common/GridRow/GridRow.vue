@@ -3,7 +3,8 @@
     <div class="grid-row-section-cover start-animate"></div>
     <div
       v-if="!noLeft"
-      class="grid-row-section is-small with-border-right is-bottom">
+      class="grid-row-section is-small is-bottom"
+      :class="{'with-border-right': withBorder}">
       <slot name="one"></slot>
     </div>
     <div
@@ -13,7 +14,8 @@
     </div>
     <div
       v-if="!noRight"
-      class="grid-row-section is-small with-border-left is-bottom">
+      class="grid-row-section is-small is-bottom"
+      :class="{'with-border-left': withBorder}">
       <slot name="three"></slot>
     </div>
   </div>
@@ -39,6 +41,10 @@ export default Vue.extend({
     isBottom: {
       type: Boolean,
       default: false
+    },
+    withBorder: {
+      type: Boolean,
+      default: true
     }
   }
 })

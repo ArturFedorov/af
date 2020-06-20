@@ -7,7 +7,10 @@
     </router-link>
     <video
       class="not-found-video"
-      autoplay muted loop>
+      preload="auto"
+      autoplay
+      muted
+      loop>
       <source src="../../../assets/videos/404.mp4" type="video/mp4">
     </video>
   </div>
@@ -21,7 +24,7 @@
     mounted() {
       AnimationService.tweenLite.from('.not-found', {
         opacity: 0
-      })
+      });
     }
   });
 </script>

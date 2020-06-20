@@ -12,13 +12,7 @@
         </div>
       </template>
       <template slot="three">
-        <ArrowLink
-          class="arrow-link"
-          :link="Routes.WORK"
-          @click="goTo">
-          <template slot="text">development</template>
-          <template slot="caption">{{projectsLength}} projects</template>
-        </ArrowLink>
+
       </template>
     </GridRow>
 
@@ -50,9 +44,10 @@
       <template slot="two">
         <ArrowLink
           class="arrow-link"
-          :link="Routes.CONTACT"
+          :link="Routes.WORK"
           @click="goTo">
-          <template slot="text">contact</template>
+          <template slot="text">development</template>
+          <template slot="caption">{{projectsLength}} projects</template>
         </ArrowLink>
       </template>
       <div class="grid-row-section is-small with-border-left no-border-mobile"></div>
@@ -65,9 +60,9 @@
       <template slot="two">
         <ArrowLink
           class="arrow-link"
-          :link="Routes.ABOUT"
+          :link="Routes.CONTACT"
           @click="goTo">
-          <template slot="text">about</template>
+          <template slot="text">contact</template>
         </ArrowLink>
       </template>
     </GridRow>

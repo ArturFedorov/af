@@ -23,7 +23,6 @@
           class="arrow-link"
           link="github">
           <template slot="text">April 2013-now</template>
-          <template slot="caption">7 years</template>
         </ArrowLink>
       </template>
     </GridRow>
