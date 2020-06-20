@@ -63,7 +63,7 @@ export class AnimationService {
           x: 0,
           ease: AnimationService.easing.power4.easeInOut,
           onComplete: () => resolve(true)
-      });
+        });
     });
   }
 }

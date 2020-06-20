@@ -19,17 +19,17 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {IDesignProject} from '@/shared/interfaces/IDesignProject';
-  export default Vue.extend({
-    name: 'DesignProject',
-    props: {
-      project: {
-        type: Object as () => IDesignProject,
-        required: true
-      }
+import Vue from 'vue';
+import {IDesignProject} from '@/shared/interfaces/IDesignProject';
+export default Vue.extend({
+  name: 'DesignProject',
+  props: {
+    project: {
+      type: Object as () => IDesignProject,
+      required: true
     }
-  });
+  }
+});
 </script>
 
 <style lang="scss" scoped>

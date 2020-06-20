@@ -17,16 +17,16 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {AnimationService} from '@/shared/services/animation.service';
-  export default Vue.extend({
-    name: 'NotFound',
-    mounted() {
-      AnimationService.tweenLite.from('.not-found', {
-        opacity: 0
-      });
-    }
-  });
+import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
+export default Vue.extend({
+  name: 'NotFound',
+  mounted() {
+    AnimationService.tweenLite.from('.not-found', {
+      opacity: 0
+    });
+  }
+});
 </script>
 
 <style lang="scss" scoped>

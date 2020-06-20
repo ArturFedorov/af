@@ -32,41 +32,41 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {AnimationService} from '@/shared/services/animation.service';
-  import {uiMode} from '@/components/common/mixins/uiMode.mixin';
-  import {routeMixin} from '@/components/common/mixins/route.mixin';
-  import {Routes} from '@/router';
-  import DesignProject from '@/components/design/DesignProject/DesignProject.vue';
-  import {IDesignProject} from '@/shared/interfaces/IDesignProject';
+import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
+import {uiMode} from '@/components/common/mixins/uiMode.mixin';
+import {routeMixin} from '@/components/common/mixins/route.mixin';
+import {Routes} from '@/router';
+import DesignProject from '@/components/design/DesignProject/DesignProject.vue';
+import {IDesignProject} from '@/shared/interfaces/IDesignProject';
 
-  export default Vue.extend({
-    mixins: [uiMode, routeMixin],
-    components: {
-      DesignProject
-    },
-    name: 'Design',
-    data() {
-      return {
-        Routes,
-        projects: [
-          { name: 'cheeta', topics: ['logo', 'landing', 'identity']},
-          { name: 'feix', topics: ['logo', 'landing', 'identity']},
-          { name: 'one2nd', topics: ['logo', 'landing', 'identity']},
-          { name: 'ice9', topics: ['ux', 'ui']},
-          { name: 'elena krasnenko', topics: ['logo', 'type', 'landing']}
-        ] as IDesignProject[]
-      }
-    },
-    mounted() {
-      const contact = this.$refs.design as HTMLElement;
-      let wrapper = this.$refs.designWrapper as HTMLElement;
-      wrapper = AnimationService.appenCloneToParrent(wrapper, contact, 6);
-      AnimationService.runningTimeline(wrapper, -wrapper.offsetWidth, 30);
-
-      AnimationService.removeCover();
+export default Vue.extend({
+  mixins: [uiMode, routeMixin],
+  components: {
+    DesignProject
+  },
+  name: 'Design',
+  data() {
+    return {
+      Routes,
+      projects: [
+        { name: 'cheeta', topics: ['logo', 'landing', 'identity']},
+        { name: 'feix', topics: ['logo', 'landing', 'identity']},
+        { name: 'one2nd', topics: ['logo', 'landing', 'identity']},
+        { name: 'ice9', topics: ['ux', 'ui']},
+        { name: 'elena krasnenko', topics: ['logo', 'type', 'landing']}
+      ] as IDesignProject[]
     }
-  });
+  },
+  mounted() {
+    const contact = this.$refs.design as HTMLElement;
+    let wrapper = this.$refs.designWrapper as HTMLElement;
+    wrapper = AnimationService.appenCloneToParrent(wrapper, contact, 6);
+    AnimationService.runningTimeline(wrapper, -wrapper.offsetWidth, 30);
+
+    AnimationService.removeCover();
+  }
+});
 </script>
 
 <style lang="scss" scoped>
