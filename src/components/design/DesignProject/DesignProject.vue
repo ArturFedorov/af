@@ -1,5 +1,8 @@
 <template>
-  <div class="design-project">
+  <div
+    class="design-project"
+    @mouseover="$emit('mouseover', project.name)"
+    @mouseleave="$emit('mouseleave', '')">
     <div class="design-project-header">
       <h2>{{project.name}}</h2>
       <div class="design-project-topics">
@@ -41,12 +44,14 @@ export default Vue.extend({
     &-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       width: 100%;
     }
 
     &-topics {
       display: flex;
+      margin-left: auto;
+      margin-right: $building-unit-x10;
+      justify-content: flex-end;
 
       .is-small {
         margin-right: $building-unit-x6;

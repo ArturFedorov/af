@@ -24,8 +24,20 @@
       :isBottom="true"
       v-for="project in projects"
       :key="project.name">
+      <template slot="one">
+        <div
+          class="design-image left"
+          :class="{'visible': isProjectHovered(project.name)}"></div>
+      </template>
       <template slot="two">
-        <DesignProject :project="project" />
+        <DesignProject
+          :project="project"
+          @mouseover="onMouse"/>
+      </template>
+      <template slot="three">
+        <div
+          class="design-image right"
+          :class="{'visible': isProjectHovered(project.name)}"></div>
       </template>
     </GridRow>
   </div>
@@ -55,7 +67,8 @@ export default Vue.extend({
         { name: 'one2nd', topics: ['logo', 'landing', 'identity']},
         { name: 'ice9', topics: ['ux', 'ui']},
         { name: 'elena krasnenko', topics: ['logo', 'type', 'landing']}
-      ] as IDesignProject[]
+      ] as IDesignProject[],
+      hoveredProject: ''
     }
   },
   mounted() {
@@ -65,14 +78,52 @@ export default Vue.extend({
     AnimationService.runningTimeline(wrapper, -wrapper.offsetWidth, 30);
 
     AnimationService.removeCover();
+  },
+  methods: {
+    isProjectHovered (name: string): boolean {
+      return this.hoveredProject === name;
+    },
+    onMouse(name: string) {
+      this.hoveredProject = name;
+    }
   }
 });
 </script>
 
 <style lang="scss" scoped>
   .design {
+    position: relative;
+
     &-section {
       display: flex;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: $default-transition;
+
+      &.left {
+        background-image: url('../assets/images/cheeta/logo-caption-black.png');
+        transform: translateY(20px);
+      }
+
+      &.right {
+        background-color: $black;
+        background-image: url('../assets/images/cheeta/logo-caption-white.png');
+        transform: translateY(20px);
+
+      }
+
+      &.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   }
 
