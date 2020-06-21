@@ -27,17 +27,18 @@
       <template slot="one">
         <div
           class="design-image left"
-          :class="{'visible': isProjectHovered(project.name)}"></div>
+          :class="[project.class, {'visible': isProjectHovered(project.name)}]"></div>
       </template>
       <template slot="two">
         <DesignProject
           :project="project"
-          @mouseover="onMouse"/>
+          @mouseover="onMouse"
+          @mouseleave="onMouse"/>
       </template>
       <template slot="three">
         <div
           class="design-image right"
-          :class="{'visible': isProjectHovered(project.name)}"></div>
+          :class="[project.class, {'visible': isProjectHovered(project.name)}]"></div>
       </template>
     </GridRow>
   </div>
@@ -62,11 +63,11 @@ export default Vue.extend({
     return {
       Routes,
       projects: [
-        { name: 'cheeta', topics: ['logo', 'landing', 'identity']},
-        { name: 'feix', topics: ['logo', 'landing', 'identity']},
-        { name: 'one2nd', topics: ['logo', 'landing', 'identity']},
-        { name: 'ice9', topics: ['ux', 'ui']},
-        { name: 'elena krasnenko', topics: ['logo', 'type', 'landing']}
+        { name: 'cheeta', class: 'cheeta', topics: ['logo', 'landing', 'identity']},
+        { name: 'feix', class: 'feix', topics: ['logo', 'landing', 'identity']},
+        { name: 'one2nd', class: 'one2nd', topics: ['logo', 'landing', 'identity']},
+        { name: 'ice9',class: 'ice', topics: ['ux', 'ui']},
+        { name: 'elena krasnenko', class: 'elena-krasnenko', topics: ['logo', 'type', 'landing']}
       ] as IDesignProject[],
       hoveredProject: ''
     }
@@ -91,6 +92,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+  $feix-purple: #6153D3;
+  $ice-blue: #0E3053;
+  $elena-brown: #E4DCDA;
+
   .design {
     position: relative;
 
@@ -106,22 +111,74 @@ export default Vue.extend({
       background-size: contain;
       background-repeat: no-repeat;
       opacity: 0;
-      transition: $default-transition;
+      transition: 0.6s all;
+      transform-origin: center center;
+      transform: scale(0.9); //translateY(20px);
 
-      &.left {
-        background-image: url('../assets/images/cheeta/logo-caption-black.png');
-        transform: translateY(20px);
+      &.cheeta {
+        &.left {
+          background-color: $white;
+          background-image: url('../assets/images/cheeta/logo-caption-black.png');
+        }
+
+        &.right {
+          background-color: $black;
+          background-image: url('../assets/images/cheeta/logo-caption-white.png');
+        }
       }
 
-      &.right {
-        background-color: $black;
-        background-image: url('../assets/images/cheeta/logo-caption-white.png');
-        transform: translateY(20px);
+      &.feix {
+        &.left {
+          background-image: url('../assets/images/feix/logo-feix.png');
+        }
 
+        &.right {
+          background-color: $feix-purple;
+          background-image: url('../assets/images/feix/logo-feix-inverted.png');
+        }
+      }
+
+      &.ice {
+        background-color: $ice-blue;
+
+        &.left {
+          background-image: url('../assets/images/ice/dashboard-ice.png');
+        }
+
+        &.right {
+          background-image: url('../assets/images/ice/logo-ice.png');
+        }
+      }
+
+      &.one2nd {
+        &.left {
+          background-color: $white;
+          background-image: url('../assets/images/one2nd/one2nd.png');
+        }
+
+        &.right {
+          background-position: bottom;
+          background-size: cover;
+          background-image: url('../assets/images/one2nd/one2nd-alt.png');
+        }
+      }
+
+      &.elena-krasnenko {
+        &.left {
+          background-color: $elena-brown;
+          background-image: url('../assets/images/elena/elena-logo.png');
+        }
+
+        &.right {
+          background-color: $white;
+          background-size: cover;
+          background-image: url('../assets/images/elena/elena-logo-color.png');
+        }
       }
 
       &.visible {
-        transform: translateY(0);
+        // transform: translateY(0);
+        transform: scale(1);
         opacity: 1;
       }
     }

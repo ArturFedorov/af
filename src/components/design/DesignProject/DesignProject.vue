@@ -64,4 +64,15 @@ export default Vue.extend({
       cursor: pointer;
     }
   }
+
+  //dark mode
+  .dark {
+    .design-project {
+      color: $white;
+
+      &-plus {
+        fill: $white;
+      }
+    }
+  }
 </style>
