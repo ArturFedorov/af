@@ -1,12 +1,6 @@
 // colors
-$red: #F02D09;
-$orange: #F75335;
-$blue: #09CCF0;
 $black: #121212;
-$purple: #A009F0;
 $white: #ffffff;
-$gray: #808080;
-$lite-gray: #A7ACAC;
 
 // Building Units
 $building-unit: 8px;
@@ -23,33 +17,34 @@ $building-unit-x10: $building-unit * 10; // 80px
 $building-unit-x11: $building-unit * 11; // 88px
 $building-unit-x12: $building-unit * 12; // 96px
 
-$header-height: 80px;
+$row-height: 196px;
+$default-transition: 0.5s all;
+
+$padding: $building-unit-x2 $building-unit-x6;
+$padding-mobile: $building-unit-x2 $building-unit-x3;
 
 // Border
-$border: 1px solid $gray;
+$border: 1px solid $black;
+$border-reversed: 1px solid $white;
 // Transition
 $transition-duration-default: 0.3s;
 
 // Typography
 $font_path: '/fonts/';
-$font-family: 'neue-haas-grotesk-display';
-$font-family-bold: 'art';
-$font-family-italic: 'saola';
+$font-family: 'Space Grotesk';
+$font-family-bold: 'Syne';
 
 
 // font-size
 $font-size-base: 18px;
 $font-size-small: 16px;
 $font-size-caption: 12px;
-$font-size-h0-max: 237px;
-$font-size-h0-min: 124px;
-$font-size-h1-max: 64px;
-$font-size-h1-min: 36px;
+$font-size-small-caption: 10px;
 
-$font-size-h2-max: 87px;
-$font-size-h2-min: 48px;
-$font-size-h3: 36px;
-$font-size-h3-min: 24px;
+$font-size-h1: 180px;
+$font-size-h2: 36px;
+$font-size-h3: 24px;
+
 
 // line-height
 $line-height-base: 1.2;

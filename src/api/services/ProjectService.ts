@@ -2,11 +2,15 @@ import {db} from '@/api/db';
 import {Collections} from '@/api/Collections';
 
 export class ProjectService {
-  static getAllProjects(){
+  static getAllProjects() {
     return db.collection(Collections.PROJECTS).orderBy('startDate', 'desc');
   }
 
   static getProjectById(id: string) {
     return db.collection(Collections.PROJECTS).doc(id).get();
+  }
+
+  static getNumberOfProjects() {
+    return db.collection(Collections.PROJECTS).get();
   }
 }

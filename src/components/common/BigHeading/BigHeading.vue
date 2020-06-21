@@ -1,8 +1,8 @@
 <template>
-  <div
+  <h1
     class="heading">
-
-  </div>
+    <slot></slot>
+  </h1>
 </template>
 
 <script lang="ts">
@@ -13,5 +13,14 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+  .heading {
+    padding: 0 $building-unit-x5;
+  }
 
+  //dark mode {
+  .dark {
+    .heading {
+      color: $white;
+    }
+  }
 </style>

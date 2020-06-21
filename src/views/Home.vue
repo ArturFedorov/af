@@ -1,56 +1,106 @@
 <template>
   <div class="home grid">
-    <div class="home-heading">
-      <h1 class="h0 home-header text">Artur Fedorov</h1>
-      <h1 class="h1-italic home-subheader text">Designer | Developer</h1>
-    </div>
-    <ImageCover
-      class="home-content"
-      @mouseenter="rotate3d(-10, 10)"
-      @mouseleave="rotate3d(0, 0)"/>
-    <div class="home-caption">
-      <h3 class="caption-text is-white">Hello I am Artur Fedorov</h3>
-      <h3 class="caption-text">developer/designer</h3>
-      <h3 class="caption-text is-white">from Saint-Petersburg.</h3>
-      <h3 class="caption-text">Seeking for new challenges.</h3>
-    </div>
+    <GridRow
+      :noLeft="true">
+      <template slot="two">
+        <div
+          class="home-section scale"
+          ref="developerWrapper">
+          <div ref="developer">
+            <BigHeading>Developer</BigHeading>
+          </div>
+        </div>
+      </template>
+      <template slot="three">
+
+      </template>
+    </GridRow>
+
+    <GridRow :noRight="true">
+      <template slot="one">
+        <ArrowLink
+          class="arrow-link"
+          :link="Routes.DESIGN_PROJECTS"
+          @click="goTo">
+          <template slot="text">design</template>
+          <template slot="caption">4 projects</template>
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div
+          class="home-section"
+          ref="designerWrapper">
+          <div ref="designer">
+            <BigHeading>Designer</BigHeading>
+          </div>
+        </div>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noLeft="true"
+      :isAlignedRight="true"
+      :isBottom="true">
+      <template slot="two">
+        <ArrowLink
+          class="arrow-link"
+          :link="Routes.WORK"
+          @click="goTo">
+          <template slot="text">development</template>
+          <template slot="caption">{{projectsLength}} projects</template>
+        </ArrowLink>
+      </template>
+      <div class="grid-row-section is-small with-border-left no-border-mobile"></div>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true">
+      <template slot="one"></template>
+      <template slot="two">
+        <ArrowLink
+          class="arrow-link"
+          :link="Routes.CONTACT"
+          @click="goTo">
+          <template slot="text">contact</template>
+        </ArrowLink>
+      </template>
+    </GridRow>
+
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import {Routes} from '@/router';
 import {AnimationService} from '@/shared/services/animation.service';
+import {routeMixin} from '@/components/common/mixins/route.mixin';
+import {ProjectService} from '@/api/services/ProjectService';
 export default Vue.extend({
   name: 'Home',
-  mounted(): void {
-    AnimationService.gsap.timeline({duration: 1})
-      .from('.text', {
-        x: -25,
-        opacity: 0,
-        stagger: 0.2
-      }).from('.home-caption h3', {
-        delay: -0.5,
-        opacity: 0,
-        stagger: 0.2,
-        y: 20
-      }).from('.home-content', {
-        opacity: 0
-      })
-  },
-  methods: {
-    rotate3d(x: number, y: number) {
-      this.setPerspective(1000);
-      AnimationService.tweenLite.to('.home-content', {
-        rotateX: x,
-        rotateY: y,
-        onComplete: () => this.setPerspective(0)
-      })
-    },
-    setPerspective(perspective: number) {
-      AnimationService.gsap.set('.home', {
-        perspective: perspective
-      });
+  mixins: [routeMixin],
+  data() {
+    return {
+      Routes,
+      projectsLength: 9
     }
+  },
+  mounted() {
+    const developer = this.$refs.developer as HTMLElement;
+    let developerWrapper = this.$refs.developerWrapper as HTMLElement;
+    developerWrapper = AnimationService.appenCloneToParrent(developerWrapper, developer, 6);
+
+    const designer = this.$refs.designer as HTMLElement;
+    let designerWrapper = this.$refs.designerWrapper as HTMLElement;
+    designerWrapper = AnimationService.appenCloneToParrent(designerWrapper, designer, 6);
+
+    AnimationService.runningTimeline(developerWrapper, -developerWrapper.offsetWidth, 30);
+    AnimationService.runningTimeline(designerWrapper, -developerWrapper.offsetWidth ,20);
+
+    AnimationService.removeCover();
+
+    ProjectService.getNumberOfProjects()
+      .then(snap => this.projectsLength = snap.size);
   }
 });
 </script>
@@ -59,44 +109,9 @@ export default Vue.extend({
     height: 100%;
     position: relative;
 
-    &-heading {
-      grid-area: 2 / 1 / 3 / 3;
-      z-index: 1;
-      white-space: nowrap;
-      width: 100%;
-      @media ($tablet) {
-        grid-area: 2 / 1 / 4 / 2;
-      }
 
-      @media ($mobile) {
-        grid-area: 1 / 1 / 3 / 4;
-      }
-    }
-
-    &-content {
-      grid-area: 1 / 3 / 7 / 5;
-      transform-style: preserve-3d;
-
-      @media ($tablet) {
-        grid-area: 1 / 2 / 7 / 5;
-      }
-
-      @media ($mobile) {
-        grid-area: 3 / 1 / 8 / 4;
-      }
-    }
-
-    &-caption {
-      grid-area: 6 / 4 / 8 / 6;
-      z-index: 1;
-
-      @media ($tablet) {
-        grid-area: 6 / 2 / 10 / 5;
-      }
-
-      @media ($mobile) {
-        grid-area: 7 / 1 / 8 / 2;
-      }
+    &-section {
+      display: flex;
     }
   }
 </style>

@@ -3,6 +3,6 @@ import {Collections} from '@/api/Collections';
 
 export class RoleService {
   static getAllRoles() {
-    return db.collection(Collections.ROLES);
+    return db.collection(Collections.ROLES).orderBy('startDate', 'desc');
   }
 }

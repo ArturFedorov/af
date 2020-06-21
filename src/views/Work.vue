@@ -1,95 +1,178 @@
 <template>
   <div class="work">
-    <div class="work-header">
-      <NumberStep class="projects-link">
-        <template slot="text">
-          T-Systems
-        </template>
-        <template slot="caption">
-          April 2013 - Present
-          <span class="is-pale-text">
-            ( 7 years )
-          </span>
-        </template>
-      </NumberStep>
-    </div>
-    <div class="work-content">
-      <ProjectLabel
-        class="work-content-item"
-        v-for="project in projects"
-        :key="project.id"
-        :project="project"/>
-    </div>
-    <div class="work-row">
-      <div class="work-row-controls">
-        <a
-          class="p-italic work-row-link"
-          :class="{'is-pale-text': isSkills}"
-          @click="toggleSkills(false)">
-          Roles
-        </a>
-        <span class="work-row-link">/</span>
-        <a
-          class="p-italic work-row-link"
-          :class="{'is-pale-text': !isSkills}"
-          @click="toggleSkills(true)">
-          Skills
-        </a>
-      </div>
-      <div class="work-labels">
-        <Label
-          class="work-row-item"
-          v-for="role in roles"
-          :key="role.id">
-          <template slot="header">
-            {{role.name}}
+    <GridRow>
+      <template slot="one">
+        <Button
+          class="is-flipped"
+          :isReversed="!isLightMode"
+          @click="goTo(Routes.HOME)">
+          home
+        </Button>
+      </template>
+      <template slot="two">
+        <div
+          class="work-section scale"
+          ref="wrapper">
+          <div ref="contact">
+            <BigHeading>T–Systems</BigHeading>
+          </div>
+        </div>
+      </template>
+      <template slot="three">
+        <ArrowLink
+          class="arrow-link"
+          link="github">
+          <template slot="text">April 2013-now</template>
+        </ArrowLink>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      v-for="(projects, index) in chunkedProjects"
+      :key="`project${index}`">
+      <template
+        slot="one">
+        <ArrowLink class="work-subheader">
+          <template slot="text">
+            {{index === chunkedProjects.length -1 ? 'projects': ''}}
           </template>
-        </Label>
-      </div>
-    </div>
-    <div class="work-row">
-      <div class="work-row-controls">
-        <a
-          class="p-italic work-row-link">
-          Customers
-        </a>
-      </div>
-      <div class="work-labels">
-        <Label
-          class="work-row-item is-orange"
-          v-for="customer in customerList"
-          :key="customer.id">
-          <template slot="header">
-            {{customer.name}}
+        </ArrowLink>
+      </template>
+      <template slot="two">
+          <div
+            v-if="projects"
+            class="work-projects">
+            <ProjectLabel
+              class="work-projects-item"
+              v-for="project in projects"
+              :key="project.id"
+              :project="project"/>
+          </div>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true"
+      v-for="(roles, index) in chunkedRoles"
+      :key="`role${index}`">
+      <template
+        slot="one">
+        <ArrowLink class="work-subheader">
+          <template slot="text">
+            {{index === chunkedRoles.length -1 ? 'roles': ''}}
           </template>
-          <template slot="caption">
-            {{customer.duration}}
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div
+          v-if="roles"
+          class="work-projects">
+          <Label
+            class="work-projects-item"
+            v-for="role in roles"
+            :key="role.id">
+            <template slot="header">{{role.name}}</template>
+            <template slot="caption">{{role.duration}}</template>
+          </Label>
+        </div>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true"
+      v-for="(customers, index) in chunkedCustomers"
+      :key="`customer${index}`">
+      <template
+        slot="one">
+        <ArrowLink class="work-subheader">
+          <template slot="text">
+            {{index === chunkedCustomers.length -1 ? 'customers': ''}}
           </template>
-        </Label>
-      </div>
-    </div>
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div
+          v-if="customers"
+          class="work-projects">
+          <Label
+            class="work-projects-item"
+            v-for="customer in customers"
+            :key="customer.id">
+            <template slot="header">{{customer.name}}</template>
+          </Label>
+        </div>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true"
+      v-for="(technologies, index) in chunkedTechnologies"
+      :key="`technology${index}`">
+      <template
+        slot="one">
+        <ArrowLink class="work-subheader">
+          <template slot="text">
+            {{index === chunkedTechnologies.length -1 ? 'skills': ''}}
+          </template>
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div
+          v-if="technologies"
+          class="work-projects">
+          <Label
+            class="work-projects-item"
+            v-for="technology in technologies"
+            :key="technology.id">
+            <template slot="header">{{technology.name}}</template>
+            <template slot="caption">
+              <Rating
+                v-if="technology.rating"
+                :rating="technology.rating" />
+            </template>
+          </Label>
+        </div>
+      </template>
+    </GridRow>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {ProjectService} from '../api/services/ProjectService';
+import {ProjectService} from '@/api/services/ProjectService';
 import ProjectLabel from '../components/work/ProjectLabel/ProjectLabel.vue';
 import {RoleService} from '@/api/services/RoleService';
 import {CustomerService} from '@/api/services/CustomerService';
 import {ICustomer} from '@/shared/interfaces/ICustomer';
 import {CalendarService} from '@/shared/services/calendar.service';
+import {uiMode} from '@/components/common/mixins/uiMode.mixin';
+import {routeMixin} from '@/components/common/mixins/route.mixin';
+import {AnimationService} from '@/shared/services/animation.service';
+import {IProject} from '@/shared/interfaces/IProject';
+import {ArrayUtil} from '@/shared/utils/array.util';
+import {Routes} from '@/router';
+import {DefaultValues} from '@/components/work/DefaultValues';
+import {IRole} from '@/shared/interfaces/IRole';
+import {TechnologyService} from '@/api/services/TechnologyService';
+import {ITechnology} from '@/shared/interfaces/ITechnology';
 export default Vue.extend({
   name: 'Work',
+  mixins: [uiMode, routeMixin],
   components: {
     ProjectLabel
   },
   data() {
     return {
+      Routes,
       isSkills: false,
       customers: [],
       projects: [],
-      roles: []
+      roles: [],
+      technologies: []
     }
   },
   computed: {
@@ -98,82 +181,92 @@ export default Vue.extend({
         ...customer,
         duration: CalendarService.convertDateToDurationString(customer.startDate, customer.endDate)
       }));
+    },
+    rolesList(): IRole[] {
+      return this.roles.map((role: IRole) => ({
+        ...role,
+        duration: CalendarService.convertDateToDurationString(role.startDate, role.endDate)
+      }));
+    },
+    chunkedProjects(): IProject[][] {
+      return this.projects.length
+        ? ArrayUtil.chunkArray(this.projects, 4)
+        : [[DefaultValues.projects[0]],[DefaultValues.projects[1]]];
+    },
+    chunkedRoles(): IRole[][] {
+      return this.rolesList.length
+        ? ArrayUtil.chunkArray(this.rolesList, 4)
+        : [[DefaultValues.roles[0]],[DefaultValues.roles[1]]];
+    },
+    chunkedCustomers(): ICustomer[][] {
+      return this.customerList.length
+        ? ArrayUtil.chunkArray(this.customerList, 4)
+        : [[DefaultValues.customers[0]],[DefaultValues.customers[1]]];
+    },
+    chunkedTechnologies(): ITechnology[][] {
+      return this.technologies.length
+        ? ArrayUtil.chunkArray(this.technologies, 4)
+        : [[DefaultValues.technologies[0]],
+          [DefaultValues.technologies[1]],
+          [DefaultValues.technologies[2]],
+          [DefaultValues.technologies[3]]];
     }
   },
   mounted(): void {
     this.$bind('projects', ProjectService.getAllProjects());
     this.$bind('roles', RoleService.getAllRoles());
     this.$bind('customers', CustomerService.getAllCustomers());
-  },
-  methods: {
-    toggleSkills (value: boolean) {
-      this.isSkills = value;
-    }
+    this.$bind('technologies', TechnologyService.getAllTechnologies());
+
+
+    const contact = this.$refs.contact as HTMLElement;
+    let wrapper = this.$refs.wrapper as HTMLElement;
+    wrapper = AnimationService.appenCloneToParrent(wrapper, contact, 6);
+    AnimationService.runningTimeline(wrapper, -wrapper.offsetWidth, 30);
+    AnimationService.removeCover();
   }
 });
 </script>
 
 <style lang="scss" scoped>
   .work {
-    height: 100%;
+    position: relative;
 
-    &-header {
+    &-section {
+      display: flex;
+
+      @media ($tablet) {
+        height: 100%;
+        align-items: center;
+      }
+    }
+
+    &-subheader {
+      margin-left: auto;
+    }
+
+    &-projects {
+      display: flex;
+      padding: $padding;
       width: 100%;
-      padding-bottom: $building-unit-x2;
-      border-bottom: 1px solid $black;
-      margin-bottom: 5em;
-    }
 
-    &-content {
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 1px solid $black;
-
-      &-item {
-        width: calc(100% / 5);
-        min-width: 270px;
-        margin-bottom: 8em;
-      }
-    }
-
-    &-labels {
-      flex: 1;
-      flex-wrap: wrap;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &-row {
-      display: flex;
-      padding: 2em 0;
-
-      @media ($mobile) {
-        flex-direction: column;
-      }
-
-      &-controls {
-        width: 250px;
-        padding-top: 2.2em;
-
-        @media ($mobile) {
-          padding: 0 0 2em 0;
-        }
+      @media ($desktop) {
+        overflow-x: auto;
       }
 
       &-item {
-        min-width: 270px;
-        margin-bottom: 2em;
+        width: 25%;
 
-        @media ($mobile) {
-          width: 100%;
-          margin-bottom: 1em;
+        @media ($desktop) {
+          min-width: 250px;
         }
       }
+    }
+  }
 
-      &-link {
-        font-size: $font-size-h3-min;
-        cursor: pointer;
-      }
+  .heading {
+    @media ($tablet) {
+      font-size: 120px;
     }
   }
 </style>
