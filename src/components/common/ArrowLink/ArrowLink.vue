@@ -55,6 +55,10 @@ export default Vue.extend({
     &.full-width {
       width: 100%;
     }
+
+    &.is-aligned-right {
+      margin-left: auto;
+    }
   }
 
   // dark mode {

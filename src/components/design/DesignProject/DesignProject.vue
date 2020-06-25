@@ -13,7 +13,9 @@
           {{topic}}
         </p>
       </div>
-      <a class="design-project-plus">
+      <a
+        class="design-project-plus"
+        @click="goTo(Routes.DESIGN_CASE, project.name)">
         <SvgIcon
           name="plus"/>
       </a>
@@ -24,8 +26,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import {IDesignProject} from '@/shared/interfaces/IDesignProject';
+import {routeMixin} from '@/components/common/mixins/route.mixin';
+import {Routes} from '@/router';
 export default Vue.extend({
   name: 'DesignProject',
+  mixins: [routeMixin],
+  data() {
+    return {
+      Routes
+    }
+  },
   props: {
     project: {
       type: Object as () => IDesignProject,
