@@ -16,6 +16,7 @@ import Rating from '@/components/common/Rating/Rating.vue';
 
 // Filters
 import leadingZero from './filter/lead-zero.filter';
+import uniqueId from './filter/uniqueId.filter';
 
 const components: { [key: string]: {} } = {
   BigHeading,
@@ -30,10 +31,17 @@ const components: { [key: string]: {} } = {
   IntersectionObserver
 };
 
+const filters: { [key: string]: Function } = {
+  leadingZero,
+  uniqueId
+}
+
 Object.keys(components).forEach(componentName =>
   Vue.component(componentName, components[componentName])
 );
 
+Object.keys(filters).forEach(filterName =>
+  Vue.filter(filterName, filters[filterName])
+);
 
-Vue.filter('leadingZero', leadingZero);
 

@@ -23,7 +23,7 @@
     <GridRow
       :isBottom="true"
       v-for="project in projects"
-      :key="project.name">
+      :key="project.id">
       <template slot="one">
         <div
           class="design-image left"
@@ -52,6 +52,7 @@ import {routeMixin} from '@/components/common/mixins/route.mixin';
 import {Routes} from '@/router';
 import DesignProject from '@/components/design/DesignProject/DesignProject.vue';
 import {IDesignProject} from '@/shared/interfaces/IDesignProject';
+import {DesignService} from '@/api/services/DesignService';
 
 export default Vue.extend({
   mixins: [uiMode, routeMixin],
@@ -62,13 +63,7 @@ export default Vue.extend({
   data() {
     return {
       Routes,
-      projects: [
-        { name: 'cheeta', class: 'cheeta', topics: ['logo', 'landing', 'identity']},
-        { name: 'feix', class: 'feix', topics: ['logo', 'landing', 'identity']},
-        { name: 'one2nd', class: 'one2nd', topics: ['logo', 'landing', 'identity']},
-        { name: 'ice9',class: 'ice', topics: ['ux', 'ui']},
-        { name: 'elena krasnenko', class: 'elena-krasnenko', topics: ['logo', 'type', 'landing']}
-      ] as IDesignProject[],
+      projects: DesignService.getDesignProjects(),
       hoveredProject: ''
     }
   },

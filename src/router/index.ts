@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 import Home from '../views/Home.vue';
+import Contact from '@/views/Contact.vue';
+import Work from '@/views/Work.vue';
+import Design from '@/views/Design.vue';
 import NotFound from '@/components/root/404/NotFound.vue';
+import DesignCase from '@/components/design/DesignCase/DesignCase.vue';
 
 Vue.use(VueRouter);
 
@@ -10,6 +14,7 @@ export enum Routes {
   HOME = 'Home',
   PROJECTS = 'Projects',
   DESIGN_PROJECTS = 'Design_Projects',
+  DESIGN_CASE = 'Design_Case',
   CONTACT = 'Contact',
   WORK = 'Work',
   EMPTY = 'Empty'
@@ -24,17 +29,23 @@ const routes: RouteConfig[] = [
   {
     path: '/contact',
     name: Routes.CONTACT,
-    component: () => import(/* webpackChunkName: 'contact' */ '../views/Contact.vue')
+    component: Contact
   },
   {
     path: '/work',
     name: Routes.WORK,
-    component: () => import(/* webpackChunkName: 'work' */ '../views/Work.vue')
+    component: Work
   },
   {
     path: '/design',
     name: Routes.DESIGN_PROJECTS,
-    component: () => import(/* webpackChunkName: 'work' */ '../views/Design.vue')
+    component: Design,
+  },
+  {
+    path: '/design/:id',
+    props: true,
+    name: Routes.DESIGN_CASE,
+    component: DesignCase
   },
   {
     path: '*',
