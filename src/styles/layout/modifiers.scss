@@ -1,3 +1,15 @@
 .is-pushed-down {
   margin-top: auto;
 }
+
+.is-margin-left {
+  &-x5 {
+    margin-left: $building-unit-x5;
+  }
+}
+
+.is-margin-right {
+  &-x5 {
+    margin-right: $building-unit-x5;
+  }
+}

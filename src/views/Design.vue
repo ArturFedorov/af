@@ -51,7 +51,6 @@ import {uiMode} from '@/components/common/mixins/uiMode.mixin';
 import {routeMixin} from '@/components/common/mixins/route.mixin';
 import {Routes} from '@/router';
 import DesignProject from '@/components/design/DesignProject/DesignProject.vue';
-import {IDesignProject} from '@/shared/interfaces/IDesignProject';
 import {DesignService} from '@/api/services/DesignService';
 
 export default Vue.extend({
