@@ -1,7 +1,7 @@
 <template>
   <div class="contact grid">
 
-    <GridRow>
+    <GridRow :mobileHiddenMain="true">
       <template slot="one">
         <Button
           class="is-flipped"

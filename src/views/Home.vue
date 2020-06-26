@@ -1,7 +1,8 @@
 <template>
   <div class="home grid">
     <GridRow
-      :noLeft="true">
+      :noLeft="true"
+      :mobileHidden="true">
       <template slot="two">
         <div
           class="home-section scale"
@@ -44,7 +45,8 @@
     <GridRow
       :noLeft="true"
       :isAlignedRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="two">
         <ArrowLink
           class="arrow-link"
@@ -54,12 +56,12 @@
           <template slot="caption">{{projectsLength}} projects</template>
         </ArrowLink>
       </template>
-      <div class="grid-row-section is-small with-border-left no-border-mobile"></div>
     </GridRow>
 
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one"></template>
       <template slot="two">
         <ArrowLink

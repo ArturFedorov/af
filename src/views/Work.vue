@@ -1,6 +1,6 @@
 <template>
   <div class="work">
-    <GridRow>
+    <GridRow :mobileHidden="true">
       <template slot="one">
         <Button
           class="is-flipped"
@@ -27,8 +27,30 @@
       </template>
     </GridRow>
 
+    <!--mobile visible-->
+    <GridRow
+      :mobileHiddenMain="true"
+      class="work-section-mobile">
+      <template slot="one">
+        <Button
+          class="is-flipped"
+          :isReversed="!isLightMode"
+          @click="goTo(Routes.HOME)">
+          home
+        </Button>
+      </template>
+      <template slot="three">
+        <ArrowLink
+          class="arrow-link"
+          link="github">
+          <template slot="text">April 2013-now</template>
+        </ArrowLink>
+      </template>
+    </GridRow>
+
     <GridRow
       :noRight="true"
+      :mobileHidden="true"
       v-for="(projects, index) in chunkedProjects"
       :key="`project${index}`">
       <template
@@ -55,6 +77,7 @@
     <GridRow
       :noRight="true"
       :isBottom="true"
+      :mobileHidden="true"
       v-for="(roles, index) in chunkedRoles"
       :key="`role${index}`">
       <template
@@ -83,6 +106,7 @@
     <GridRow
       :noRight="true"
       :isBottom="true"
+      :mobileHidden="true"
       v-for="(customers, index) in chunkedCustomers"
       :key="`customer${index}`">
       <template
@@ -110,6 +134,7 @@
     <GridRow
       :noRight="true"
       :isBottom="true"
+      :mobileHidden="true"
       v-for="(technologies, index) in chunkedTechnologies"
       :key="`technology${index}`">
       <template
@@ -224,6 +249,7 @@ export default Vue.extend({
     wrapper = AnimationService.appenCloneToParrent(wrapper, contact, 6);
     AnimationService.runningTimeline(wrapper, -wrapper.offsetWidth, 30);
     AnimationService.removeCover();
+
   }
 });
 </script>
@@ -238,6 +264,14 @@ export default Vue.extend({
       @media ($tablet) {
         height: 100%;
         align-items: center;
+      }
+
+      &-mobile {
+        display: none;
+
+        @media ($mobile) {
+          display: flex;
+        }
       }
     }
 
@@ -254,11 +288,25 @@ export default Vue.extend({
         overflow-x: auto;
       }
 
+      @media ($mobile) {
+        padding: $building-unit-x5;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
       &-item {
         width: 25%;
 
         @media ($desktop) {
           min-width: 250px;
+        }
+
+        @media ($mobile) {
+          width: 100%;
+
+          &:not(:last-child) {
+            margin-bottom: $building-unit-x8;
+          }
         }
       }
     }

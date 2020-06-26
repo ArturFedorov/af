@@ -31,7 +31,6 @@ export default Vue.extend({
     SmoothScrollbar.init(this.$refs.app as HTMLElement, {
       damping: 0.03,
       thumbMinSize: 15,
-      // plugins:
     });
   }
 });
