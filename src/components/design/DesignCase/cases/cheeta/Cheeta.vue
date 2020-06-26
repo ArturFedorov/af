@@ -34,14 +34,10 @@
       <template slot="two">
         <div class="cheeta-container">
           <div class="cheeta-section is-half">
-            <video
-              class="cheeta-video"
-              preload="auto"
-              autoplay
-              muted
-              loop>
-              <source src="../../../../../assets/videos/cheeta/cheeta_promo.mp4" type="video/mp4">
-            </video>
+            <Video
+              :withSound="true"
+              folder="cheeta"
+              video="cheeta_promo.mp4" />
           </div>
         </div>
       </template>
@@ -112,6 +108,25 @@
         </div>
       </template>
     </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true">
+      <template slot="one">
+        <ArrowLink class="arrow-link is-aligned-right">
+          <template slot="text">animation</template>
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div class="cheeta-container">
+          <div class="cheeta-section is-one-forth">
+            <Video
+              folder="cheeta"
+              video="poster.mp4" />
+          </div>
+        </div>
+      </template>
+    </GridRow>
   </div>
 </template>
 
@@ -120,13 +135,15 @@ import Vue from 'vue';
 import {Routes} from '@/router';
 import {AnimationService} from '@/shared/services/animation.service';
 import Overview from '@/components/design/DesignCase/cases/cheeta/Overview/Overview.vue';
-import ImageGallery from '@/components/design/DesignCase/cases/cheeta/ImageGallery/ImageGallery.vue';
+import ImageGallery from '@/components/design/DesignCase/cases/common/ImageGallery/ImageGallery.vue';
+import Video from '@/components/design/DesignCase/cases/common/Video/Video.vue';
 
 export default Vue.extend({
   name: 'Cheeta',
   components: {
     ImageGallery,
-    Overview
+    Overview,
+    Video
   },
   data() {
     return {
@@ -135,7 +152,8 @@ export default Vue.extend({
       logoImages: [
         'logo-black-caption.png',
         'logo-white-caption.png',
-        'logo-white-no-caption.png'
+        'logo-white-no-caption.png',
+        'logo-black-no-caption.png'
       ],
       printImages: [
         'poster_black.png',
@@ -155,6 +173,8 @@ export default Vue.extend({
   },
   mounted() {
     AnimationService.removeCover();
+
+    console.log(this.$refs.promo)
   }
 });
 </script>

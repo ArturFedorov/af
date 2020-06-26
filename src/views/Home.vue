@@ -23,7 +23,11 @@
           :link="Routes.DESIGN_PROJECTS"
           @click="goTo">
           <template slot="text">design</template>
-          <template slot="caption">4 projects</template>
+          <template
+            v-if="designProjectCount > 0"
+            slot="caption">
+            {{designProjectCount}} projects
+          </template>
         </ArrowLink>
       </template>
       <template slot="two">
@@ -76,13 +80,15 @@ import {Routes} from '@/router';
 import {AnimationService} from '@/shared/services/animation.service';
 import {routeMixin} from '@/components/common/mixins/route.mixin';
 import {ProjectService} from '@/api/services/ProjectService';
+import {DesignService} from '@/api/services/DesignService';
 export default Vue.extend({
   name: 'Home',
   mixins: [routeMixin],
   data() {
     return {
       Routes,
-      projectsLength: 9
+      projectsLength: 9,
+      designProjectCount: DesignService.getDesignProjects().length
     }
   },
   mounted() {
