@@ -27,35 +27,35 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
+import Vue from 'vue';
 
-  export default Vue.extend({
-    name: 'Video',
-    props: {
-      folder: {
-        type: String,
-        required: true
-      },
-      video: {
-        type: String,
-        required: true
-      },
-      withSound: {
-        type: Boolean,
-        default: false
-      }
+export default Vue.extend({
+  name: 'Video',
+  props: {
+    folder: {
+      type: String,
+      required: true
     },
-    data() {
-      return {
-        muted: true
-      }
+    video: {
+      type: String,
+      required: true
     },
-    computed: {
-      getVideoSrc(): string {
-        return require(`../../../../../../assets/videos/${this.folder}/${this.video}`);
-      }
+    withSound: {
+      type: Boolean,
+      default: false
     }
-  });
+  },
+  data() {
+    return {
+      muted: true
+    }
+  },
+  computed: {
+    getVideoSrc(): string {
+      return require(`../../../../../../assets/videos/${this.folder}/${this.video}`);
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>

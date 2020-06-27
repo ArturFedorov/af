@@ -186,8 +186,6 @@ export default Vue.extend({
   },
   mounted() {
     AnimationService.removeCover();
-
-    console.log(this.$refs.promo)
   }
 });
 </script>
