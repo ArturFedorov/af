@@ -45,10 +45,6 @@ export default Vue.extend({
       margin-bottom: $building-unit;
 
       @media ($tablet) {
-        width: 50%;
-      }
-
-      @media ($mobile) {
         width: 100%;
         padding-right: 0;
       }

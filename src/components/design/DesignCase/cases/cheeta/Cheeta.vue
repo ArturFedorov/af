@@ -206,6 +206,10 @@ export default Vue.extend({
       width: 100%;
       display: flex;
 
+      @media ($tablet) {
+        padding: $building-unit-x3;
+      }
+
       @media ($mobile) {
         padding: $building-unit-x2;
         flex-direction: column;
@@ -215,14 +219,14 @@ export default Vue.extend({
     &-section {
       padding-right: $building-unit-x3;
 
-      @media($mobile) {
+      @media($tablet) {
         padding-right: 0;
       }
 
       &.is-one-forth {
         width: 25%;
 
-        @media($mobile) {
+        @media($tablet) {
           width: 100%;
         }
       }
@@ -230,7 +234,7 @@ export default Vue.extend({
       &.is-half {
         width: 50%;
 
-        @media($mobile) {
+        @media($tablet) {
           width: 100%;
         }
       }

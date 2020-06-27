@@ -95,10 +95,18 @@ export default Vue.extend({
       padding-right: $building-unit-x3;
       width: 25%;
 
-      @media($mobile) {
-        width: 100%;
+      @media ($tablet) {
+        width: 70%;
         margin-bottom: $building-unit-x8;
         padding-right: 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @media($mobile) {
+        width: 100%;
       }
     }
   }

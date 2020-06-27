@@ -18,6 +18,14 @@ h2 {
   white-space: nowrap;
   transition: $default-transition;
 
+  @media ($desktop) {
+    font-size: $font-size-h2-tablet;
+  }
+
+  @media ($tablet) {
+    white-space: normal;
+  }
+
   @media ($mobile) {
     font-size: $font-size-base;
     white-space: normal;
