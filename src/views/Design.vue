@@ -22,6 +22,7 @@
     </GridRow>
     <GridRow
       :isBottom="true"
+      :mobileHidden="true"
       v-for="project in projects"
       :key="project.id">
       <template slot="one">

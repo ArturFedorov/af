@@ -63,6 +63,10 @@ export default Vue.extend({
       margin-right: $building-unit-x10;
       justify-content: flex-end;
 
+      @media ($mobile) {
+        display: none;
+      }
+
       .is-small {
         margin-right: $building-unit-x6;
       }
@@ -72,6 +76,10 @@ export default Vue.extend({
       width: $building-unit-x5;
       height: $building-unit-x5;
       cursor: pointer;
+
+      @media ($mobile) {
+        margin-left: auto;
+      }
     }
   }
 

@@ -51,6 +51,10 @@ export default Vue.extend({
 
     &-caption {
       padding: $padding;
+
+      @media ($mobile) {
+        padding: $padding-mobile;
+      }
     }
 
     &-section {

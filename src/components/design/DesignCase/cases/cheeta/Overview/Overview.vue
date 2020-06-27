@@ -87,13 +87,25 @@ export default Vue.extend({
     display: flex;
     flex-wrap: wrap;
 
+    @media($mobile) {
+      padding: $building-unit-x2 0;
+    }
+
     &-section {
       padding-right: $building-unit-x3;
       width: 25%;
 
       @media($mobile) {
         width: 100%;
+        margin-bottom: $building-unit-x8;
+        padding-right: 0;
       }
+    }
+  }
+
+  .dark {
+    .overview {
+      color: $white;
     }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="contact grid">
 
-    <GridRow>
+    <GridRow :mobileHiddenMain="true">
       <template slot="one">
         <Button
           class="is-flipped"
@@ -22,7 +22,8 @@
       <template slot="three">
         <ArrowLink
           class="arrow-link"
-          link="github">
+          link="github"
+          @click="goExternal('https://github.com/ArturFedorov')">
           <template slot="text">github</template>
         </ArrowLink>
       </template>
@@ -41,7 +42,8 @@
       <template slot="two">
         <ArrowLink
           class="arrow-link"
-          link="github">
+          link="github"
+          @click="goExternal('https://www.facebook.com/artur.fedorov/')">
           <template slot="text">facebook</template>
         </ArrowLink>
       </template>
@@ -54,7 +56,8 @@
       <template slot="two">
         <ArrowLink
           class="arrow-link"
-          link="github">
+          link="github"
+          @click="goExternal('https://www.linkedin.com/in/arturfedorov/')">
           <template slot="text">linkedin</template>
         </ArrowLink>
       </template>
@@ -80,7 +83,8 @@
       <template slot="two">
         <ArrowLink
           class="arrow-link"
-          link="github">
+          link="github"
+          @click="goExternal('https://www.instagram.com/surfandturf_design/')">
           <template slot="text">instagram</template>
         </ArrowLink>
       </template>
@@ -101,6 +105,11 @@ export default Vue.extend({
   data() {
     return {
       Routes
+    }
+  },
+  methods: {
+    goExternal(url: string) {
+      window.open(url, '_blank');
     }
   },
   mounted() {

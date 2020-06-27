@@ -2,7 +2,8 @@
   <div class="cheeta">
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one"></template>
       <template slot="two">
         <ArrowLink
@@ -25,7 +26,8 @@
 
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one">
         <ArrowLink class="arrow-link is-aligned-right">
           <template slot="text">promo</template>
@@ -34,14 +36,11 @@
       <template slot="two">
         <div class="cheeta-container">
           <div class="cheeta-section is-half">
-            <video
-              class="cheeta-video"
-              preload="auto"
-              autoplay
-              muted
-              loop>
-              <source src="../../../../../assets/videos/cheeta/cheeta_promo.mp4" type="video/mp4">
-            </video>
+            <h2 class="cheeta-header-mobile">promo</h2>
+            <Video
+              :withSound="true"
+              folder="cheeta"
+              video="cheeta_promo.mp4" />
           </div>
         </div>
       </template>
@@ -49,7 +48,8 @@
 
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one">
         <ArrowLink class="arrow-link is-aligned-right">
           <template slot="text">overview</template>
@@ -57,6 +57,7 @@
       </template>
       <template slot="two">
         <div class="cheeta-container">
+          <h2 class="cheeta-header-mobile">overview</h2>
           <Overview />
         </div>
       </template>
@@ -64,7 +65,8 @@
 
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one">
         <ArrowLink class="arrow-link is-aligned-right">
           <template slot="text">logo</template>
@@ -72,6 +74,7 @@
       </template>
       <template slot="two">
         <div class="cheeta-container">
+          <h2 class="cheeta-header-mobile">logo</h2>
           <ImageGallery
             :folder="project.name"
             :images="logoImages" />
@@ -81,7 +84,8 @@
 
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one">
         <ArrowLink class="arrow-link is-aligned-right">
           <template slot="text">print</template>
@@ -89,6 +93,7 @@
       </template>
       <template slot="two">
         <div class="cheeta-container">
+          <h2 class="cheeta-header-mobile">print</h2>
           <ImageGallery
             :folder="project.name"
             :images="printImages" />
@@ -98,7 +103,8 @@
 
     <GridRow
       :noRight="true"
-      :isBottom="true">
+      :isBottom="true"
+      :mobileHidden="true">
       <template slot="one">
         <ArrowLink class="arrow-link is-aligned-right">
           <template slot="text">mobile</template>
@@ -106,9 +112,31 @@
       </template>
       <template slot="two">
         <div class="cheeta-container">
+          <h2 class="cheeta-header-mobile">mobile</h2>
           <ImageGallery
             :folder="project.name"
             :images="mobileImages" />
+        </div>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true"
+      :mobileHidden="true">
+      <template slot="one">
+        <ArrowLink class="arrow-link is-aligned-right">
+          <template slot="text">animation</template>
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div class="cheeta-container">
+          <div class="cheeta-section is-one-forth">
+            <h2 class="cheeta-header-mobile">animation</h2>
+            <Video
+              folder="cheeta"
+              video="poster.mp4" />
+          </div>
         </div>
       </template>
     </GridRow>
@@ -120,13 +148,15 @@ import Vue from 'vue';
 import {Routes} from '@/router';
 import {AnimationService} from '@/shared/services/animation.service';
 import Overview from '@/components/design/DesignCase/cases/cheeta/Overview/Overview.vue';
-import ImageGallery from '@/components/design/DesignCase/cases/cheeta/ImageGallery/ImageGallery.vue';
+import ImageGallery from '@/components/design/DesignCase/cases/common/ImageGallery/ImageGallery.vue';
+import Video from '@/components/design/DesignCase/cases/common/Video/Video.vue';
 
 export default Vue.extend({
   name: 'Cheeta',
   components: {
     ImageGallery,
-    Overview
+    Overview,
+    Video
   },
   data() {
     return {
@@ -135,7 +165,8 @@ export default Vue.extend({
       logoImages: [
         'logo-black-caption.png',
         'logo-white-caption.png',
-        'logo-white-no-caption.png'
+        'logo-white-no-caption.png',
+        'logo-black-no-caption.png'
       ],
       printImages: [
         'poster_black.png',
@@ -161,13 +192,23 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .cheeta {
+    &-header-mobile {
+      display: none;
+
+      @media ($mobile) {
+        margin-bottom: $building-unit-x2;
+        display: flex;
+      }
+    }
+
     &-container {
       padding: $building-unit-x4;
       width: 100%;
       display: flex;
 
       @media ($mobile) {
-        padding: $building-unit;
+        padding: $building-unit-x2;
+        flex-direction: column;
       }
     }
 
@@ -180,6 +221,10 @@ export default Vue.extend({
 
       &.is-one-forth {
         width: 25%;
+
+        @media($mobile) {
+          width: 100%;
+        }
       }
 
       &.is-half {

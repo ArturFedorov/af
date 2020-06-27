@@ -62,6 +62,7 @@ export class AnimationService {
           duration: 1.5,
           x: 0,
           ease: AnimationService.easing.power4.easeInOut,
+          stagger: 0.1,
           onComplete: () => resolve(true)
         });
     });

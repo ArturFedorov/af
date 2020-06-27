@@ -4,18 +4,18 @@
     <div
       v-if="!noLeft"
       class="grid-row-section is-small is-bottom"
-      :class="{'with-border-right': withBorder}">
+      :class="{'with-border-right': withBorder, 'mobile-hidden': mobileHidden }">
       <slot name="one"></slot>
     </div>
     <div
       class="grid-row-section"
-      :class="{'is-aligned-right': isAlignedRight, 'is-bottom': isBottom}">
+      :class="{'is-aligned-right': isAlignedRight, 'is-bottom': isBottom, 'mobile-hidden': mobileHiddenMain}">
       <slot name="two"></slot>
     </div>
     <div
       v-if="!noRight"
       class="grid-row-section is-small is-bottom"
-      :class="{'with-border-left': withBorder}">
+      :class="{'with-border-left': withBorder, 'mobile-hidden': mobileHidden, 'no-border-mobile': mobileHiddenMain}">
       <slot name="three"></slot>
     </div>
   </div>
@@ -45,11 +45,15 @@ export default Vue.extend({
     withBorder: {
       type: Boolean,
       default: true
+    },
+    mobileHidden: {
+      type: Boolean,
+      default: false
+    },
+    mobileHiddenMain: {
+      type: Boolean,
+      default: false
     }
   }
 })
 </script>
-
-<style lang="scss" scoped>
-
-</style>
