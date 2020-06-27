@@ -2,7 +2,8 @@
   <div class="home grid">
     <GridRow
       :noLeft="true"
-      :mobileHidden="true">
+      :mobileHidden="true"
+      :tabletHidden="true">
       <template slot="two">
         <div
           class="home-section scale"

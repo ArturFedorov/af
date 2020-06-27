@@ -288,8 +288,8 @@ export default Vue.extend({
         overflow-x: auto;
       }
 
-      @media ($mobile) {
-        padding: $building-unit-x5;
+      @media ($tablet) {
+        padding: $building-unit-x2 $building-unit-x6;
         flex-direction: column;
         overflow-x: hidden;
       }
@@ -301,7 +301,7 @@ export default Vue.extend({
           min-width: 250px;
         }
 
-        @media ($mobile) {
+        @media ($tablet) {
           width: 100%;
 
           &:not(:last-child) {

@@ -1,7 +1,8 @@
 <template>
   <div class="contact grid">
 
-    <GridRow :mobileHiddenMain="true">
+    <GridRow
+      :mobileHiddenMain="true">
       <template slot="one">
         <Button
           class="is-flipped"
@@ -36,14 +37,15 @@
         <ArrowLink
           class="arrow-link"
           link="github"
-          :withArrow="true">
+          :withArrow="true"
+          @click="goExternal(facebook)">
         </ArrowLink>
       </template>
       <template slot="two">
         <ArrowLink
           class="arrow-link"
           link="github"
-          @click="goExternal('https://www.facebook.com/artur.fedorov/')">
+          @click="goExternal(facebook)">
           <template slot="text">facebook</template>
         </ArrowLink>
       </template>
@@ -57,7 +59,7 @@
         <ArrowLink
           class="arrow-link"
           link="github"
-          @click="goExternal('https://www.linkedin.com/in/arturfedorov/')">
+          @click="goExternal(linkedin)">
           <template slot="text">linkedin</template>
         </ArrowLink>
       </template>
@@ -65,7 +67,8 @@
         <ArrowLink
           class="arrow-link"
           link="github"
-          :withArrow="true">
+          :withArrow="true"
+          @click="goExternal(linkedin)">
         </ArrowLink>
       </template>
     </GridRow>
@@ -77,14 +80,15 @@
         <ArrowLink
           class="arrow-link"
           link="github"
-          :withArrow="true">
+          :withArrow="true"
+          @click="goExternal(instagram)">
         </ArrowLink>
       </template>
       <template slot="two">
         <ArrowLink
           class="arrow-link"
           link="github"
-          @click="goExternal('https://www.instagram.com/surfandturf_design/')">
+          @click="goExternal(instagram)">
           <template slot="text">instagram</template>
         </ArrowLink>
       </template>
@@ -104,7 +108,10 @@ export default Vue.extend({
   mixins: [uiMode, routeMixin],
   data() {
     return {
-      Routes
+      Routes,
+      facebook: 'https://www.facebook.com/artur.fedorov',
+      linkedin: 'https://www.linkedin.com/in/arturfedorov',
+      instagram: 'https://www.instagram.com/surfandturf_design'
     }
   },
   methods: {

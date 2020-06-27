@@ -34,9 +34,9 @@
         </ArrowLink>
       </template>
       <template slot="two">
-        <div class="cheeta-container">
-          <div class="cheeta-section is-half">
-            <h2 class="cheeta-header-mobile">promo</h2>
+        <div class="design-container">
+          <div class="design-section is-half">
+            <h2 class="design-header-mobile">promo</h2>
             <Video
               :withSound="true"
               folder="cheeta"
@@ -56,8 +56,8 @@
         </ArrowLink>
       </template>
       <template slot="two">
-        <div class="cheeta-container">
-          <h2 class="cheeta-header-mobile">overview</h2>
+        <div class="design-container">
+          <h2 class="design-header-mobile">overview</h2>
           <Overview />
         </div>
       </template>
@@ -73,8 +73,8 @@
         </ArrowLink>
       </template>
       <template slot="two">
-        <div class="cheeta-container">
-          <h2 class="cheeta-header-mobile">logo</h2>
+        <div class="design-container">
+          <h2 class="design-header-mobile">logo</h2>
           <ImageGallery
             :folder="project.name"
             :images="logoImages" />
@@ -92,8 +92,8 @@
         </ArrowLink>
       </template>
       <template slot="two">
-        <div class="cheeta-container">
-          <h2 class="cheeta-header-mobile">print</h2>
+        <div class="design-container">
+          <h2 class="design-header-mobile">print</h2>
           <ImageGallery
             :folder="project.name"
             :images="printImages" />
@@ -111,8 +111,8 @@
         </ArrowLink>
       </template>
       <template slot="two">
-        <div class="cheeta-container">
-          <h2 class="cheeta-header-mobile">mobile</h2>
+        <div class="design-container">
+          <h2 class="design-header-mobile">mobile</h2>
           <ImageGallery
             :folder="project.name"
             :images="mobileImages" />
@@ -130,9 +130,9 @@
         </ArrowLink>
       </template>
       <template slot="two">
-        <div class="cheeta-container">
-          <div class="cheeta-section is-one-forth">
-            <h2 class="cheeta-header-mobile">animation</h2>
+        <div class="design-container">
+          <div class="design-section is-half">
+            <h2 class="design-header-mobile">animation</h2>
             <Video
               folder="cheeta"
               video="poster.mp4" />
@@ -191,58 +191,4 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-  .cheeta {
-    &-header-mobile {
-      display: none;
-
-      @media ($mobile) {
-        margin-bottom: $building-unit-x2;
-        display: flex;
-      }
-    }
-
-    &-container {
-      padding: $building-unit-x4;
-      width: 100%;
-      display: flex;
-
-      @media ($mobile) {
-        padding: $building-unit-x2;
-        flex-direction: column;
-      }
-    }
-
-    &-section {
-      padding-right: $building-unit-x3;
-
-      @media($mobile) {
-        padding-right: 0;
-      }
-
-      &.is-one-forth {
-        width: 25%;
-
-        @media($mobile) {
-          width: 100%;
-        }
-      }
-
-      &.is-half {
-        width: 50%;
-
-        @media($mobile) {
-          width: 100%;
-        }
-      }
-
-      &.is-three-forth {
-        width: 75%;
-      }
-    }
-
-    &-video {
-      width: 100%;
-      height: auto;
-    }
-  }
 </style>

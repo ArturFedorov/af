@@ -78,6 +78,12 @@
         }
       }
 
+      &.tablet-hidden {
+        @media ($tablet) {
+          display: none;
+        }
+      }
+
       &.mobile-hidden {
         @media ($mobile) {
           display: none;
