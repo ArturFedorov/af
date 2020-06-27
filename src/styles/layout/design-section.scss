@@ -1,0 +1,45 @@
+.design {
+  &-header-mobile {
+    display: none;
+
+    @media ($mobile) {
+      margin-bottom: $building-unit-x2;
+      display: flex;
+    }
+  }
+
+  &-container {
+    padding: $building-unit-x4;
+    width: 100%;
+    display: flex;
+
+    @media ($tablet) {
+      padding: $building-unit-x3;
+    }
+
+    @media ($mobile) {
+      padding: $building-unit-x2;
+      flex-direction: column;
+    }
+  }
+
+  &-section {
+    padding-right: $building-unit-x3;
+
+    @media($tablet) {
+      padding-right: 0;
+    }
+
+    &.is-half {
+      width: 50%;
+
+      @media($tablet) {
+        width: 100%;
+      }
+    }
+
+    &.is-three-forth {
+      width: 75%;
+    }
+  }
+}

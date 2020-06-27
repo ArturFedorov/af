@@ -41,7 +41,7 @@ export default Vue.extend({
 
     &-item {
       padding-right: $building-unit-x3;
-      width: 25%;
+      width: 50%;
       margin-bottom: $building-unit;
 
       @media ($tablet) {
