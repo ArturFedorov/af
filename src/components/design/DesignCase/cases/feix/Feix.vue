@@ -58,6 +58,21 @@
         </div>
       </template>
     </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true"
+      :mobileHidden="true">
+      <template slot="one"></template>
+      <template slot="two">
+        <ArrowLink
+          class="arrow-link feix-link smaller-pading">
+          <template slot="text">
+            more content will be soon...
+          </template>
+        </ArrowLink>
+      </template>
+    </GridRow>
   </div>
 </template>
 

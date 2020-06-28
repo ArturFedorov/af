@@ -52,9 +52,7 @@
         </template>
         <template slot="content">
           <p class="is-small">
-            Cheeta is a modern digital agency.
-            It is a new player on the market of software
-            development and digital services.
+            Telekom innovation laboratories (t-labs)
           </p>
         </template>
       </Paragraph>
@@ -75,11 +73,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+  import Vue from 'vue';
 
-export default Vue.extend({
-  name: 'Overview'
-});
+  export default Vue.extend({
+    name: 'Overview'
+  });
 </script>
 
 <style lang="scss" scoped>
