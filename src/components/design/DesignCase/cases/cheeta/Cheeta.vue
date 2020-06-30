@@ -199,7 +199,8 @@ export default Vue.extend({
         'Mobile2.png',
         'Mobile3.png',
         'Mobile4.png',
-        'Mobile5.png'
+        'Mobile5.png',
+        'Mobile6.png'
       ],
       webImages: [
         'web1.png',
