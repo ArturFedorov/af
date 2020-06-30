@@ -204,7 +204,8 @@ export default Vue.extend({
       ],
       webImages: [
         'web1.png',
-        'web2.png'
+        'web2.png',
+        'web3.png'
       ]
     }
   },
