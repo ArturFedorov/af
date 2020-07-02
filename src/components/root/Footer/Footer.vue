@@ -91,6 +91,10 @@ export default Vue.extend({
       .footer {
         border-top: $border-reversed;
 
+        &-link {
+          color: $white;
+        }
+
         &-caption {
           color: $white;
         }
