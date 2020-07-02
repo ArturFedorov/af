@@ -246,7 +246,8 @@ export default Vue.extend({
         : [[DefaultValues.technologies[0]],
           [DefaultValues.technologies[1]],
           [DefaultValues.technologies[2]],
-          [DefaultValues.technologies[3]]];
+          [DefaultValues.technologies[3]],
+          [DefaultValues.technologies[4]]];
     }
   },
   mounted(): void {
