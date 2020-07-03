@@ -9,7 +9,7 @@
       <p class="tablet-hidden">Ready for new challenges.</p>
       <a
         class="footer-link is-underlined"
-        href="cv.pdf"
+        href="/cv.pdf"
         target="_blank">
         Download resume
       </a>
