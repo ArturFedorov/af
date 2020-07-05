@@ -7,7 +7,7 @@
       <template slot="one"></template>
       <template slot="two">
         <ArrowLink
-          class="arrow-link feix-link smaller-pading">
+          class="arrow-link design-link smaller-padding">
           <template slot="text">
             brand identity for digital product
           </template>
@@ -111,11 +111,7 @@ export default Vue.extend({
   .feix {
     &-link {
       &.smaller-pading {
-        padding-left: $building-unit-x5;
-
-        @media ($tablet) {
-          padding-left: $building-unit-x3;
-        }
+        padding-left: $building-unit-x2;
       }
     }
   }

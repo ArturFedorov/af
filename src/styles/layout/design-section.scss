@@ -14,17 +14,18 @@
     }
   }
 
+  &-link {
+    &.smaller-padding {
+      padding-left: $building-unit-x2;
+    }
+  }
+
   &-container {
-    padding: $building-unit-x4;
+    padding: $building-unit-x2;
     width: 100%;
     display: flex;
 
-    @media ($tablet) {
-      padding: $building-unit-x3;
-    }
-
     @media ($mobile) {
-      padding: $building-unit-x2;
       flex-direction: column;
     }
   }

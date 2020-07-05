@@ -7,7 +7,7 @@
       <template slot="one"></template>
       <template slot="two">
         <ArrowLink
-          class="arrow-link"
+          class="arrow-link design-link smaller-padding"
           :link="Routes.CONTACT">
           <template slot="text">
             A brand identity for the digital agency
