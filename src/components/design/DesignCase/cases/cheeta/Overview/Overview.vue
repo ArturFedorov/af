@@ -29,11 +29,12 @@
         </template>
         <template slot="content">
           <p class="paragraph-text is-small">
-            I created typographic logo. I wanted to create bold
+            I created typographic logo.
+            <br />I wanted to create bold
             modern logo that has a strong symbol.
           </p>
           <p class="paragraph-text is-small">
-            I researched many images of overviews and their habitats.
+            I researched many images of cheetas and their habitats.
             And one day it hit me - claw marks.
           </p>
           <p class="is-small">
