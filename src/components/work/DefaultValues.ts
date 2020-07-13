@@ -48,8 +48,8 @@ export class DefaultValues {
     name: 'Design',
     rating: 4
   }, {
-      id: '5',
-      name: 'Vue js',
-      rating: 5
-    }] as ITechnology[]
+    id: '5',
+    name: 'Vue js',
+    rating: 5
+  }] as ITechnology[]
 }
