@@ -31,12 +31,6 @@
   }
 
   &-section {
-    padding-right: $building-unit-x3;
-
-    @media($tablet) {
-      padding-right: 0;
-    }
-
     &.is-half {
       width: 50%;
 
