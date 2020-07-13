@@ -35,7 +35,7 @@
             Together with customer we decided to go with "bold red up–to–date retro".
           </p>
           <p class="paragraph-text is-small">
-            I build main symbol from a vinyl record. <br/>
+            I have built main symbol from a vinyl record. <br/>
             But i tried to imagine how it could look like nowadays.
           </p>
           <p class="is-small">
