@@ -13,3 +13,13 @@
     margin-right: $building-unit-x5;
   }
 }
+
+.is-margin-bottom {
+  &-x2 {
+    margin-bottom: $building-unit-x2;
+  }
+
+  &-x4 {
+    margin-bottom: $building-unit-x4;
+  }
+}

@@ -65,6 +65,9 @@
           <div
             v-if="projects"
             class="work-projects">
+            <h2
+              v-if="index === 0"
+              class="design-header-mobile is-margin-bottom-x6">projects</h2>
             <ProjectLabel
               class="work-projects-item"
               v-for="project in projects"
@@ -92,6 +95,9 @@
         <div
           v-if="roles"
           class="work-projects">
+          <h2
+            v-if="index === 0"
+            class="design-header-mobile is-margin-bottom-x6">roles</h2>
           <Label
             class="work-projects-item"
             v-for="role in roles"
@@ -121,6 +127,9 @@
         <div
           v-if="customers"
           class="work-projects">
+          <h2
+            v-if="index === 0"
+            class="design-header-mobile is-margin-bottom-x6">customers</h2>
           <Label
             class="work-projects-item"
             v-for="customer in customers"
@@ -149,6 +158,9 @@
         <div
           v-if="technologies"
           class="work-projects">
+          <h2
+            v-if="index === 0"
+            class="design-header-mobile is-margin-bottom-x6">skills</h2>
           <Label
             class="work-projects-item"
             v-for="technology in technologies"
@@ -234,7 +246,8 @@ export default Vue.extend({
         : [[DefaultValues.technologies[0]],
           [DefaultValues.technologies[1]],
           [DefaultValues.technologies[2]],
-          [DefaultValues.technologies[3]]];
+          [DefaultValues.technologies[3]],
+          [DefaultValues.technologies[4]]];
     }
   },
   mounted(): void {
@@ -289,7 +302,7 @@ export default Vue.extend({
       }
 
       @media ($tablet) {
-        padding: $building-unit-x2 $building-unit-x6;
+        padding: $building-unit-x4 $building-unit-x6;
         flex-direction: column;
         overflow-x: hidden;
       }

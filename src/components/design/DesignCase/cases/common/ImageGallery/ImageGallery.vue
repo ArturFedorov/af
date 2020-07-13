@@ -40,18 +40,31 @@ export default Vue.extend({
     flex-wrap: wrap;
 
     &-item {
-      padding-right: $building-unit-x3;
       width: 50%;
-      margin-bottom: $building-unit;
+      margin-top: $building-unit-x2;
+
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+
+      &:nth-child(2) {
+        margin-top: 0;
+      }
 
       @media ($tablet) {
         width: 100%;
         padding-right: 0;
+        margin-top: 0;
+
+        &:not(:last-child) {
+          margin-bottom: $building-unit-x2;
+        }
       }
     }
 
     &-image {
       width: 100%;
+      float: left;
       height: auto;
     }
   }

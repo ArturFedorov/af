@@ -5,8 +5,14 @@
     <div class="grid-row-section-cover start-animate"></div>
     <div class="footer-caption grid-row-section is-small">
       <p>Artur Fedorov.</p>
-      <p>Saint-Petersburg based.</p>
-      <p>Ready for new challenges.</p>
+      <p class="tablet-hidden">Saint-Petersburg based.</p>
+      <p class="tablet-hidden">Ready for new challenges.</p>
+      <a
+        class="footer-link is-underlined"
+        href="/cv.pdf"
+        target="_blank">
+        Download resume
+      </a>
     </div>
     <div class="grid-row-section is-small footer-section">
       <Button
@@ -25,6 +31,11 @@ import {UiMode} from '@/shared/enums/uiMode';
 
 export default Vue.extend({
   name: 'Footer',
+  data() {
+    return {
+      publicPath: process.env.BASE_URL
+    }
+  },
   computed: {
     isLightMode(): boolean {
       return this.$store.getters[IS_LIGHT_MODE]
@@ -57,6 +68,15 @@ export default Vue.extend({
       }
     }
 
+    &-link {
+      display: block;
+      margin-top: $building-unit;
+
+      @media ($tablet) {
+        margin-top: 0;
+      }
+    }
+
     &-section {
       height: 100%;
       margin-left: auto;
@@ -71,10 +91,20 @@ export default Vue.extend({
       .footer {
         border-top: $border-reversed;
 
+        &-link {
+          color: $white;
+        }
+
         &-caption {
           color: $white;
         }
       }
+    }
+  }
+
+  .tablet-hidden {
+    @media ($tablet) {
+      display: none;
     }
   }
 </style>

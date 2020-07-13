@@ -7,7 +7,7 @@
       <template slot="one"></template>
       <template slot="two">
         <ArrowLink
-          class="arrow-link"
+          class="arrow-link design-link smaller-padding"
           :link="Routes.CONTACT">
           <template slot="text">
             A brand identity for the digital agency
@@ -107,6 +107,25 @@
       :mobileHidden="true">
       <template slot="one">
         <ArrowLink class="arrow-link is-aligned-right">
+          <template slot="text">web</template>
+        </ArrowLink>
+      </template>
+      <template slot="two">
+        <div class="design-container">
+          <h2 class="design-header-mobile">web</h2>
+          <ImageGallery
+            :folder="project.name"
+            :images="webImages" />
+        </div>
+      </template>
+    </GridRow>
+
+    <GridRow
+      :noRight="true"
+      :isBottom="true"
+      :mobileHidden="true">
+      <template slot="one">
+        <ArrowLink class="arrow-link is-aligned-right">
           <template slot="text">mobile</template>
         </ArrowLink>
       </template>
@@ -180,7 +199,13 @@ export default Vue.extend({
         'Mobile2.png',
         'Mobile3.png',
         'Mobile4.png',
-        'Mobile5.png'
+        'Mobile5.png',
+        'Mobile6.png'
+      ],
+      webImages: [
+        'web1.png',
+        'web2.png',
+        'web3.png'
       ]
     }
   },

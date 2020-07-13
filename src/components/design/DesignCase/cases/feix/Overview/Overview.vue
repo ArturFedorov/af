@@ -7,16 +7,18 @@
         </template>
         <template slot="content">
           <p class="paragraph-text is-small">
-            Name of company is associated with
-            wild animal. It is generic and draws
-            mental picture of an animal that is
-            difficult to relate to digital sector.
+            I had to come up with a product name
+            and branding concept.
+          </p>
+          <p class="paragraph-text is-small">
+            System  represents dynamics of people migration
+            in the city over the day in a form of heat map in near real-time.
+            It provides optimisations based on big data analysis.
           </p>
           <p class="is-small">
-            Main challenge was to go away from
-            this mental image and create strong
-            bold visual language unique for
-            the company.
+            Moreover it is a product of Cheeta digital agency.
+            It has own identity but still has to preserve connection
+            with company identity.
           </p>
         </template>
       </Paragraph>
@@ -29,17 +31,15 @@
         </template>
         <template slot="content">
           <p class="paragraph-text is-small">
-            I created typographic logo. I wanted to create bold
-            modern logo that has a strong symbol.
+            I came up with short memorable name.
+            It basically has no meaning but it sounds
+            bold and clear.
           </p>
           <p class="paragraph-text is-small">
-            I researched many images of overviews and their habitats.
-            And one day it struck me - claw marks.
-          </p>
-          <p class="is-small">
-            I combined to “E”s in one ligature and it reminded me chetah’s claw marks.
-            Based on that i have built alphabet, visual elements, animation and whole
-            brand identity.
+            For a bold name i needed a bold symbol.
+            I created a typographic logo based on "FE"
+            ligature. Feix analysis daily migrations of millions of people.
+            Letter "I" in logo hints towards person symbol.
           </p>
         </template>
       </Paragraph>
