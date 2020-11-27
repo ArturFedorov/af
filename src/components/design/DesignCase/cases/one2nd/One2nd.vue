@@ -146,7 +146,12 @@ export default Vue.extend({
         'poster2.png',
         'poster3.png',
         'poster4.png',
-        'poster5.png'
+        'poster5.png',
+        'headset_print.png',
+        'tickets.png',
+        'poster t-shirt.png',
+        'badge-print.png',
+        'people_print.png'
       ]
     }
   },
